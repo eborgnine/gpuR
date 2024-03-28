@@ -59,10 +59,10 @@ void initContexts(){
     }
     
     
-    Rcpp::message("checked all devices");
+    Rcpp::message(Rcpp::wrap("checked all devices"));
     
     viennacl::ocl::switch_context(0);
-    Rcpp::message("completed initialization");
+    Rcpp::message(Rcpp::wrap("completed initialization"));
 }
 
 
