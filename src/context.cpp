@@ -19,37 +19,50 @@ using namespace Rcpp;
 void initContexts(){
     // declarations
     int id = 0;
+    String themessage;
     
     // get platforms
     typedef std::vector< viennacl::ocl::platform > platforms_type;
     platforms_type platforms = viennacl::ocl::get_platforms();
     
-    Rcpp::Rcout << "Number of platforms: " << platforms.size() << std::endl;
+    themessage = "Number of platforms: ";
+    themessage += std::to_string(platforms.size());
+    themessage += "\n";
+    
+    Rcpp::message(Rcpp::wrap(themessage));
     
     for(unsigned int plat_idx = 0; plat_idx < platforms.size(); plat_idx++) {
         
-        Rcpp::Rcout << "- platform: " << platforms[plat_idx].info() << std::endl;
-    
+
+        themessage = "- platform: ";
+        themessage += platforms[plat_idx].info();
+        themessage += "\n";
+        
         std::vector< viennacl::ocl::device > devices;
         devices = platforms[plat_idx].devices(CL_DEVICE_TYPE_ALL);
     
         for(unsigned int gpu_idx = 0; gpu_idx < devices.size(); gpu_idx++) {
             
-            Rcpp::Rcout << "  - context device index: " << gpu_idx << std::endl;
+            themessage += "  - context device index: ";
+            themessage += std::to_string(gpu_idx);
+            themessage += "\n";
             viennacl::ocl::set_context_platform_index(id, plat_idx);
             viennacl::ocl::setup_context(id, devices[gpu_idx]);
-            Rcpp::Rcout << "    - " << devices[gpu_idx].name() << std::endl;
+            themessage +=  "    - ";
+            themessage += devices[gpu_idx].name();
+            themessage +=  "\n";
             
             // increment context
             id++;
         }
+        Rcpp::message(Rcpp::wrap(themessage));
     }
     
-    Rcpp::Rcout << "checked all devices" << std::endl;
+    
+    Rcpp::message("checked all devices");
     
     viennacl::ocl::switch_context(0);
-    
-    Rcpp::Rcout << "completed initialization" << std::endl;
+    Rcpp::message("completed initialization");
 }
 
 

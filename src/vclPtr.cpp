@@ -1031,7 +1031,7 @@ vclGetCol(
     Eigen::Matrix<T, Eigen::Dynamic, 1> Am;
     Am = Eigen::Matrix<T, Eigen::Dynamic, 1>::Zero(pA.size1());
     
-    viennacl::vector_base<T> vcl_A(pA.size1(), ctx=ctx);
+    viennacl::vector_base<T> vcl_A(pA.size1(), ctx);
     vcl_A = viennacl::column(pA, nc-1);
     
     // copy(static_cast<viennacl::vector<T> >(vcl_A), Am);
@@ -1056,7 +1056,7 @@ vclGetRow(
     Eigen::Matrix<T, Eigen::Dynamic, 1> Am;
     Am = Eigen::Matrix<T, Eigen::Dynamic, 1>::Zero(pA.size2());
     
-    viennacl::vector_base<T> vcl_A(pA.size2(), ctx=ctx);
+    viennacl::vector_base<T> vcl_A(pA.size2(), ctx);
     vcl_A = viennacl::row(pA, nr-1);
     
     // copy(static_cast<viennacl::vector<T> >(vcl_A), Am);
