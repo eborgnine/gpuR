@@ -6,6 +6,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // cpp_vclMatrix_custom_chol
 void cpp_vclMatrix_custom_chol(SEXP ptrB, const bool BisVCL, const int upper, SEXP sourceCode, int max_local_size, const int type_flag, const int ctx_id);
 RcppExport SEXP _gpuR_cpp_vclMatrix_custom_chol(SEXP ptrBSEXP, SEXP BisVCLSEXP, SEXP upperSEXP, SEXP sourceCodeSEXP, SEXP max_local_sizeSEXP, SEXP type_flagSEXP, SEXP ctx_idSEXP) {

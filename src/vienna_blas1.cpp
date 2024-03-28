@@ -919,14 +919,19 @@ void cpp_gpuMatrix_scalar_div_2(
     int M_internal = vcl_C->internal_size1();
     int P_internal = vcl_C->internal_size2();
     
+    
+    
     // add kernel to program
     viennacl::ocl::program & my_prog = ctx.add_program(my_kernel, "my_kernel");
-    
+
+
     // get compiled kernel function
     viennacl::ocl::kernel & my_kernel_mul = my_prog.get_kernel("ScalarElemDiv");
-    
+
+
     cl_device_type type_check = ctx.current_device().type();
     
+
     if(type_check & CL_DEVICE_TYPE_CPU){
         max_local_size = 1;
     }else{

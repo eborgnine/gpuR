@@ -739,6 +739,7 @@ test_that("CPU vclMatrix Integer Precision Scalar Matrix Division", {
     dgpuA <- vclMatrix(Aint, type="integer")
 
     dgpuC <- dgpuA/2L
+    # problem
     dgpuC2 <- 2L/dgpuA
 
     expect_is(dgpuC, "ivclMatrix")

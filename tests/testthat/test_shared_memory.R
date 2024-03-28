@@ -59,7 +59,7 @@ test_that("Non-Shared memory between vclMatrix & vclVector", {
     
     has_double_skip()
     
-    gpuA <- vclMatrix(A)
+    gpuA <- vclMatrix(A, type='double')
     
     # convert to vector
     gpuB <- as.vclVector(gpuA)

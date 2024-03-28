@@ -1,5 +1,5 @@
 library(gpuR)
-context("CPU deepcopy")
+testthat::context("CPU deepcopy")
 
 current_context <- set_device_context("cpu")
 

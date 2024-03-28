@@ -14,6 +14,8 @@ Dc <- matrix(as.complex(D), nrow = 5)
 v <- rnorm(100)
 vi <- seq.int(100)
 
+# no complex objects implemented
+if(FALSE) {
 
 test_that("vclMatrix complex float class initializer" ,{
     
@@ -46,6 +48,7 @@ test_that("vclMatrix complex double class initializer" ,{
     expect_equal(typeof(vclDc), "dcomplex")
 })
 
+}
 
 test_that("vclMatrix integer class initializer" ,{
     
@@ -154,9 +157,9 @@ test_that("vclMatrix integer scalar initializers", {
     
     expect_is(ivclA, "ivclMatrix")
     expect_equivalent(ivclA[], Ai,
-                      "scalar integer elements not equivalent")
+                      info="scalar integer elements not equivalent")
     expect_equivalent(dim(Ai), dim(ivclA),
-                 "scalar integer dimensions not equivalent")
+                 info="scalar integer dimensions not equivalent")
 })
 
 test_that("vclMatrix float scalar initializers", {

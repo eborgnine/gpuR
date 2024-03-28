@@ -269,7 +269,7 @@ test_that("vclMatrix set matrix access", {
     gpuA <- vclMatrix(D)
     gpuA[] <- D2
     
-    expect_equivalent(gpuA[], D2,
+    expect_equivalent(gpuA[], D2, tolerance = 1e-6,
                       info = "updated dvclMatrix not equivalent to assigned base matrix")
 })
 

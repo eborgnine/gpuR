@@ -1,6 +1,8 @@
 __kernel void ScalarElemDiv(
     __global int *A, const int B,
     const int Mdim, const int Pdim, const int MdimPad) {
+
+    float Bfloat = B;
     
     // Get the index of the elements to be processed
     const int globalRow = get_global_id(0); // C Row ID
@@ -9,6 +11,6 @@ __kernel void ScalarElemDiv(
     // Do the operation
     if((globalRow <= Mdim) && (globalCol <= Pdim)){
         
-        A[globalRow * MdimPad + globalCol] = B/A[globalRow * MdimPad + globalCol];
+        A[globalRow * MdimPad + globalCol] = Bfloat/A[globalRow * MdimPad + globalCol];
     }
 }

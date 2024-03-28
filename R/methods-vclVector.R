@@ -49,14 +49,14 @@ setMethod('as.vclVector',
                                             .device_index = object@.device_index,
                                             .device = object@.device)),
                      "float" = {
-                         print('creating vector')
-                         return(new("fvclVector", 
+                        result =  new("fvclVector", 
                                           address=vclMatTovclVec(object@address, shared, ctx_id, 6L),
                                           .context_index = object@.context_index,
                                           .platform_index = object@.platform_index,
                                           .platform = object@.platform,
                                           .device_index = object@.device_index,
-                                          .device = object@.device))
+                                          .device = object@.device)
+                         return(result)
                          },
                      "double" = return(new("dvclVector", 
                                            address=vclMatTovclVec(object@address, shared, ctx_id, 8L),

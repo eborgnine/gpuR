@@ -36,14 +36,15 @@ S <- sum(A)
 
 test_that("gpuMatrix Integer Precision Sum",
 {
+  
   has_gpu_skip()
   
-  fgpuX <- gpuMatrix(Ai, type="integer")
+  fgpuX <- gpuMatrix(Aint, type="integer")
   
   gpuC <- sum(fgpuX)
   
   expect_is(gpuC, "integer")
-  expect_equivalent(gpuC[], sum(Ai), 
+  expect_equivalent(gpuC[], sum(Aint), 
                     info="integer sum not equivalent")  
 })
 

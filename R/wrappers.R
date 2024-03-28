@@ -590,6 +590,7 @@ gpuMatElemDiv <- function(A, B, inplace = FALSE){
 gpuMatScalarDiv <- function(A, B, AisScalar = FALSE, inplace = FALSE){
     
     if(AisScalar){
+
         type <- typeof(B)
         scalar <- A
         
@@ -598,7 +599,7 @@ gpuMatScalarDiv <- function(A, B, AisScalar = FALSE, inplace = FALSE){
         }else{
             C <- deepcopy(B)    
         }
-        
+
         maxWorkGroupSize <- 
             switch(deviceType(C@.device_index),
                    "gpu" = gpuInfo(C@.device_index, C@.context_index)$maxWorkGroupSize,
@@ -608,17 +609,19 @@ gpuMatScalarDiv <- function(A, B, AisScalar = FALSE, inplace = FALSE){
         
         switch(type,
                integer = {
+
                    src <- file <- system.file("CL", "iScalarElemDiv.cl", package = "gpuR")
                    
                    if(!file_test("-f", file)){
                        stop("kernel file does not exist")
                    }
                    kernel <- readChar(file, file.info(file)$size)
+
                    
                    cpp_gpuMatrix_scalar_div_2(C@address,
                                               is(C, "vclMatrix"),
                                               scalar,
-                                              sqrt(maxWorkGroupSize),
+                                              floor(sqrt(maxWorkGroupSize)),
                                               kernel,
                                               C@.context_index - 1,
                                               4L)
