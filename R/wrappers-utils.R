@@ -17,7 +17,10 @@ deviceType <- function(device_idx = NULL,
         assert_all_are_positive(device_idx)
     }
     
-    out <- cpp_deviceType(device_idx, context_idx - 1L)
+    out <- try(cpp_deviceType(device_idx, context_idx - 1L), silent=TRUE)
+    if(identical(class(out), 'try-error')) {
+      out = 'other'
+    }
     
     return(out)
 }
@@ -254,14 +257,16 @@ deviceHasDouble <- function(gpu_idx=currentDevice()$device_index,
                             context_idx = currentContext()){
     assert_is_integer(gpu_idx)
     assert_all_are_positive(gpu_idx)
-    
+
     device_type <- deviceType(gpu_idx, context_idx)
-    
+
     out <- switch(device_type,
-                  "gpu" = gpuInfo(device_idx = as.integer(gpu_idx),
-                                  context_idx = context_idx)$double_support,
-                  "cpu" = cpuInfo(device_idx = as.integer(gpu_idx),
-                                  context_idx = context_idx)$double_support,
+                  "gpu" = gpuInfo(
+                    device_idx = as.integer(gpu_idx),
+                    context_idx = context_idx)$double_support,
+                  "cpu" = cpuInfo(
+                    device_idx = as.integer(gpu_idx),
+                    context_idx = context_idx)$double_support,
                   stop("Unrecognized device type")
     )
     

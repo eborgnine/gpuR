@@ -84,19 +84,22 @@ has_multiple_double_skip <- function() {
     gpus_with_double = 0
     
     for(i in seq(nrow(contexts))){
-        gpuCheck <- try(
-            deviceHasDouble(contexts$platform_index[i] + 1L, 
-                            contexts$device_index[i] + 1L)
-            , silent=TRUE)
+      gpu_idx = contexts$platform_index[i] + 1L
+      context_idx = contexts$device_index[i] + 1L
+      device_type = contexts$device_type[i]
+
+      if(device_type == 'gpu') {
+        gpuCheck <- try(deviceHasDouble(gpu_idx, context_idx), silent=TRUE)
         if(class(gpuCheck)[1] == "try-error"){
             next
-        }else{
+        } else {
             if (!gpuCheck) {
                 # This device doesn't support double precision
-            }else{
+            } else {
                 gpus_with_double = gpus_with_double + 1
             }
         }
+      }
     }
     
     if(gpus_with_double < 2){

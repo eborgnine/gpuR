@@ -21,12 +21,15 @@ using namespace Rcpp;
 SEXP cpp_deviceType(SEXP gpu_idx_, int ctx_idx)
 {
     std::string device_type;
-    
+
+
     // set context
     viennacl::context ctx(viennacl::ocl::get_context(ctx_idx));
     
+
     unsigned int gpu_idx = (Rf_isNull(gpu_idx_)) ? ctx.opencl_context().current_device_id() : as<unsigned int>(gpu_idx_) - 1;
     
+
     // Get device
     cl_device_type check = ctx.opencl_context().devices()[gpu_idx].type();
     
