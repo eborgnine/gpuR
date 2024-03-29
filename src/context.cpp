@@ -25,11 +25,13 @@ void initContexts(){
     typedef std::vector< viennacl::ocl::platform > platforms_type;
     platforms_type platforms = viennacl::ocl::get_platforms();
     
+    Rcpp::Function msg = Rcpp::Environment::base_env()["packageStartupMessage"];
+    
     themessage = "Number of platforms: ";
     themessage += std::to_string(platforms.size());
     themessage += "\n";
     
-    Rcpp::message(Rcpp::wrap(themessage));
+    msg(Rcpp::wrap(themessage));
     
     for(unsigned int plat_idx = 0; plat_idx < platforms.size(); plat_idx++) {
         
@@ -55,14 +57,14 @@ void initContexts(){
             // increment context
             id++;
         }
-        Rcpp::message(Rcpp::wrap(themessage));
+        msg(Rcpp::wrap(themessage));
     }
     
     
-    Rcpp::message(Rcpp::wrap("checked all devices"));
+    msg(Rcpp::wrap("checked all devices"));
     
     viennacl::ocl::switch_context(0);
-    Rcpp::message(Rcpp::wrap("completed initialization"));
+    msg(Rcpp::wrap("completed initialization"));
 }
 
 
