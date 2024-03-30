@@ -20,7 +20,6 @@ E <- matrix(rnorm(15), nrow=5)
 v <- rnorm(ORDER)
 
 # Single Precision tests
-
 test_that("CPU gpuMatrix Single Precision Matrix multiplication", {
     
     has_cpu_skip()

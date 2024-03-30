@@ -193,7 +193,7 @@ test_that("Switching GPUs vclMatrix Single Precision Scalar Matrix Addition", {
     expect_equal(currentContext(), 1L, 
                  info = "context index has been change unintentionally")
 })
-
+  
 test_that("Switching GPUs vclMatrix Single Precision Matrix Element-Wise Multiplication", {
     
     has_multiple_gpu_skip()
@@ -405,7 +405,7 @@ test_that("Switching GPUs vclMatrix Single Precision crossprod", {
     expect_equal(currentContext(), 1L, 
                  info = "context index has been change unintentionally")
 })
-
+  
 test_that("Switching GPUs vclMatrix Single Precision tcrossprod", {
     
     has_multiple_gpu_skip()
@@ -522,7 +522,7 @@ test_that("Switching GPUs vclMatrix Double Precision Matrix Subtraction", {
     expect_equal(currentContext(), 1L, 
                  info = "context index has been change unintentionally")
 })
-
+  
 test_that("Switching GPUs vclMatrix Double Precision Scalar Matrix Subtraction", {
     
     has_multiple_double_skip()
@@ -581,7 +581,7 @@ test_that("Switching GPUs vclMatrix Double Precision Unary Scalar Matrix Subtrac
     expect_equal(currentContext(), 1L, 
                  info = "context index has been change unintentionally")
 })
-
+  
 test_that("Switching GPUs vclMatrix Double Precision Matrix Addition", {
     
     has_multiple_double_skip()
@@ -701,7 +701,7 @@ test_that("Switching GPUs vclMatrix Double Precision Scalar Matrix Multiplicatio
     expect_equal(currentContext(), 1L, 
                  info = "context index has been change unintentionally")
 })
-
+  
 test_that("Switching GPUs vclMatrix Double Precision Matrix Element-Wise Division", {
     
     has_multiple_double_skip()
@@ -916,5 +916,6 @@ test_that("Switching GPUs vclMatrix Double Precision transpose", {
     expect_equal(currentContext(), 1L, 
                  info = "context index has been change unintentionally")
 })
+
 
 setContext(current_context)
