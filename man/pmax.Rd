@@ -3,14 +3,19 @@
 \name{pmax}
 \alias{pmax}
 \alias{pmin}
-\title{'Parallel' Maxima and Minima}
+\alias{pmin.vclVector}
+\title{Parallel Maxima and Minima}
 \usage{
 pmax(...)
 
 pmin(...)
+
+\method{pmin}{vclVector}(..., na.rm = FALSE)
 }
 \arguments{
-\item{...}{gpuR or numeric arguments}
+\item{...}{a vclVector object}
+
+\item{na.rm}{a logical indicating whether missing values should be removed.}
 }
 \description{
 \code{pmax} and \code{pmin} take one or more

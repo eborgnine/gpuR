@@ -44,7 +44,7 @@ void cpp_gpu_eigen(
     
     viennacl::matrix<T> vcl_A = ptrA->device_data();
     viennacl::matrix<T> vcl_Q = ptrQ->device_data();
-    viennacl::vector_base<T> vcl_eigenvalues(K, ctx = ctx);
+    viennacl::vector_base<T> vcl_eigenvalues(K, ctx);
 
     //temp D
     std::vector<T> D(vcl_eigenvalues.size());

@@ -210,7 +210,7 @@ gpuVecpmax <- function(..., order){
 }
 
 
-#' @title 'Parallel' Maxima and Minima
+#' @title Parallel Maxima and Minima
 #' @description \code{pmax} and \code{pmin} take one or more
 #' vectors as arguments and return a single vector giving the 'parallel'
 #' maxima (or minima) of the argument vectors
@@ -250,41 +250,9 @@ pmax.gpuMatrix <- function(..., na.rm = FALSE){
     gpuMatpmax(..., order = 1L)
 }
 
-#' # @rdname
-#' setGeneric("pmax", signature = "...")
-#' 
-#' # @rdname 
-#' #' @method pmax vclVector
-#' #' @export
-#' setMethod("pmax",
-#'           "vclVector",
-#'           function(..., na.rm = FALSE){
-#'               print("called correctly")
-#'               gpuVecpmax(..., order = 1L)
-#'           })
-#' 
-#' #' @export
-#' setMethod("pmax",
-#'           "vclMatrix",
-#'           function(..., na.rm = FALSE){
-#'               gpuMatpmax(..., order = 1L)
-#'           })
-#' 
-#' #' @export
-#' setMethod("pmax",
-#'           "gpuVector",
-#'           function(..., na.rm = FALSE){
-#'               gpuVecpmax(..., order = 1L)
-#'           })
-#' 
-#' #' @export
-#' setMethod("pmax",
-#'           "gpuMatrix",
-#'           function(..., na.rm = FALSE){
-#'               gpuMatpmax(..., order = 1L)
-#'           })
 
 
+#' @rdname pmax
 #' @param ... a vclVector object
 #' @param na.rm a logical indicating whether missing values should be removed. 
 #' @export

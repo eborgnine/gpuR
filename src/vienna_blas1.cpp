@@ -75,7 +75,7 @@ cpp_gpuVector_unary_axpy(
 
     std::shared_ptr<viennacl::vector_base<T> > vcl_A = getVCLVecptr<T>(ptrA_, AisVCL, ctx_id);
     
-    viennacl::vector_base<T> vcl_Z = viennacl::vector_base<T>(vcl_A->size(), ctx = ctx);
+    viennacl::vector_base<T> vcl_Z = viennacl::vector_base<T>(vcl_A->size(), ctx);
     viennacl::linalg::vector_assign(vcl_Z, (T)(0));
     
     vcl_Z -= *vcl_A;
@@ -237,7 +237,7 @@ cpp_gpuVector_scalar_div(
     }else{
         viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
         
-        viennacl::vector_base<T> vcl_scalar = viennacl::vector_base<T>(vcl_C->size(), ctx = ctx);
+        viennacl::vector_base<T> vcl_scalar = viennacl::vector_base<T>(vcl_C->size(), ctx);
         viennacl::linalg::vector_assign(vcl_scalar, alpha);
         
         *vcl_C = viennacl::linalg::element_div(vcl_scalar, *vcl_C);
@@ -294,7 +294,7 @@ void cpp_gpuVector_scalar_pow(
     std::shared_ptr<viennacl::vector_base<T> > vcl_A = getVCLVecptr<T>(ptrA_, AisVCL, ctx_id);
     std::shared_ptr<viennacl::vector_base<T> > vcl_C = getVCLVecptr<T>(ptrC_, CisVCL, ctx_id);
     
-    viennacl::vector_base<T> vcl_B = viennacl::vector_base<T>(vcl_A->size(), ctx = ctx);
+    viennacl::vector_base<T> vcl_B = viennacl::vector_base<T>(vcl_A->size(), ctx);
     viennacl::linalg::vector_assign(vcl_B, scalar);
     
     if(order == 0){
@@ -677,7 +677,7 @@ cpp_gpuVector_min(
     
     const int M = Am.size();
     
-    viennacl::vector_base<T> vcl_A(M, ctx = ctx);
+    viennacl::vector_base<T> vcl_A(M, ctx);
     
     // viennacl::copy(Am, vcl_A); 
     viennacl::fast_copy(Am.data(), Am.data() + Am.size(), vcl_A.begin());
@@ -1016,9 +1016,9 @@ cpp_gpuMatrix_scalar_pow(
     const int M = vcl_C->size2();
     
     // viennacl::matrix<T> vcl_A = ptrA->device_data();
-    // viennacl::matrix<T> vcl_C(K,M, ctx = ctx);
+    // viennacl::matrix<T> vcl_C(K,M, ctx);
     
-    viennacl::matrix<T> vcl_B = viennacl::scalar_matrix<T>(K,M,scalar, ctx = ctx);
+    viennacl::matrix<T> vcl_B = viennacl::scalar_matrix<T>(K,M,scalar, ctx);
     
     *vcl_C = viennacl::linalg::element_pow(*vcl_A, vcl_B);
     
@@ -1044,7 +1044,7 @@ void cpp_gpuMatrix_sqrt(
         *vcl_B = viennacl::linalg::element_sqrt(*vcl_A);        
     }else{
         viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
-        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx = ctx);
+        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx);
         vcl_B = viennacl::linalg::element_sqrt(*vcl_A);
         Rcpp::XPtr<dynEigenMat<T> > ptrB(ptrB_);
         ptrB->to_host(vcl_B);
@@ -1067,7 +1067,7 @@ void cpp_gpuMatrix_elem_sin(
         *vcl_B = viennacl::linalg::element_sin(*vcl_A);        
     }else{
         viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
-        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx = ctx);
+        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx);
         vcl_B = viennacl::linalg::element_sin(*vcl_A);
         Rcpp::XPtr<dynEigenMat<T> > ptrB(ptrB_);
         ptrB->to_host(vcl_B);
@@ -1090,7 +1090,7 @@ void cpp_gpuMatrix_elem_asin(
         *vcl_B = viennacl::linalg::element_asin(*vcl_A);        
     }else{
         viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
-        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx = ctx);
+        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx);
         vcl_B = viennacl::linalg::element_asin(*vcl_A);
         Rcpp::XPtr<dynEigenMat<T> > ptrB(ptrB_);
         ptrB->to_host(vcl_B);
@@ -1114,7 +1114,7 @@ void cpp_gpuMatrix_elem_sinh(
         *vcl_B = viennacl::linalg::element_sinh(*vcl_A);        
     }else{
         viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
-        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx = ctx);
+        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx);
         vcl_B = viennacl::linalg::element_sinh(*vcl_A);
         Rcpp::XPtr<dynEigenMat<T> > ptrB(ptrB_);
         ptrB->to_host(vcl_B);
@@ -1138,7 +1138,7 @@ void cpp_gpuMatrix_elem_cos(
         *vcl_B = viennacl::linalg::element_cos(*vcl_A);        
     }else{
         viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
-        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx = ctx);
+        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx);
         vcl_B = viennacl::linalg::element_cos(*vcl_A);
         Rcpp::XPtr<dynEigenMat<T> > ptrB(ptrB_);
         ptrB->to_host(vcl_B);
@@ -1161,7 +1161,7 @@ void cpp_gpuMatrix_elem_acos(
         *vcl_B = viennacl::linalg::element_acos(*vcl_A);        
     }else{
         viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
-        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx = ctx);
+        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx);
         vcl_B = viennacl::linalg::element_acos(*vcl_A);
         Rcpp::XPtr<dynEigenMat<T> > ptrB(ptrB_);
         ptrB->to_host(vcl_B);
@@ -1185,7 +1185,7 @@ void cpp_gpuMatrix_elem_cosh(
         *vcl_B = viennacl::linalg::element_cosh(*vcl_A);        
     }else{
         viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
-        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx = ctx);
+        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx);
         vcl_B = viennacl::linalg::element_cosh(*vcl_A);
         Rcpp::XPtr<dynEigenMat<T> > ptrB(ptrB_);
         ptrB->to_host(vcl_B);
@@ -1209,7 +1209,7 @@ void cpp_gpuMatrix_elem_tan(
         *vcl_B = viennacl::linalg::element_tan(*vcl_A);        
     }else{
         viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
-        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx = ctx);
+        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx);
         vcl_B = viennacl::linalg::element_tan(*vcl_A);
         Rcpp::XPtr<dynEigenMat<T> > ptrB(ptrB_);
         ptrB->to_host(vcl_B);
@@ -1232,7 +1232,7 @@ void cpp_gpuMatrix_elem_atan(
         *vcl_B = viennacl::linalg::element_atan(*vcl_A);        
     }else{
         viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
-        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx = ctx);
+        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx);
         vcl_B = viennacl::linalg::element_atan(*vcl_A);
         Rcpp::XPtr<dynEigenMat<T> > ptrB(ptrB_);
         ptrB->to_host(vcl_B);
@@ -1256,7 +1256,7 @@ void cpp_gpuMatrix_elem_tanh(
         *vcl_B = viennacl::linalg::element_tanh(*vcl_A);        
     }else{
         viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
-        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx = ctx);
+        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx);
         vcl_B = viennacl::linalg::element_tanh(*vcl_A);
         Rcpp::XPtr<dynEigenMat<T> > ptrB(ptrB_);
         ptrB->to_host(vcl_B);
@@ -1279,7 +1279,7 @@ void cpp_gpuMatrix_elem_log(
         *vcl_B = viennacl::linalg::element_log(*vcl_A);        
     }else{
         viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
-        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx = ctx);
+        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx);
         vcl_B = viennacl::linalg::element_log(*vcl_A);
         Rcpp::XPtr<dynEigenMat<T> > ptrB(ptrB_);
         ptrB->to_host(vcl_B);
@@ -1305,7 +1305,7 @@ void cpp_gpuMatrix_elem_log_base(
         *vcl_B /= log10(base);     
     }else{
         viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
-        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx = ctx);
+        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx);
         vcl_B = viennacl::linalg::element_log10(*vcl_A);
         vcl_B /= log10(base);
         Rcpp::XPtr<dynEigenMat<T> > ptrB(ptrB_);
@@ -1329,7 +1329,7 @@ void cpp_gpuMatrix_elem_log10(
         *vcl_B = viennacl::linalg::element_log10(*vcl_A);        
     }else{
         viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
-        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx = ctx);
+        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx);
         vcl_B = viennacl::linalg::element_log10(*vcl_A);
         Rcpp::XPtr<dynEigenMat<T> > ptrB(ptrB_);
         ptrB->to_host(vcl_B);
@@ -1352,7 +1352,7 @@ void cpp_gpuMatrix_elem_exp(
         *vcl_B = viennacl::linalg::element_exp(*vcl_A);        
     }else{
         viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
-        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx = ctx);
+        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx);
         vcl_B = viennacl::linalg::element_exp(*vcl_A);
         Rcpp::XPtr<dynEigenMat<T> > ptrB(ptrB_);
         ptrB->to_host(vcl_B);
@@ -1375,7 +1375,7 @@ void cpp_gpuMatrix_elem_abs(
         *vcl_B = viennacl::linalg::element_fabs(*vcl_A);        
     }else{
         viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
-        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx = ctx);
+        viennacl::matrix<T> vcl_B(vcl_A->size1(),vcl_A->size2(), ctx);
         vcl_B = viennacl::linalg::element_fabs(*vcl_A);
         Rcpp::XPtr<dynEigenMat<T> > ptrB(ptrB_);
         ptrB->to_host(vcl_B);

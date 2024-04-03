@@ -44,7 +44,7 @@ cpp_gpuMatrix_gemm(
     
     viennacl::matrix<T> vcl_A = ptrA->device_data();
     viennacl::matrix<T> vcl_B = ptrB->device_data();
-    viennacl::matrix<T> vcl_C(M, K, ctx = ctx);
+    viennacl::matrix<T> vcl_C(M, K, ctx);
     
     vcl_C = viennacl::linalg::prod(vcl_A, vcl_B);
     
@@ -69,7 +69,7 @@ cpp_gpuMatrix_crossprod(
     
     viennacl::matrix<T> vcl_A = ptrA->device_data();
     viennacl::matrix<T> vcl_B = ptrB->device_data();
-    viennacl::matrix<T> vcl_C(M, K, ctx = ctx);
+    viennacl::matrix<T> vcl_C(M, K, ctx);
     
     vcl_C = viennacl::linalg::prod(trans(vcl_A), vcl_B);
     
@@ -94,7 +94,7 @@ cpp_gpuMatrix_tcrossprod(
     
     viennacl::matrix<T> vcl_A = ptrA->device_data();
     viennacl::matrix<T> vcl_B = ptrB->device_data();
-    viennacl::matrix<T> vcl_C(M, K, ctx = ctx);
+    viennacl::matrix<T> vcl_C(M, K, ctx);
     
     vcl_C = viennacl::linalg::prod(vcl_A, trans(vcl_B));
     
@@ -116,7 +116,7 @@ cpp_gpuMatrix_transpose(
     const int K = ptrB->ncol();
     
     viennacl::matrix<T> vcl_A = ptrA->device_data();
-    viennacl::matrix<T> vcl_B(M, K, ctx = ctx);
+    viennacl::matrix<T> vcl_B(M, K, ctx);
     
     vcl_B = trans(vcl_A);
     
