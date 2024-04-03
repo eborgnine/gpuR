@@ -14,6 +14,7 @@ splitAt <- function(x, pos) unname(split(x, cumsum(seq_along(x) %in% pos)))
 #' corresponds to the gpuR objects passed and contains a character vector of
 #' which kernels the object will be enqueued.
 # @importFrom assertive.types assert_is_character assert_is_list
+#' @import BH RviennaCL RcppEigen
 #' @export
 setup_opencl <- function(objects, intents, queues, kernel_maps = NULL){
 

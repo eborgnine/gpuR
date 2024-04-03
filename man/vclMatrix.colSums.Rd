@@ -4,6 +4,7 @@
 \name{colSums,vclMatrix-method}
 \alias{colSums,vclMatrix-method}
 \alias{colSums,vclMatrix}
+\alias{rowSums,vclMatrix}
 \alias{rowSums,vclMatrix-method}
 \alias{colMeans,vclMatrix-method}
 \alias{rowMeans,vclMatrix-method}

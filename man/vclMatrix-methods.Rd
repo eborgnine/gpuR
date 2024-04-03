@@ -9,6 +9,7 @@
 \alias{vclMatrix,missing}
 \alias{vclMatrix,numeric-method}
 \alias{vclMatrix,vector}
+\alias{vclMatrix,numeric}
 \alias{vclMatrix,integer-method}
 \alias{vclMatrix,integer}
 \title{Construct a vclMatrix}
@@ -17,14 +18,11 @@ vclMatrix(data = NA, nrow = NA, ncol = NA, type = NULL, ...)
 
 \S4method{vclMatrix}{matrix}(data, type = NULL, ctx_id = NULL)
 
-\S4method{vclMatrix}{missing}(data, nrow = NA, ncol = NA,
-  type = NULL, ctx_id = NULL)
+\S4method{vclMatrix}{missing}(data, nrow = NA, ncol = NA, type = NULL, ctx_id = NULL)
 
-\S4method{vclMatrix}{numeric}(data, nrow, ncol, type = NULL,
-  ctx_id = NULL)
+\S4method{vclMatrix}{numeric}(data, nrow, ncol, type = NULL, ctx_id = NULL)
 
-\S4method{vclMatrix}{integer}(data, nrow, ncol, type = NULL,
-  ctx_id = NULL)
+\S4method{vclMatrix}{integer}(data, nrow, ncol, type = NULL, ctx_id = NULL)
 }
 \arguments{
 \item{data}{An object that is or can be converted to a 

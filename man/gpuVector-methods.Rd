@@ -14,11 +14,9 @@ gpuVector(data, length, type = NULL, ...)
 
 \S4method{gpuVector}{vector,missing}(data, type = NULL, ctx_id = NULL)
 
-\S4method{gpuVector}{missingOrNULL,ANY}(data, length, type = NULL,
-  ctx_id = NULL)
+\S4method{gpuVector}{missingOrNULL,ANY}(data, length, type = NULL, ctx_id = NULL)
 
-\S4method{gpuVector}{numeric,numericOrInt}(data, length, type = NULL,
-  ctx_id = NULL)
+\S4method{gpuVector}{numeric,numericOrInt}(data, length, type = NULL, ctx_id = NULL)
 }
 \arguments{
 \item{data}{An object that is or can be converted to a 

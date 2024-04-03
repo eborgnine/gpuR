@@ -49,8 +49,7 @@
 
 \S4method{[}{gpuMatrix,missing,numeric,missing}(x, i, j, drop)
 
-\S4method{[}{gpuMatrix,numeric,missing,missing}(x, i, j, ...,
-  drop = TRUE)
+\S4method{[}{gpuMatrix,numeric,missing,missing}(x, i, j, ..., drop = TRUE)
 
 \S4method{[}{gpuMatrix,numeric,numeric,missing}(x, i, j, drop)
 
@@ -78,8 +77,7 @@
 
 \S4method{[}{vclMatrix,missing,numeric,missing}(x, i, j, drop)
 
-\S4method{[}{vclMatrix,numeric,missing,missing}(x, i, j, ...,
-  drop = TRUE)
+\S4method{[}{vclMatrix,numeric,missing,missing}(x, i, j, ..., drop = TRUE)
 
 \S4method{[}{vclMatrix,numeric,numeric,missing}(x, i, j, drop)
 

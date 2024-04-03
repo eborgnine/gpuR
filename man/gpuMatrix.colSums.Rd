@@ -4,6 +4,7 @@
 \name{colSums,gpuMatrix-method}
 \alias{colSums,gpuMatrix-method}
 \alias{colSums,gpuMatrix}
+\alias{rowSums,gpuMatrix}
 \alias{rowSums,gpuMatrix-method}
 \alias{colMeans,gpuMatrix-method}
 \alias{rowMeans,gpuMatrix-method}

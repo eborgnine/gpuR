@@ -11,7 +11,7 @@
 ### Build Status
 |                 | Build           | Dev             |
 |-----------------|-----------------|-----------------|
-| Linux x86_64    | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=master)](https://app.travis-ci.com/cdeterman/gpuR)      | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=develop)](https://travis-ci.org/cdeterman/gpuR) |
+| Linux x86_64    | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=master)](https://app.travis-ci.com/github/cdeterman/gpuR)      | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=develop)](https://travis-ci.org/cdeterman/gpuR) |
 | OSX             | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=master-macosx)]( https://app.travis-ci.com/cdeterman/gpuR)   | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=macosx)](https://app.travis-ci.org/cdeterman/gpuR) |
 | Windows x86     | [![Appveyor Build Status](https://ci.appveyor.com/api/projects/status/github/cdeterman/gpuR?branch=master&svg=true)](https://ci.appveyor.com/project/cdeterman/gpuR)     | [![Appveyor Build Status](https://ci.appveyor.com/api/projects/status/github/cdeterman/gpuR?branch=develop&svg=true)](https://ci.appveyor.com/project/cdeterman/gpuR) |
 
