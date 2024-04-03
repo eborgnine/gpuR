@@ -289,7 +289,7 @@ setMethod("log", c(x="gpuMatrix"),
               if(is.null(base)){
                   gpuMatElemLog(x)
               }else{
-                assertive.types::assert_is_numeric(base)
+#                assertive.types::assert_is_numeric(base)
                   gpuMatElemLogBase(x, base)
               }
               

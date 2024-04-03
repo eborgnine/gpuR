@@ -35,7 +35,7 @@ chol.vclMatrix <- function(x, ...){
     if(!'upper' %in% names(myargs)){
         upper = TRUE
     }else{
-        assertive.types::assert_is_a_bool(upper)    
+#        assertive.types::assert_is_a_bool(upper)    
     }
     
     # convert to integer for OpenCL as can't pass bool to kernel :P
@@ -119,7 +119,7 @@ chol.gpuMatrix <- function(x, ...){
     if(!'upper' %in% names(myargs)){
         upper = TRUE
     }else{
-      assertive.types::assert_is_a_bool(upper)    
+#      assertive.types::assert_is_a_bool(upper)    
     }
     
     # convert to integer for OpenCL as can't pass bool to kernel :P

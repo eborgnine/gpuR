@@ -10,10 +10,10 @@
 deviceType <- function(device_idx = NULL,
                        context_idx = currentContext())
 {
-    assertive.types::assert_is_integer(context_idx)
+#    assertive.types::assert_is_integer(context_idx)
     
     if(!is.null(device_idx)){
-        assertive.types::assert_is_integer(device_idx)
+ #       assertive.types::assert_is_integer(device_idx)
         assertive.numbers::assert_all_are_positive(device_idx)
     }
     
@@ -62,7 +62,7 @@ detectCPUs <- function(platform_idx=NULL){
         return(total_cpus)
         
     }else{
-        assertive.types::assert_is_integer(platform_idx)
+ #       assertive.types::assert_is_integer(platform_idx)
         assertive.numbers::assert_all_are_positive(platform_idx)
         numPlats <- detectPlatforms()
         
@@ -109,7 +109,7 @@ detectGPUs <- function(platform_idx=NULL){
         return(total_gpus)
         
     }else{
-        assertive.types::assert_is_integer(platform_idx)
+#        assertive.types::assert_is_integer(platform_idx)
       assertive.numbers::assert_all_are_positive(platform_idx)
         
         numPlats <- detectPlatforms()
@@ -168,7 +168,7 @@ gpuInfo <- function(device_idx=NULL,
     }
     
     if(!is.null(device_idx)){
-        assertive.types::assert_is_integer(device_idx)
+#        assertive.types::assert_is_integer(device_idx)
       assertive.numbers::assert_all_are_positive(device_idx)
         
         if(device_idx > 1L){
@@ -200,7 +200,7 @@ cpuInfo <- function(device_idx=NULL,
     }
     
     if(!is.null(device_idx)){
-        assertive.types::assert_is_integer(device_idx)
+#        assertive.types::assert_is_integer(device_idx)
       assertive.numbers::assert_all_are_positive(device_idx)
         
         if(device_idx > 1L){
@@ -238,7 +238,7 @@ cpuInfo <- function(device_idx=NULL,
 #' @return \item{platformExtensions}{Available platform extensions}
 #' @export
 platformInfo <- function(platform_idx=1L){
-    assertive.types::assert_is_integer(platform_idx)
+#    assertive.types::assert_is_integer(platform_idx)
   assertive.numbers::assert_all_are_positive(platform_idx)
     
     out <- cpp_platformInfo(platform_idx)
@@ -255,7 +255,7 @@ platformInfo <- function(platform_idx=1L){
 #' @export
 deviceHasDouble <- function(gpu_idx=currentDevice()$device_index,
                             context_idx = currentContext()){
-    assertive.types::assert_is_integer(gpu_idx)
+#    assertive.types::assert_is_integer(gpu_idx)
   assertive.numbers::assert_all_are_positive(gpu_idx)
 
     device_type <- deviceType(gpu_idx, context_idx)

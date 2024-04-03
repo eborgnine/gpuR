@@ -10,12 +10,12 @@ print.gpuMatrix <- function(x, ..., n = NULL, width = NULL) {
     cat("\n")
     
     if(!is.null(n)){
-      assertive.types::assert_is_integer(n)   
+#      assertive.types::assert_is_integerassert_is_integer(n)   
     }else{
         n <- ifelse(nrow(x) >= 5, 5L, nrow(x))
     }
     if(!is.null(width)){
-      assertive.types::assert_is_integer(width)    
+#      assertive.types::assert_is_integer(width)    
     }else{
         width <- ifelse(ncol(x) >= 5, 5L, ncol(x))
     }

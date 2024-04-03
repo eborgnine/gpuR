@@ -305,7 +305,7 @@ setMethod("log", c(x="vclVector"),
               if(is.null(base)){
                   gpuVecElemLog(x) 
               }else{
-                assertive.types::assert_is_numeric(base)
+#                assertive.types::assert_is_numeric(base)
                   gpuVecElemLogBase(x, base)
               }
               

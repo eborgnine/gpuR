@@ -337,7 +337,7 @@ setMethod("[<-",
           signature(x = "vclMatrix", i = "missing", j = "missing", value = "matrix"),
           function(x, i, j, value) {
               
-              assertive.types::assert_is_matrix(value)
+#              assertive.types::assert_is_matrix(value)
               
               switch(typeof(x),
                      "integer" = vclSetMatrix(x@address, value, 4L, x@.context_index - 1),

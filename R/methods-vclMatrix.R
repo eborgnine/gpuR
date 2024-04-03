@@ -249,7 +249,7 @@ setMethod("log", c(x="vclMatrix"),
               if(is.null(base)){
                   gpuMatElemLog(x) 
               }else{
-                assertive.types::assert_is_numeric(base)
+ #               assertive.types::assert_is_numeric(base)
                   gpuMatElemLogBase(x, base)
               }
               
@@ -987,7 +987,7 @@ setMethod("diag<-", c(x = "vclMatrix", value = "vclVector"),
 #' @export
 identity_matrix <- function(x, type = NULL){
     
-  assertive.types::assert_is_a_number(x)
+#  assertive.types::assert_is_a_number(x)
     
     if(is.null(type)){
         type <- getOption("gpuR.default.type")

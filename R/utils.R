@@ -210,7 +210,7 @@ setMethod("colnames<-",
           function(x, value)
           {
 
-            assertive.types::assert_is_character(value)
+#            assertive.types::assert_is_character(value)
 
               type <- switch(typeof(x),
                              "integer" = 4L,
@@ -250,7 +250,7 @@ setMethod("colnames<-",
           function(x, value)
           {
               
-              assertive.types::assert_is_character(value)
+#              assertive.types::assert_is_character(value)
               
               type <- switch(typeof(x),
                              "integer" = 4L,
