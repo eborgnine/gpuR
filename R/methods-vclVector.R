@@ -1,19 +1,10 @@
 
-#' @export
-as.vector.vclVector <- function(x, mode = "any"){
-    out <- x[]
-    return(out)
-}
 
-#' #' @rdname as.vclVector-methods
-#' #' @param shared Logical indicating if memory should be shared with \code{x}
-#' #' @export
-#' as.vclVector <- function (data, shared, ...) {
-#'     UseMethod("as.vclVector", data)
-#' }
-
-#' @rdname as.vclVector-methods
+#' @title vclVector Methods
+#' @description stuff
+#' @param shared Logical indicating if memory should be shared with x
 #' @aliases as.vclVector,vector
+#' @rdname as.vclVector-methods
 setMethod('as.vclVector', 
           signature(object = 'vector'),
           function(object, type=NULL){
@@ -25,9 +16,17 @@ setMethod('as.vclVector',
           },
           valueClass = "vclVector")
 
+
+#' @export
+as.vector.vclVector <- function(x, mode = "any"){
+  out <- x[]
+  return(out)
+}
+
+
 #' @rdname as.vclVector-methods
-#' @param shared Logical indicating if memory should be shared with \code{x}
 #' @aliases as.vclVector,vclMatrix
+
 setMethod('as.vclVector', 
           signature(object = 'vclMatrix'),
           function(object, type=NULL, shared = FALSE){
@@ -70,38 +69,6 @@ setMethod('as.vclVector',
           },
           valueClass = "vclVector")
 
-#' #' @rdname as.vclVector-methods
-#' #' @param shared Logical indicating if memory should be shared with \code{x}
-#' #' @aliases as.gpuVector,matrix
-#' #' @export
-#' as.vclVector.vclMatrix <- function(data, shared = FALSE, ...){
-#'     
-#'     ctx_id <- data@.context_index - 1
-#'     
-#'     switch(typeof(data),
-#'            "integer" = return(new("ivclVector", 
-#'                                   address=vclMatTovclVec(data@address, shared, ctx_id, 4L),
-#'                                   .context_index = data@.context_index,
-#'                                   .platform_index = data@.platform_index,
-#'                                   .platform = data@.platform,
-#'                                   .device_index = data@.device_index,
-#'                                   .device = data@.device)),
-#'            "float" = return(new("fvclVector", 
-#'                                 address=vclMatTovclVec(data@address, shared, ctx_id, 6L),
-#'                                 .context_index = data@.context_index,
-#'                                 .platform_index = data@.platform_index,
-#'                                 .platform = data@.platform,
-#'                                 .device_index = data@.device_index,
-#'                                 .device = data@.device)),
-#'            "double" = return(new("dvclVector", 
-#'                                  address=vclMatTovclVec(data@address, shared, ctx_id, 8L),
-#'                                  .context_index = data@.context_index,
-#'                                  .platform_index = data@.platform_index,
-#'                                  .platform = data@.platform,
-#'                                  .device_index = data@.device_index,
-#'                                  .device = data@.device))
-#'     )
-#' }
 
 
 #' @rdname grapes-times-grapes-methods

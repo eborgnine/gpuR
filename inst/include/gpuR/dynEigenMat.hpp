@@ -266,7 +266,7 @@ class dynEigenMat {
             
             viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
             
-            viennacl::matrix<T> vclMat(K,M, ctx = ctx);
+            viennacl::matrix<T> vclMat(K,M, ctx);
             viennacl::copy(block, vclMat);
             
             return vclMat;

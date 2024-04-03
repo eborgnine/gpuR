@@ -19,6 +19,7 @@ setMethod('as.gpuVector',
           },
           valueClass = "gpuVector")
 
+#' @title Methods for gpu/vcl Vector
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", c(x="gpuVector", y="gpuVector"),
