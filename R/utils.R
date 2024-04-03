@@ -79,12 +79,12 @@ permute <- function(x, MARGIN, order) UseMethod("permute")
 #'@export
 permute.vclMatrix <- function(x, MARGIN = 1, order){
     
-    assert_is_scalar(MARGIN)
+#  assertive.properties::assert_is_scalar(MARGIN)
     if(MARGIN != 1){
         stop("only row permuting currently available")
     }
     
-    assert_is_not_null(order)
+#    assertive.properties::assert_is_not_null(order)
     
     type <- typeof(x)
     
@@ -133,7 +133,7 @@ permute.vclMatrix <- function(x, MARGIN = 1, order){
 
 #'@export
 permute.vclVector <- function(x, MARGIN = 1, order){
-    assert_is_not_null(order)
+ #   assertive.properties::assert_is_not_null(order)
     
     type <- typeof(x)
     
@@ -210,7 +210,7 @@ setMethod("colnames<-",
           function(x, value)
           {
 
-              assert_is_character(value)
+            assertive.types::assert_is_character(value)
 
               type <- switch(typeof(x),
                              "integer" = 4L,
@@ -250,7 +250,7 @@ setMethod("colnames<-",
           function(x, value)
           {
               
-              assert_is_character(value)
+              assertive.types::assert_is_character(value)
               
               type <- switch(typeof(x),
                              "integer" = 4L,

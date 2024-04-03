@@ -128,7 +128,7 @@ setMethod("Arith", c(e1="matrix", e2="vclMatrix"),
 setMethod("Arith", c(e1="vclMatrix", e2="numeric"),
           function(e1, e2)
           {
-              assert_is_of_length(e2, 1)
+#            assertive.properties::assert_is_of_length(e2, 1)
 
               op = .Generic[[1]]
               switch(op,
@@ -155,7 +155,7 @@ setMethod("Arith", c(e1="vclMatrix", e2="numeric"),
 setMethod("Arith", c(e1="numeric", e2="vclMatrix"),
           function(e1, e2)
           {
-              assert_is_of_length(e1, 1)
+#            assertive.properties::assert_is_of_length(e1, 1)
 
               op = .Generic[[1]]
               switch(op,
@@ -249,7 +249,7 @@ setMethod("log", c(x="vclMatrix"),
               if(is.null(base)){
                   gpuMatElemLog(x) 
               }else{
-                  assert_is_numeric(base)
+                assertive.types::assert_is_numeric(base)
                   gpuMatElemLogBase(x, base)
               }
               
@@ -679,9 +679,9 @@ setMethod("block",
                     colStart = "integer", colEnd = "integer"),
           function(object, rowStart, rowEnd, colStart, colEnd){
               
-              assert_all_are_positive(c(rowStart, rowEnd, colStart, colEnd))
-              assert_all_are_in_range(c(rowStart, rowEnd), lower = 1, upper = nrow(object)+1)
-              assert_all_are_in_range(c(colStart, colEnd), lower = 1, upper = ncol(object)+1)
+            assertive.numbers::assert_all_are_positive(c(rowStart, rowEnd, colStart, colEnd))
+            assertive.numbers::assert_all_are_in_range(c(rowStart, rowEnd), lower = 1, upper = nrow(object)+1)
+            assertive.numbers::assert_all_are_in_range(c(colStart, colEnd), lower = 1, upper = ncol(object)+1)
               
               ptr <- switch(typeof(object),
                             "float" = {
@@ -987,7 +987,7 @@ setMethod("diag<-", c(x = "vclMatrix", value = "vclVector"),
 #' @export
 identity_matrix <- function(x, type = NULL){
     
-    assert_is_a_number(x)
+  assertive.types::assert_is_a_number(x)
     
     if(is.null(type)){
         type <- getOption("gpuR.default.type")

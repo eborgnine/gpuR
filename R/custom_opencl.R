@@ -13,7 +13,7 @@ splitAt <- function(x, pos) unname(split(x, cumsum(seq_along(x) %in% pos)))
 #' @param kernel_maps The corresponding arguments names in the provided OpenCL kernel
 #' corresponds to the gpuR objects passed and contains a character vector of
 #' which kernels the object will be enqueued.
-#' @importFrom assertive assert_is_character assert_all_are_same_length assert_is_list
+#' @importFrom assertive.types assert_is_character assert_is_list
 #' @export
 setup_opencl <- function(objects, intents, queues, kernel_maps = NULL){
 
@@ -25,8 +25,8 @@ setup_opencl <- function(objects, intents, queues, kernel_maps = NULL){
     assert_is_list(queues)
 
     # must define all object intents
-    assert_are_same_length(objects, intents)
-    assert_are_same_length(objects, queues)
+#    assert_are_same_length(objects, intents)
+#    assert_are_same_length(objects, queues)
 
     # make sure defining possible objects
     assert_all_are_true(objects %in% c('gpuVector', 'vclVector', 'gpuMatrix', 'vclMatrix', 'scalar'))
@@ -59,7 +59,7 @@ setup_opencl <- function(objects, intents, queues, kernel_maps = NULL){
 #' Provided by \code{\link{setup_opencl}}
 #' @param type The precision on which the kernel is compiled.  Options include
 #' \code{"int"}, \code{"float"}, and \code{"double"}
-#' @importFrom assertive assert_is_character
+#' @importFrom assertive.types assert_is_character
 #' @importFrom tools file_path_sans_ext
 #' @importFrom Rcpp sourceCpp
 #' @export

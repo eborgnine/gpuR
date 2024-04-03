@@ -18,7 +18,7 @@ setMethod("[",
           signature(x = "vclVector", i = "numeric", j = "missing", drop = "missing"),
           function(x, i, j, drop) {
               
-              assert_all_are_in_closed_range(i, lower = 1, upper = length(x))
+            assertive.numbers::assert_all_are_in_closed_range(i, lower = 1, upper = length(x))
               
               switch(typeof(x),
                      "integer" = return(vclVecGetElement(x@address, i, 4L)),
@@ -33,14 +33,14 @@ setMethod("[<-",
           signature(x = "vclVector", i = "numeric", j = "missing", value="numeric"),
           function(x, i, j, value) {
               
-              assert_all_are_positive(i)
+            assertive.numbers::assert_all_are_positive(i)
               
               if(length(value) > 1 & length(value) != length(i)){
                   stop("number of items to replace is not a multiple of replacement length")
               }
               
               if(length(value) == 1 & length(i) == 1){
-                  assert_all_are_in_closed_range(i, lower = 1, upper = length(x))
+                assertive.numbers::assert_all_are_in_closed_range(i, lower = 1, upper = length(x))
                   
                   switch(typeof(x),
                          "float" = vclVecSetElement(x@address, i, value, 6L),
@@ -73,7 +73,7 @@ setMethod("[<-",
                   stop("number of items to replace is not a multiple of replacement length")
               }
               
-              assert_all_are_in_closed_range(i, lower = 1, upper = length(x))
+            assertive.numbers::assert_all_are_in_closed_range(i, lower = 1, upper = length(x))
               
               switch(typeof(x),
                      "integer" = vclVecSetElement(x@address, i, value, 4L),

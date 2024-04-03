@@ -146,7 +146,7 @@ setMethod("[<-",
               )
               
               if(nargs() == 4){
-                  assert_all_are_in_closed_range(i, lower = 1, upper = nrow(x))
+                  assertive.numbers::assert_all_are_in_closed_range(i, lower = 1, upper = nrow(x))
                   
                   if(length(value) != ncol(x)){
                       stop("number of items to replace is not a multiple of replacement length")
@@ -197,7 +197,7 @@ setMethod("[<-",
                   stop("number of items to replace is not a multiple of replacement length")
               }
               
-              assert_all_are_in_closed_range(i, lower = 1, upper = nrow(x))
+            assertive.numbers::assert_all_are_in_closed_range(i, lower = 1, upper = nrow(x))
               
               switch(typeof(x),
                      "integer" = SetMatRow(x@address, i, value, 4L),
@@ -216,7 +216,7 @@ setMethod("[<-",
                   stop("number of items to replace is not a multiple of replacement length")
               }
               
-              assert_all_are_in_closed_range(j, lower = 1, upper = ncol(x))
+            assertive.numbers::assert_all_are_in_closed_range(j, lower = 1, upper = ncol(x))
               
               switch(typeof(x),
                      "float" = SetMatCol(x@address, j, value, 6L),
@@ -236,7 +236,7 @@ setMethod("[<-",
                   stop("number of items to replace is not a multiple of replacement length")
               }
               
-              assert_all_are_in_closed_range(j, lower = 1, upper = ncol(x))
+            assertive.numbers::assert_all_are_in_closed_range(j, lower = 1, upper = ncol(x))
               
               switch(typeof(x),
                      "integer" = SetMatCol(x@address, j, value, 4L),
@@ -252,8 +252,8 @@ setMethod("[<-",
           signature(x = "gpuMatrix", i = "numeric", j = "numeric", value="numeric"),
           function(x, i, j, value) {
               
-              assert_all_are_in_closed_range(i, lower = 1, upper = nrow(x))
-              assert_all_are_in_closed_range(j, lower = 1, upper = ncol(x))
+            assertive.numbers::assert_all_are_in_closed_range(i, lower = 1, upper = nrow(x))
+            assertive.numbers::assert_all_are_in_closed_range(j, lower = 1, upper = ncol(x))
               
               switch(typeof(x),
                      "float" = SetMatElement(x@address, i, j, value, 6L),
@@ -269,8 +269,8 @@ setMethod("[<-",
           signature(x = "igpuMatrix", i = "numeric", j = "numeric", value="integer"),
           function(x, i, j, value) {
               
-              assert_all_are_in_closed_range(i, lower = 1, upper = nrow(x))
-              assert_all_are_in_closed_range(j, lower = 1, upper = ncol(x))
+            assertive.numbers::assert_all_are_in_closed_range(i, lower = 1, upper = nrow(x))
+            assertive.numbers::assert_all_are_in_closed_range(j, lower = 1, upper = ncol(x))
               
               switch(typeof(x),
                      "integer" = SetMatElement(x@address, i, j, value, 4L),

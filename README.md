@@ -3,21 +3,21 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1027597.svg)](https://doi.org/10.5281/zenodo.1027597)
 
 ### Gitter rooms available for discussion
-[![chat](https://img.shields.io/badge/gitter-chat-brightgreen.svg)](https://gitter.im/cdeterman/gpuR)
+[![chat](https://img.shields.io/badge/gitter-chat-brightgreen.svg)](https://app.gitter.im/#/room/#cdeterman_gpuR:gitter.im)
 [![general](https://img.shields.io/badge/gitter-general-brightgreen.svg)](https://gitter.im/cdeterman/gpuR/general)
 [![development](https://img.shields.io/badge/gitter-development-brightgreen.svg)](https://gitter.im/cdeterman/gpuR/development)
-[![testing](https://img.shields.io/badge/gitter-testing-brightgreen.svg)](https://gitter.im/cdeterman/gpuR/Tested_GPUs)
+[![testing](https://img.shields.io/badge/gitter-testing-brightgreen.svg)](https://app.gitter.im/#/room/#cdeterman_gpuR_Tested_GPUs:gitter.im)
 
 ### Build Status
 |                 | Build           | Dev             |
 |-----------------|-----------------|-----------------|
-| Linux x86_64    | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=master)](https://travis-ci.org/cdeterman/gpuR)      | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=develop)](https://travis-ci.org/cdeterman/gpuR) |
+| Linux x86_64    | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=master)](https://app.travis-ci.com/cdeterman/gpuR)      | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=develop)](https://travis-ci.org/cdeterman/gpuR) |
 | OSX             | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=master-macosx)](https://travis-ci.org/cdeterman/gpuR)   | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=macosx)](https://travis-ci.org/cdeterman/gpuR) |
 | Windows x86     | [![Appveyor Build Status](https://ci.appveyor.com/api/projects/status/github/cdeterman/gpuR?branch=master&svg=true)](https://ci.appveyor.com/project/cdeterman/gpuR)     | [![Appveyor Build Status](https://ci.appveyor.com/api/projects/status/github/cdeterman/gpuR?branch=develop&svg=true)](https://ci.appveyor.com/project/cdeterman/gpuR) |
 
-Test coverage: [![Coverage Status](https://coveralls.io/repos/cdeterman/gpuR/badge.svg)](https://coveralls.io/r/cdeterman/gpuR?branch=master)
+Test coverage: [![Coverage Status](https://coveralls.io/repos/cdeterman/gpuR/badge.svg)](https://coveralls.io/github/cdeterman/gpuR)
 
-Community Use: [![Downloads](http://cranlogs.r-pkg.org/badges/gpuR?color=brightgreen)](http://www.r-pkg.org/pkg/gpuR)
+Community Use: [![Downloads](https://cranlogs.r-pkg.org/badges/gpuR?color=brightgreen)](https://www.r-pkg.org/pkg/gpuR)
 
 Welcome to my R package for simple GPU computing.  Although there are a few
 existing packages to leverage the power of GPU's they are either specific

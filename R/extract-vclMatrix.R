@@ -204,7 +204,7 @@ setMethod("[<-",
           signature(x = "vclMatrix", i = "numeric", j = "missing", value = "numeric"),
           function(x, i, j, ..., value) {
               
-              assert_all_are_in_closed_range(i, lower = 1, upper = nrow(x))
+            assertive.numbers::assert_all_are_in_closed_range(i, lower = 1, upper = nrow(x))
               
               type <- switch(typeof(x),
                              "integer" = 4L,
@@ -299,9 +299,9 @@ setMethod("[<-",
           signature(x = "vclMatrix", i = "numeric", j = "numeric", value = "numeric"),
           function(x, i, j, value) {
               
-              assert_all_are_in_closed_range(i, lower = 1, upper=nrow(x))
-              assert_all_are_in_closed_range(j, lower = 1, upper=ncol(x))
-              assert_is_scalar(value)
+            assertive.numbers::assert_all_are_in_closed_range(i, lower = 1, upper=nrow(x))
+            assertive.numbers::assert_all_are_in_closed_range(j, lower = 1, upper=ncol(x))
+#              assertive.properties::assert_is_scalar(value)
               
               switch(typeof(x),
                      "float" = vclSetElement(x@address, i, j, value, 6L),
@@ -318,9 +318,9 @@ setMethod("[<-",
           signature(x = "ivclMatrix", i = "numeric", j = "numeric", value = "integer"),
           function(x, i, j, value) {
               
-              assert_all_are_in_closed_range(i, lower = 1, upper=nrow(x))
-              assert_all_are_in_closed_range(j, lower = 1, upper=ncol(x))
-              assert_is_scalar(value)
+            assertive.numbers::assert_all_are_in_closed_range(i, lower = 1, upper=nrow(x))
+            assertive.numbers::assert_all_are_in_closed_range(j, lower = 1, upper=ncol(x))
+    #          assertive.types::assert_is_scalar(value)
               
               switch(typeof(x),
                      "integer" = vclSetElement(x@address, i, j, value, 4L),
@@ -337,7 +337,7 @@ setMethod("[<-",
           signature(x = "vclMatrix", i = "missing", j = "missing", value = "matrix"),
           function(x, i, j, value) {
               
-              assert_is_matrix(value)
+              assertive.types::assert_is_matrix(value)
               
               switch(typeof(x),
                      "integer" = vclSetMatrix(x@address, value, 4L, x@.context_index - 1),
@@ -392,7 +392,7 @@ setMethod("[<-",
           signature(x = "vclMatrix", i = "missing", j = "missing", value = "numeric"),
           function(x, i, j, value) {
               
-              assert_is_scalar(value)
+    #        assertive.types::assert_is_scalar(value)
               
               switch(typeof(x),
                      "integer" = vclFillVCLMatrix(x@address, value, 4L, x@.context_index - 1),

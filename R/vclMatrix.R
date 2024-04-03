@@ -194,8 +194,8 @@ setMethod('vclMatrix',
               
               if(is.na(nrow)) stop("must indicate number of rows: nrow")
               if(is.na(ncol)) stop("must indicate number of columns: ncol")
-              assert_is_numeric(nrow)
-              assert_is_numeric(ncol)
+              assertive.types::assert_is_numeric(nrow)
+              assertive.types::assert_is_numeric(ncol)
               
               if(length(data) == 1){
                   data <- vclMatInitNumScalar(data, nrow, ncol, type, ctx_id)
@@ -218,8 +218,8 @@ setMethod('vclMatrix',
               
               if(is.na(nrow)) stop("must indicate number of rows: nrow")
               if(is.na(ncol)) stop("must indicate number of columns: ncol")
-              assert_is_numeric(nrow)
-              assert_is_numeric(ncol)
+              assertive.types::assert_is_numeric(nrow)
+              assertive.types::assert_is_numeric(ncol)
               
               if(length(data) == 1){
                   data <- vclMatInitIntScalar(data, nrow, ncol, type, ctx_id)

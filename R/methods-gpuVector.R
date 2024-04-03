@@ -105,7 +105,7 @@ setMethod("Arith", c(e1="gpuVector", e2="gpuVector"),
 setMethod("Arith", c(e1="numeric", e2="gpuVector"),
           function(e1, e2)
           {
-              assert_is_of_length(e1, 1)
+#              assert_is_of_length(e1, 1)
               
               op = .Generic[[1]]
               switch(op,
@@ -132,7 +132,7 @@ setMethod("Arith", c(e1="numeric", e2="gpuVector"),
 setMethod("Arith", c(e1="gpuVector", e2="numeric"),
           function(e1, e2)
           {
-              assert_is_of_length(e2, 1)
+     #           assert_is_of_length(e2, 1)
               
               op = .Generic[[1]]
               switch(op,
@@ -220,7 +220,7 @@ setMethod("log", c(x="gpuVector"),
               if(is.null(base)){
                   gpuVecElemLog(x) 
               }else{
-                  assert_is_numeric(base)
+                  assertive.types::assert_is_numeric(base)
                   gpuVecElemLogBase(x, base)
               }
               
@@ -307,8 +307,8 @@ setMethod("slice",
           signature(object = "gpuVector", start = "integer", end = "integer"),
           function(object, start, end){
               
-          assert_all_are_positive(c(start, end))
-          assert_all_are_in_range(c(start, end), lower = 1, upper = length(object)+1)
+            assertive.numbers::assert_all_are_positive(c(start, end))
+            assertive.numbers::assert_all_are_in_range(c(start, end), lower = 1, upper = length(object)+1)
           
           ptr <- switch(typeof(object),
                         "float" = {

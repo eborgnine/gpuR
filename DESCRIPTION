@@ -7,7 +7,13 @@ Description: Provides GPU enabled functions for R objects in a simple and
     spaces, to mirror typical R syntax without the need to know OpenCL.
 Version: 2.0.4
 Date: 2024-03-29
-Author: Charles Determan Jr., Patrick Brown <ctb>
+Authors@R: c(person("Charles", "Determan Jr", 
+                    role = c("aut", "cre","cph"),
+                     email = "cdetermanjr@gmail.com"),
+      person("Patrick", "Brown", 
+                    role = c("ctb"),
+                     email = "patrick.brown@utoronto.ca") 
+                     )
 Maintainer: Patrick Brown <patrick.borgnine@gmail.com>
 VignetteBuilder: knitr
 License: GPL (>= 2)
@@ -18,7 +24,7 @@ Depends:
     utils
 Imports:
     Rcpp (>= 0.12.15),
-    assertive
+    assertive.base, assertive.types, assertive.numbers
 LinkingTo: Rcpp (>= 0.12.15),
     RcppEigen (>= 0.3.3.4.0),
     RViennaCL (>= 1.7.1.7),
@@ -27,8 +33,8 @@ NeedsCompilation: yes
 Suggests:
     testthat,
     knitr
-URL: http://github.com/eborgnine/gpuR
-BugReports: http://github.com/cdeterman/gpuR/issues/new
+URL: https://github.com/eborgnine/gpuR
+BugReports: https://github.com/cdeterman/gpuR/issues/new
 SystemRequirements: C++11 (supporting at least std=c++0x), OpenCL shared
     library (provided by an SDK such as AMD/NVIDIA) and OpenCL headers including
     the C++ header file (provided by Khronos if not by SDK)

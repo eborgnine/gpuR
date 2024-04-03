@@ -145,8 +145,8 @@ setMethod('gpuMatrix',
               
               if (is.null(type)) type <- getOption("gpuR.default.type")
               
-              assert_is_numeric(nrow)
-              assert_is_numeric(ncol)
+              assertive.types::assert_is_numeric(nrow)
+              assertive.types::assert_is_numeric(ncol)
               
               device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id,]
               
@@ -214,8 +214,8 @@ setMethod('gpuMatrix',
               
               if (is.null(type)) type <- getOption("gpuR.default.type")
                             
-              assert_is_numeric(nrow)
-              assert_is_numeric(ncol)
+              assertive.types::assert_is_numeric(nrow)
+              assertive.types::assert_is_numeric(ncol)
               
               device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id,]
               
@@ -301,8 +301,8 @@ setMethod('gpuMatrix',
               
               if (is.null(type)) type <- "integer"
               
-              assert_is_numeric(nrow)
-              assert_is_numeric(ncol)
+              assertive.types::assert_is_numeric(nrow)
+              assertive.types::assert_is_numeric(ncol)
               
               device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id,]
               

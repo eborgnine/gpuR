@@ -8,11 +8,11 @@ bibentry(bibtype="Manual",
          author = personList(as.person("Charles Determan Jr.")),
          year = year,
          note = vers,
-         url="http://github.com/cdeterman/gpuR",
+         url="https://github.com/cdeterman/gpuR",
          
          textVersion = paste0('Charles Determan Jr. (', year, '). gpuR: ', 
                               meta$Title, '. ', vers, '. ', 
-                              'http://github.com/cdeterman/gpuR', 
+                              'https://github.com/cdeterman/gpuR', 
                               sep = '')
          
          )
@@ -20,7 +20,7 @@ bibentry(bibtype="Manual",
 bibentry(
     bibtype = "Article",
     title = "ViennaCL-Linear Algebra Library for Multi- and Many-Core Architectures",
-    author = personList(as.person("Karl Rupp"),
+    author = c(as.person("Karl Rupp"),
                         as.person("Phillippe Tillet"),
                         as.person("Florian Rudolf"),
                         as.person("Josef Weinbub"),
