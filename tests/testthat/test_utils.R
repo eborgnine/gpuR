@@ -15,11 +15,12 @@ test_that("detectGPUs() accepts appropriate input", {
     expect_gte(detectGPUs(1L), 0)
     
     has_gpu_skip()
-    
+
+    Nplatforms = detectPlatforms()
+        
     expect_error(detectGPUs(0))
-    expect_error(detectGPUs(2))
     expect_error(detectGPUs(c(2,3)))
-    expect_error(detectGPUs(7))
+    expect_error(detectGPUs(Nplatforms + 7))
 })
 
 test_that("gpuInfo() accepts appropriate input", {
@@ -65,9 +66,8 @@ test_that("detectCPUs() accepts correct input", {
     has_cpu_skip()
     
     expect_error(detectCPUs(0))
-    expect_error(detectCPUs(2))
     expect_error(detectCPUs(c(2,3)))
-    expect_error(detectCPUs(7))
+    expect_error(detectCPUs(detectPlatforms() + 7))
 })
 
 test_that("contexts behave correctly", {
