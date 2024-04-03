@@ -17,11 +17,11 @@ assert_has_double <-
         msg <- gettextf(
             "The device %s on context %s does not support double.
             Try setting type = 'float' or change device if multiple available.",
-            get_name_in_parent(device_idx),
-            get_name_in_parent(context_idx),
+            assertive.base::get_name_in_parent(device_idx),
+            assertive.base::get_name_in_parent(context_idx),
             domain = "R-assertive.base"
         )
-        assert_engine(
+        assertive.base::assert_engine(
             deviceHasDouble,
             device_idx,
             context_idx,
