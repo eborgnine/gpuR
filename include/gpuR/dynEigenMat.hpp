@@ -240,7 +240,7 @@ class dynEigenMat {
             
             viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
             
-            viennacl::matrix<T> vclMat(K,M, ctx = ctx);
+            viennacl::matrix<T> vclMat(K,M, ctx);
             viennacl::copy(block, vclMat);
             
             return vclMat;
@@ -262,7 +262,7 @@ class dynEigenMat {
             
             viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
             
-            viennacl::matrix<T> vclMat(K,M, ctx = ctx);
+            viennacl::matrix<T> vclMat(K,M, ctx);
             viennacl::copy(block, vclMat);
             
             return vclMat;
@@ -285,7 +285,7 @@ class dynEigenMat {
             
             viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
             
-            shptr.reset(new viennacl::matrix<T>(K, M, ctx=ctx));
+            shptr.reset(new viennacl::matrix<T>(K, M, ctx));
             
             viennacl::copy(block, *shptr.get());
         };
@@ -304,7 +304,7 @@ class dynEigenMat {
             
             viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
             
-            shptr.reset(new viennacl::matrix<T>(K, M, ctx=ctx));
+            shptr.reset(new viennacl::matrix<T>(K, M, ctx));
             
             viennacl::copy(block, *shptr.get());
         };

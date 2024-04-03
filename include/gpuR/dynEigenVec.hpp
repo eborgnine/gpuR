@@ -162,7 +162,8 @@ class dynEigenVec {
             // shptr.reset(vclA);
             shptr = std::make_shared<viennacl::vector_base<T> >(vclA);
             
-            viennacl::fast_copy(block.data(), block.data() + block.size(), shptr.get()->begin());
+            viennacl::fast_copy(block.data(), block.data() + block.size(), 
+                                shptr.get()->begin());
             // viennacl::copy(block, *shptr.get());
         };
         

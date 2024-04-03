@@ -162,7 +162,7 @@ class dynEigenVec {
             
             viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
             
-            viennacl::vector_base<T> vclA = viennacl::vector_base<T>(M, ctx=ctx);
+            viennacl::vector_base<T> vclA = viennacl::vector_base<T>(M, ctx);
             // shptr.reset(vclA);
             shptr = std::make_shared<viennacl::vector_base<T> >(vclA);
             
