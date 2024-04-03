@@ -8,7 +8,7 @@ Description: Provides GPU enabled functions for R objects in a simple and
 Version: 2.0.4
 Date: 2024-03-29
 Author: Charles Determan Jr., Patrick Brown <ctb>
-Maintainer: Charles Determan Jr. <cdetermanjr@gmail.com>
+Maintainer: Patrick Brown <patrick.borgnine@gmail.com>
 VignetteBuilder: knitr
 License: GPL (>= 2)
 Encoding: UTF-8
