@@ -24,7 +24,7 @@ Depends:
     utils
 Imports:
     Rcpp (>= 0.12.15),
-    assertive.base, assertive.numbers
+    assertive.base, assertive.numbers, BH, RcppEigen, RViennaCL
 LinkingTo: Rcpp (>= 0.12.15),
     RcppEigen (>= 0.3.3.4.0),
     RViennaCL (>= 1.7.1.7),

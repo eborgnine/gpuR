@@ -4,15 +4,15 @@
 
 ### Gitter rooms available for discussion
 [![chat](https://img.shields.io/badge/gitter-chat-brightgreen.svg)](https://app.gitter.im/#/room/#cdeterman_gpuR:gitter.im)
-[![general](https://img.shields.io/badge/gitter-general-brightgreen.svg)](https://gitter.im/cdeterman/gpuR/general)
-[![development](https://img.shields.io/badge/gitter-development-brightgreen.svg)](https://gitter.im/cdeterman/gpuR/development)
+[![general](https://img.shields.io/badge/gitter-general-brightgreen.svg)]( https://app.gitter.im/#/room/#cdeterman_gpuR_general:gitter.im)
+[![development](https://img.shields.io/badge/gitter-development-brightgreen.svg)](https://app.gitter.im/#/room/#cdeterman_gpuR_development:gitter.im)
 [![testing](https://img.shields.io/badge/gitter-testing-brightgreen.svg)](https://app.gitter.im/#/room/#cdeterman_gpuR_Tested_GPUs:gitter.im)
 
 ### Build Status
 |                 | Build           | Dev             |
 |-----------------|-----------------|-----------------|
 | Linux x86_64    | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=master)](https://app.travis-ci.com/cdeterman/gpuR)      | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=develop)](https://travis-ci.org/cdeterman/gpuR) |
-| OSX             | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=master-macosx)](https://travis-ci.org/cdeterman/gpuR)   | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=macosx)](https://travis-ci.org/cdeterman/gpuR) |
+| OSX             | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=master-macosx)]( https://app.travis-ci.com/cdeterman/gpuR)   | [![Build Status](https://travis-ci.org/cdeterman/gpuR.png?branch=macosx)](https://app.travis-ci.org/cdeterman/gpuR) |
 | Windows x86     | [![Appveyor Build Status](https://ci.appveyor.com/api/projects/status/github/cdeterman/gpuR?branch=master&svg=true)](https://ci.appveyor.com/project/cdeterman/gpuR)     | [![Appveyor Build Status](https://ci.appveyor.com/api/projects/status/github/cdeterman/gpuR?branch=develop&svg=true)](https://ci.appveyor.com/project/cdeterman/gpuR) |
 
 Test coverage: [![Coverage Status](https://coveralls.io/repos/cdeterman/gpuR/badge.svg)](https://coveralls.io/github/cdeterman/gpuR)
