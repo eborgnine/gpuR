@@ -284,14 +284,14 @@ cpp_gpuMatrix_pmcc2(
     const int M2 = vcl_B.size2();
     const int K = vcl_A.size1();
     
-    // viennacl::vector_base<T> ones = static_cast<viennacl::vector_base<T> >(viennacl::scalar_vector<T>(K, 1, ctx=ctx));
+    // viennacl::vector_base<T> ones = static_cast<viennacl::vector_base<T> >(viennacl::scalar_vector<T>(K, 1, ctx));
     viennacl::vector_base<T> ones = viennacl::vector_base<T>(K, ctx);
     viennacl::linalg::vector_assign(ones, (T)(1));
     
-    viennacl::vector_base<T> vcl_meanVec(M, ctx=ctx);
-    viennacl::vector_base<T> vclB_meanVec(M2, ctx=ctx);
-    viennacl::matrix<T> vclA_meanMat(K,M, ctx=ctx);
-    viennacl::matrix<T> vclB_meanMat(K,M2, ctx=ctx);
+    viennacl::vector_base<T> vcl_meanVec(M, ctx);
+    viennacl::vector_base<T> vclB_meanVec(M2, ctx);
+    viennacl::matrix<T> vclA_meanMat(K,M, ctx);
+    viennacl::matrix<T> vclB_meanMat(K,M2, ctx);
     
     // matrix A
     // vector of column means
@@ -338,12 +338,12 @@ cpp_vclMatrix_pmcc(
     const int M = vcl_A.size2();
     const int K = vcl_A.size1();
     
-    // viennacl::vector_base<T> ones = static_cast<viennacl::vector_base<T> >(viennacl::scalar_vector<T>(K, 1, ctx=ctx));
+    // viennacl::vector_base<T> ones = static_cast<viennacl::vector_base<T> >(viennacl::scalar_vector<T>(K, 1, ctx));
     viennacl::vector_base<T> ones = viennacl::vector_base<T>(K, ctx);
     viennacl::linalg::vector_assign(ones, (T)(1));
     
-    viennacl::vector_base<T> vcl_meanVec(M, ctx=ctx);
-    viennacl::matrix<T> vcl_meanMat(K,M, ctx=ctx);
+    viennacl::vector_base<T> vcl_meanVec(M, ctx);
+    viennacl::matrix<T> vcl_meanMat(K,M, ctx);
     
     // vector of column means
     vcl_meanVec = viennacl::linalg::column_sum(vcl_A);
@@ -382,14 +382,14 @@ cpp_vclMatrix_pmcc2(
     const int M2 = vcl_B.size2();
     const int K = vcl_A.size1();
     
-    // viennacl::vector_base<T> ones = static_cast<viennacl::vector_base<T> >(viennacl::scalar_vector<T>(K, 1, ctx=ctx));
+    // viennacl::vector_base<T> ones = static_cast<viennacl::vector_base<T> >(viennacl::scalar_vector<T>(K, 1, ctx));
     viennacl::vector_base<T> ones = viennacl::vector_base<T>(K, ctx);
     viennacl::linalg::vector_assign(ones, (T)(1));
     
-    viennacl::vector_base<T> vcl_meanVec(M, ctx=ctx);
-    viennacl::vector_base<T> vclB_meanVec(M2, ctx=ctx);
-    viennacl::matrix<T> vclA_meanMat(K,M, ctx=ctx);
-    viennacl::matrix<T> vclB_meanMat(K,M2, ctx=ctx);
+    viennacl::vector_base<T> vcl_meanVec(M, ctx);
+    viennacl::vector_base<T> vclB_meanVec(M2, ctx);
+    viennacl::matrix<T> vclA_meanMat(K,M, ctx);
+    viennacl::matrix<T> vclB_meanMat(K,M2, ctx);
     
     // matrix A
     // vector of column means

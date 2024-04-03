@@ -50,8 +50,6 @@ cpp_vclMatrix_svd(
     viennacl::matrix<T> *U = ptrU->getPtr();
     viennacl::matrix<T> *V = ptrV->getPtr();
 
-    // viennacl::matrix<T> U(vcl_A.size1(), vcl_A.size1(), ctx=ctx);
-    // viennacl::matrix<T> V(vcl_A.size2(), vcl_A.size2(), ctx = ctx);
 
     //computes the SVD
     viennacl::linalg::svd(vcl_A, *U, *V);
