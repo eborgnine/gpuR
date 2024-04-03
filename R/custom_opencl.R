@@ -60,7 +60,7 @@ setup_opencl <- function(objects, intents, queues, kernel_maps = NULL){
 #' Provided by \code{\link{setup_opencl}}
 #' @param type The precision on which the kernel is compiled.  Options include
 #' \code{"int"}, \code{"float"}, and \code{"double"}
-# @importFrom assertive.types assert_is_character
+#' @importFrom assertive.base assert_are_identical
 #' @importFrom tools file_path_sans_ext
 #' @importFrom Rcpp sourceCpp
 #' @export

@@ -6,15 +6,18 @@ Description: Provides GPU enabled functions for R objects in a simple and
     wrap typical R objects (e.g. vector, matrix), in both host and device
     spaces, to mirror typical R syntax without the need to know OpenCL.
 Version: 2.0.4
-Date: 2024-03-29
-Authors@R: c(person("Charles", "Determan Jr", 
-                    role = c("aut", "cre","cph"),
-                     email = "cdetermanjr@gmail.com"),
+Date: 2024-04-03
+Authors@R: c(
+      person(given="Charles", family="Determan Jr", 
+                    role = c("aut", "cph"),
+                     email = "cdetermanjr@gmail.com"
+                     ),
       person("Patrick", "Brown", 
-                    role = c("ctb"),
-                     email = "patrick.borgnine@gmail.com") 
+                     email = "patrick.borgnine@gmail.com",
+                     role = c("cre", "ctb"),
+                     comment = c(ORCID = '0000-0003-2541-3744')
                      )
-Maintainer: Patrick Brown <patrick.borgnine@gmail.com>
+              )
 VignetteBuilder: knitr
 License: GPL (>= 2)
 Encoding: UTF-8
