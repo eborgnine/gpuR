@@ -1,4 +1,4 @@
-#' @import assertive
+# @import assertive
 
 
 #' @title Check device type
