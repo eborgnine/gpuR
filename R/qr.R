@@ -170,9 +170,6 @@ setMethod("qr.Q", signature(qr = "gpuQR"),
                   R <- vclMatrix(nrow = nrow(qr$qr), ncol = nrow(qr$qr), type = type)
               }
               
-              # print(isVCL)
-              # stop("stopping")
-              
               switch(type,
                      "float" = cpp_recover_qr(qr$qr@address,
                                               isVCL,
