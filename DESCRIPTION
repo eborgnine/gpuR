@@ -44,4 +44,4 @@ SystemRequirements: C++11 (supporting at least std=c++0x), OpenCL shared
     library (provided by an SDK such as AMD/NVIDIA) and OpenCL headers including
     the C++ header file (provided by Khronos if not by SDK)
 OS_type: unix
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.1.9000
