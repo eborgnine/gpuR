@@ -1,6 +1,5 @@
 library(gpuR)
 context("CPU gpuMatrix math operations")
-options(warn=-1)
 
 current_context <- set_device_context("cpu")
 

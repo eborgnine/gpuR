@@ -16,7 +16,7 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-void initContexts(){
+String initContexts(){
     // declarations
     int id = 0;
     String themessage;
@@ -31,12 +31,11 @@ void initContexts(){
     themessage += std::to_string(platforms.size());
     themessage += "\n";
     
-    msg(Rcpp::wrap(themessage));
-    
+
     for(unsigned int plat_idx = 0; plat_idx < platforms.size(); plat_idx++) {
         
 
-        themessage = "- platform: ";
+        themessage += "- platform: ";
         themessage += platforms[plat_idx].info();
         themessage += "\n";
         
@@ -56,15 +55,17 @@ void initContexts(){
             
             // increment context
             id++;
+            themessage += "\n";
         }
-        msg(Rcpp::wrap(themessage));
     }
     
+//    msg(Rcpp::wrap(themessage));
     
-    msg(Rcpp::wrap("checked all devices"));
+//    msg(Rcpp::wrap("checked all devices"));
     
     viennacl::ocl::switch_context(0);
-    msg(Rcpp::wrap("completed initialization"));
+//    msg(Rcpp::wrap("completed initialization"));
+    return themessage;
 }
 
 
@@ -122,6 +123,8 @@ listContexts()
     
     // get platforms
     platforms_type platforms = viennacl::ocl::get_platforms();  
+    
+    Rcpp::Function msg = Rcpp::Environment::base_env()["packageStartupMessage"];
     
 //    Rcout << "number of platforms found" << std::endl;
 //    Rcout << platforms.size() << std::endl;
@@ -195,8 +198,9 @@ listContexts()
 	    }else if(check & CL_DEVICE_TYPE_ACCELERATOR){
 		device_type[id] = "accelerator";
 	    }else{
-		Rcpp::Rcout << "device found: " << std::endl;
-		Rcpp::Rcout << check << std::endl;
+
+	 	msg(Rcpp::wrap("device found: " + check));
+		
 		throw Rcpp::exception("unrecognized device detected");
  
 	    }

@@ -759,7 +759,6 @@ test_that("CPU Inplace vclVector Double Precision Matrix Absolute Value", {
                  check.attributes=FALSE)   
 })
 
-options(warn=0)
 
 setContext(current_context)
 

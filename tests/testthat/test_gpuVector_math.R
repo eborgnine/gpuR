@@ -10,8 +10,6 @@ if(detectGPUs() >= 1){
 # set seed
 set.seed(123)
 
-# ignore warnings (logs and arc trigs)
-options(warn=-1)
 
 ORDER <- 4
 

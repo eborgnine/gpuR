@@ -28,6 +28,7 @@ SEXP cpp_deviceType(SEXP gpu_idx_, int ctx_idx)
     
 
     unsigned int gpu_idx = (Rf_isNull(gpu_idx_)) ? ctx.opencl_context().current_device_id() : as<unsigned int>(gpu_idx_) - 1;
+    Rcpp::Function msg = Rcpp::Environment::base_env()["packageStartupMessage"];
     
 
     // Get device
@@ -40,8 +41,10 @@ SEXP cpp_deviceType(SEXP gpu_idx_, int ctx_idx)
     }else if(check & CL_DEVICE_TYPE_ACCELERATOR){
         device_type = "accelerator";
     }else{
-        Rcpp::Rcout << "device found: " << std::endl;
-        Rcpp::Rcout << check << std::endl;
+      msg(Rcpp::wrap("device found: " + check));
+      
+//        Rcpp::Rcout << "device found: " << std::endl;
+//        Rcpp::Rcout << check << std::endl;
         throw Rcpp::exception("unrecognized device detected");
     }
    
@@ -211,7 +214,8 @@ List cpp_cpuInfo(SEXP cpu_idx_, int ctx_idx)
 SEXP currentDevice()
 {
     std::string device_type;
-    
+    Rcpp::Function msg = Rcpp::Environment::base_env()["packageStartupMessage"];
+  
     cl_device_type check = viennacl::ocl::current_device().type(); 
 
     if(check & CL_DEVICE_TYPE_CPU){
@@ -221,8 +225,10 @@ SEXP currentDevice()
     }else if(check & CL_DEVICE_TYPE_ACCELERATOR){
 	device_type = "accelerator";
     }else{
-	Rcpp::Rcout << "device found: " << std::endl;
-	Rcpp::Rcout << check << std::endl;
+  msg(Rcpp::wrap("device found: " + check));
+      
+//	Rcpp::Rcout << "device found: " << std::endl;
+//	Rcpp::Rcout << check << std::endl;
 	throw Rcpp::exception("unrecognized device detected");
 
     }

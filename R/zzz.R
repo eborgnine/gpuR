@@ -10,12 +10,8 @@
     # Initialize all possible contexts
     if (!identical(Sys.getenv("APPVEYOR"), "True")) {
         # initialize contexts
-        # default_device <- initContexts()
-        initContexts()
-        # print("context initialization successful")
-        # packageStartupMessage(paste0("gpuR ", packageVersion('gpuR'), "\nDefault device: ", default_device))
-        packageStartupMessage(paste0("gpuR ", packageVersion('gpuR')))
-        # print("startup message not problem")
+      packageStartupMessage(paste0("gpuR ", packageVersion('gpuR')))
+      packageStartupMessage(initContexts())
     }
 }
 

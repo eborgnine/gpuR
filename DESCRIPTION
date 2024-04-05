@@ -16,10 +16,12 @@ Authors@R: c(
                      email = "patrick.borgnine@gmail.com",
                      role = c("cre", "ctb"),
                      comment = c(ORCID = '0000-0003-2541-3744')
-                     )
+                     ),
+     person("The Khronos Group Inc", role = "cph", 
+       comment = "Copyright holder of some included header files ")
               )
 VignetteBuilder: knitr
-License: GPL (>= 2)
+License: "GPL (>= 2) + file COPYRIGHTS"
 Encoding: UTF-8
 Depends:
     R (>= 3.0.2),

@@ -6,7 +6,7 @@ cpp_vclMatrix_custom_chol <- function(ptrB, BisVCL, upper, sourceCode, max_local
 }
 
 initContexts <- function() {
-    invisible(.Call(`_gpuR_initContexts`))
+    .Call(`_gpuR_initContexts`)
 }
 
 #' @title Available OpenCL Contexts

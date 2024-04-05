@@ -7,8 +7,6 @@ current_context <- set_device_context("cpu")
 # set seed
 set.seed(123)
 
-# ignore warnings (logs and arc trigs)
-options(warn=-1)
 
 ORDER <- 4
 
