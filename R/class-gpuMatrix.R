@@ -23,6 +23,8 @@
 #'      \item{\code{.device_index}:}{Integer index of active device}
 #'      \item{\code{.device}:}{Name of active device}
 #'  }
+#' @return An object of class 'gpuMatrix' with the specified slots.
+#'  
 #' @note R does not contain a native float type.  As such,
 #' the matrix data within a \code{\link{fgpuMatrix-class}} 
 #' will be represented as double but downcast when any 

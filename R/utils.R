@@ -175,6 +175,7 @@ permute.vclVector <- function(x, MARGIN = 1, order){
 #' @param prefix for create names. (not currently used)
 #' @param value A character vector to assign as row/column names
 #' @param ... Additional arguments
+#' @return A character vector of column names of the gpuMatrix object.
 #' @docType methods
 #' @rdname colnames-methods
 #' @export

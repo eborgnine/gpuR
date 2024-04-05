@@ -14,6 +14,7 @@ as.matrix.gpuMatrix <- function(x, ...){
 #' are vectors of the same length, it will return the inner product (as a matrix).
 #' @param x A gpuR object
 #' @param y A gpuR object
+#' @return A gpuMatrix object which is the result of the matrix multiplication.
 #' @docType methods
 #' @rdname grapes-times-grapes-methods
 #' @author Charles Determan Jr.
@@ -29,6 +30,7 @@ setMethod("%*%", signature(x="gpuMatrix", y = "gpuMatrix"),
           valueClass = "gpuMatrix"
 )
 
+#' @return A gpuVector object.
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", signature(x="gpuMatrix", y = "gpuVector"),
@@ -42,6 +44,8 @@ setMethod("%*%", signature(x="gpuMatrix", y = "gpuVector"),
           valueClass = "gpuVector"
 )
 
+
+#' @return A gpuMatrix object.
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", signature(x="gpuMatrix", y = "matrix"),
@@ -56,6 +60,8 @@ setMethod("%*%", signature(x="gpuMatrix", y = "matrix"),
           valueClass = "gpuMatrix"
 )
 
+
+#' @return A gpuMatrix object.
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", signature(x="matrix", y = "gpuMatrix"),
@@ -97,6 +103,7 @@ setMethod("Arith", c(e1="gpuMatrix", e2="gpuMatrix"),
           valueClass = "gpuMatrix"
 )
 
+#' @return A gpuMatrix object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="gpuMatrix", e2="matrix"),
@@ -119,6 +126,8 @@ setMethod("Arith", c(e1="gpuMatrix", e2="matrix"),
           valueClass = "gpuMatrix"
 )
 
+
+#' @return A gpuMatrix object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="matrix", e2="gpuMatrix"),
@@ -140,6 +149,8 @@ setMethod("Arith", c(e1="matrix", e2="gpuMatrix"),
           valueClass = "gpuMatrix"
 )
 
+
+#' @return A gpuMatrix object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="gpuMatrix", e2="numeric"),
@@ -166,6 +177,9 @@ setMethod("Arith", c(e1="gpuMatrix", e2="numeric"),
           valueClass = "gpuMatrix"
 )
 
+
+
+#' @return A gpuMatrix object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="numeric", e2="gpuMatrix"),
@@ -198,6 +212,9 @@ setMethod("Arith", c(e1="numeric", e2="gpuMatrix"),
           valueClass = "gpuMatrix"
 )
 
+
+
+#' @return A gpuMatrix object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="gpuMatrix", e2="missing"),
@@ -212,6 +229,9 @@ setMethod("Arith", c(e1="gpuMatrix", e2="missing"),
           valueClass = "gpuMatrix"
 )
 
+
+
+#' @return A gpuMatrix object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="gpuMatrix", e2="gpuVector"),
@@ -232,7 +252,7 @@ setMethod("Arith", c(e1="gpuMatrix", e2="gpuVector"),
 #' @title gpuR Math methods
 #' @description Methods for the base Math methods \link[methods]{S4groupGeneric}
 #' @param x A gpuR object
-#' @return A gpuR object
+#' @return A gpuMatrix object.
 #' @details Currently implemented methods include:
 #' \itemize{
 #'  \item{"sin", "cos", "tan", "asin", "acos", "atan", "sinh", "cosh", "tanh",
@@ -375,8 +395,8 @@ setMethod("colSums",
               gpu_colSums(x)
           })
 
-
 #' @rdname gpuMatrix.colSums
+#' @return A vector containing the sum of each row in the gpuMatrix.
 #' @export
 setMethod("rowSums",
           signature(x = "gpuMatrix"),
@@ -387,6 +407,7 @@ setMethod("rowSums",
 
 
 #' @rdname gpuMatrix.colSums
+#' @return A vector containing the mean of each column in the gpuMatrix.
 #' @export
 setMethod("colMeans",
           signature(x = "gpuMatrix"),
@@ -396,6 +417,7 @@ setMethod("colMeans",
 
 
 #' @rdname gpuMatrix.colSums
+#' @return A vector.
 #' @export
 setMethod("rowMeans",
           signature(x = "gpuMatrix"),
@@ -425,6 +447,7 @@ setMethod("cov",
           })
 
 #' @rdname cov-methods
+#' @return A gpuMatrix of covariances or correlation coefficients.
 #' @export
 setMethod("cov",
           signature(x = "gpuMatrix", y = "gpuMatrix", use = "missing", method = "missing"),
@@ -435,6 +458,9 @@ setMethod("cov",
               return(gpu_pmcc(x, y))
           })
 
+
+
+#' @return A gpuMatrix.
 #' @rdname cov-methods
 #' @export
 setMethod("cov",
@@ -478,6 +504,7 @@ setMethod("crossprod",
           })
 
 
+#' @return A gpuMatrix.
 #' @rdname gpuMatrix-crossprod
 #' @export
 setMethod("crossprod",
@@ -486,6 +513,8 @@ setMethod("crossprod",
               gpu_crossprod(x, y)
           })
 
+
+#' @return A gpuMatrix.
 #' @rdname gpuMatrix-crossprod
 #' @export
 setMethod("crossprod",
@@ -495,6 +524,8 @@ setMethod("crossprod",
               gpu_crossprod(x, y)
           })
 
+
+#' @return A gpuMatrix.
 #' @rdname gpuMatrix-crossprod
 #' @export
 setMethod("crossprod",
@@ -503,6 +534,7 @@ setMethod("crossprod",
               x <- gpuMatrix(x, type = typeof(y), ctx_id = y@.context_index)
               gpu_crossprod(x, y)
           })
+
 
 
 #' @rdname gpuMatrix-crossprod
@@ -530,6 +562,8 @@ setMethod("tcrossprod",
               gpu_tcrossprod(x, y)
           })
 
+
+
 #' @rdname gpuMatrix-crossprod
 #' @export
 setMethod("tcrossprod",
@@ -540,6 +574,8 @@ setMethod("tcrossprod",
           })
 
 
+
+#' @return A matrix of distances between rows of the gpuMatrix object `x`.
 #' @rdname dist-vclMatrix
 #' @aliases dist,gpuMatrix
 #' @export
@@ -577,6 +613,9 @@ setMethod("dist", signature(x="gpuMatrix"),
           }
 )
 
+
+
+#' @return A gpuMatrix object containing the pairwise distances between rows of `x` and `y`.
 #' @rdname dist-vclMatrix
 #' @aliases distance,gpuMatrix
 setMethod("distance", signature(x = "gpuMatrix", y = "gpuMatrix"),
@@ -626,6 +665,8 @@ setMethod("distance", signature(x = "gpuMatrix", y = "gpuMatrix"),
 )
 
 
+
+#' @return A gpuMatrix object.
 #' @rdname gpuR-deepcopy
 setMethod("deepcopy", signature(object ="gpuMatrix"),
           function(object){
@@ -658,6 +699,9 @@ setMethod("deepcopy", signature(object ="gpuMatrix"),
               
           })
 
+
+
+#' @return A gpuMatrix object.
 #' @rdname gpuR-block
 setMethod("block",
           signature(object = "gpuMatrix",
@@ -697,7 +741,7 @@ setMethod("block",
               
           })
 
-
+#' @return A gpuMatrix object.
 setMethod("cbind2",
           signature(x = "gpuMatrix", y = "gpuMatrix"),
           function(x, y, ...){
@@ -742,6 +786,9 @@ setMethod("cbind2",
               return(ptr)
           })
 
+
+
+#' @return A gpuMatrix object.
 setMethod("cbind2",
           signature(x = "numeric", y = "gpuMatrix"),
           function(x, y, ...){
@@ -785,6 +832,9 @@ setMethod("cbind2",
               return(ptr)
           })
 
+
+
+#' @return A gpuMatrix object.
 setMethod("cbind2",
           signature(x = "gpuMatrix", y = "numeric"),
           function(x, y, ...){
@@ -828,6 +878,9 @@ setMethod("cbind2",
               return(ptr)
           })
 
+
+
+#' @return A gpuMatrix object.
 setMethod("rbind2",
           signature(x = "gpuMatrix", y = "gpuMatrix"),
           function(x, y, ...){
@@ -872,6 +925,9 @@ setMethod("rbind2",
               return(ptr)
           })
 
+
+
+#' @return A gpuMatrix object.
 setMethod("rbind2",
           signature(x = "numeric", y = "gpuMatrix"),
           function(x, y, ...){
@@ -915,6 +971,8 @@ setMethod("rbind2",
               return(ptr)
           })
 
+
+#' @return A gpuMatrix object.
 setMethod("rbind2",
           signature(x = "gpuMatrix", y = "numeric"),
           function(x, y, ...){

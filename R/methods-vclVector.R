@@ -3,6 +3,7 @@
 #' @title vclVector Methods
 #' @description stuff
 #' @param shared Logical indicating if memory should be shared with x
+#' @return A vclVector object.
 #' @aliases as.vclVector,vector
 #' @rdname as.vclVector-methods
 setMethod('as.vclVector', 
@@ -17,6 +18,7 @@ setMethod('as.vclVector',
           valueClass = "vclVector")
 
 
+#' @return A standard R vector
 #' @export
 as.vector.vclVector <- function(x, mode = "any"){
   out <- x[]
@@ -24,9 +26,9 @@ as.vector.vclVector <- function(x, mode = "any"){
 }
 
 
+#' @return A vclVector object.
 #' @rdname as.vclVector-methods
 #' @aliases as.vclVector,vclMatrix
-
 setMethod('as.vclVector', 
           signature(object = 'vclMatrix'),
           function(object, type=NULL, shared = FALSE){
@@ -71,6 +73,7 @@ setMethod('as.vclVector',
 
 
 
+#' @return A vclVector object.
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", signature(x="vclVector", y = "vclVector"),
@@ -84,6 +87,9 @@ setMethod("%*%", signature(x="vclVector", y = "vclVector"),
           valueClass = "vclVector"
 )
 
+
+
+#' @return A vclVector object.
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", signature(x="vclVector", y = "vclMatrix"),
@@ -99,6 +105,8 @@ setMethod("%*%", signature(x="vclVector", y = "vclMatrix"),
           valueClass = "vclVector"
 )
 
+
+#' @return A vclMatrix object.
 #' @rdname grapes-o-grapes-methods
 #' @export
 setMethod("%o%", signature(X="vclVector", Y = "vclVector"),
@@ -109,6 +117,8 @@ setMethod("%o%", signature(X="vclVector", Y = "vclVector"),
           valueClass = "vclMatrix"
 )
 
+
+#' @return A vclMatrix object.
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("tcrossprod",
@@ -118,6 +128,7 @@ setMethod("tcrossprod",
           },
           valueClass = "vclMatrix")
 
+#' @return A vclMatrix object.
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("tcrossprod",
@@ -127,6 +138,8 @@ setMethod("tcrossprod",
           },
           valueClass = "vclMatrix")
 
+
+#' @return A vclVector object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="vclVector", e2="vclVector"),
@@ -149,6 +162,8 @@ setMethod("Arith", c(e1="vclVector", e2="vclVector"),
           valueClass = "vclVector"
 )
 
+
+#' @return A vclVector object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="numeric", e2="vclVector"),
@@ -181,6 +196,8 @@ setMethod("Arith", c(e1="numeric", e2="vclVector"),
           valueClass = "vclVector"
 )
 
+
+#' @return A vclVector object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="vclVector", e2="numeric"),
@@ -207,6 +224,8 @@ setMethod("Arith", c(e1="vclVector", e2="numeric"),
           valueClass = "vclVector"
 )
 
+
+#' @return A vclVector object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="vclVector", e2="missing"),
@@ -221,6 +240,8 @@ setMethod("Arith", c(e1="vclVector", e2="missing"),
           valueClass = "vclVector"
 )
 
+
+#' @return A vclMatrix object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="vclVector", e2="vclMatrix"),
@@ -237,6 +258,8 @@ setMethod("Arith", c(e1="vclVector", e2="vclMatrix"),
           valueClass = "vclMatrix"
 )
 
+
+#' @return A vclVector object.
 #' @rdname Math-methods
 #' @export
 setMethod("Math", c(x="vclVector"),
@@ -264,6 +287,7 @@ setMethod("Math", c(x="vclVector"),
           valueClass = "vclVector"
 )
 
+#' @return A vclVector object.
 #' @rdname log-methods
 #' @export
 setMethod("log", c(x="vclVector"),
@@ -280,6 +304,8 @@ setMethod("log", c(x="vclVector"),
           valueClass = "vclVector"
 )
 
+
+#' @return The maximum or minimum value of the vclVector object.
 #' @rdname Summary-methods
 #' @export
 setMethod("Summary", c(x="vclVector"),
@@ -295,7 +321,7 @@ setMethod("Summary", c(x="vclVector"),
           }
 )
 
-
+#' @return The length of the vclVector based on its data type.
 #' @rdname length-methods
 #' @export
 setMethod('length', signature(x = "vclVector"),
@@ -309,6 +335,8 @@ setMethod('length', signature(x = "vclVector"),
           }
 )
 
+
+#' @return A deep copy of the input vclVector object.
 #' @rdname gpuR-deepcopy
 setMethod("deepcopy", signature(object ="vclVector"),
           function(object){
@@ -348,6 +376,10 @@ setMethod("deepcopy", signature(object ="vclVector"),
               return(out)
           })
 
+
+
+
+#' @return A sliced vclVector object.
 #' @rdname gpuR-slice
 setMethod("slice",
           signature(object = "vclVector", start = "integer", end = "integer"),

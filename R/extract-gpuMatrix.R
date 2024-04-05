@@ -6,6 +6,8 @@
 #' @param drop missing
 #' @param value data of similar type to be added to gpuMatrix object
 #' @param ... Additional arguments
+#' @return A matrix-like object of the same type as the input \code{x}, containing
+#' the elements specified by the indices \code{i} and \code{j}.
 #' @docType methods
 #' @rdname extract-methods
 #' @author Charles Determan Jr.
@@ -278,3 +280,12 @@ setMethod("[<-",
               )
               return(x)
           })
+
+
+
+
+
+
+
+
+

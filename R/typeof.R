@@ -2,6 +2,7 @@
 #' @description \code{typeof} determines the type (i.e. storage mode) of a 
 #' gpuR object
 #' @param x A gpuR object
+#' @return A character string indicating the type of the gpuR object.
 #' @rdname typeof-gpuR-methods
 #' @author Charles Determan Jr.
 #' @export

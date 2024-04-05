@@ -32,7 +32,7 @@
 #' Charles Determan \email{cdetermanjr@@gmail.com}
 #' 
 #' Maintainer: Charles Determan \email{cdetermanjr@@gmail.com}
-#' @docType package
+#' @docType "_PACKAGE"
 #' @name gpuR-package
 #' @aliases gpuR-package gpuR
 NULL

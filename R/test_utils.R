@@ -13,6 +13,7 @@
 #' @title Skip test for GPUs
 #' @description Function to skip testthat tests
 #' if no valid GPU's are detected
+#' @return Returns nothing but gives a message if no GPUs available.
 #' @export
 has_gpu_skip <- function() {
     gpuCheck <- try(detectGPUs(), silent=TRUE)
@@ -29,6 +30,7 @@ has_gpu_skip <- function() {
 #' @title Skip test in less than 2 GPUs
 #' @description Function to skip testthat tests
 #' if less than 2 valid GPU's are detected
+#' @return Returns nothing but gives a message if only one GPU is available.
 #' @export
 has_multiple_gpu_skip <- function() {
     gpuCheck <- try(detectGPUs(), silent=TRUE)
@@ -45,6 +47,7 @@ has_multiple_gpu_skip <- function() {
 #' @title Skip test for CPUs
 #' @description Function to skip testthat tests
 #' if no valid CPU's are detected
+#' @return Returns nothing but gives a message if no CPU is available.
 #' @export
 has_cpu_skip <- function() {
     cpuCheck <- try(detectCPUs(), silent=TRUE)
@@ -61,6 +64,7 @@ has_cpu_skip <- function() {
 #' @title Skip test for GPU double precision
 #' @description Function to skip testthat tests
 #' if the detected GPU doesn't support double precision
+#' @return Returns nothing but gives a message if GPU doesn't support double precision.
 #' @export
 has_double_skip <- function() {
     deviceCheck <- try(deviceHasDouble(), silent=TRUE)
@@ -77,6 +81,7 @@ has_double_skip <- function() {
 #' @title Skip test for multiple GPUs with double precision
 #' @description Function to skip testthat tests
 #' if their aren't multiple detected GPU with double precision
+#' @return Returns nothing but gives a message if there are less than 2 GPUs with double precision.
 #' @export
 has_multiple_double_skip <- function() {
     
@@ -124,6 +129,7 @@ set_device_context <- function(type){
 #' @description Versions of POCL up to 0.15-pre have a bug
 #' which results in values being returned when NA values
 #' should be (e.g. fractional powers of negative values)
+#' @return Returns nothing but gives a message if the POCL version is too old.
 #' @export
 pocl_check <- function(){
     p <- platformInfo()
