@@ -215,6 +215,7 @@ gpuVecpmax <- function(..., order){
 #' vectors as arguments and return a single vector giving the 'parallel'
 #' maxima (or minima) of the argument vectors
 #' @param ... gpuR or numeric arguments
+#' @return A vclMatrix object.
 #' @seealso \link[base]{pmax} \link[base]{pmin}
 #' @rdname pmax
 #' @export
