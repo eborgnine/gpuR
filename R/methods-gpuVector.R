@@ -1,11 +1,11 @@
-
+#' @return A regular vector.
 #' @export
 as.vector.gpuVector <- function(x, mode = "any"){
     out <- x[]
     return(out)
 }
 
-
+#' @return A gpuVector object.
 #' @rdname as.gpuVector-methods
 #' @aliases as.gpuVector,vector
 setMethod('as.gpuVector', 
@@ -19,7 +19,9 @@ setMethod('as.gpuVector',
           },
           valueClass = "gpuVector")
 
+
 #' @title Methods for gpu/vcl Vector
+#' @return The inner product of the two gpuVector objects \code{x} and \code{y}.
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", c(x="gpuVector", y="gpuVector"),
@@ -31,6 +33,8 @@ setMethod("%*%", c(x="gpuVector", y="gpuVector"),
               gpuVecInnerProd(x,y)
           })
 
+#' @return The result of matrix-vector multiplication between the gpuMatrix \code{y}
+#' and the gpuVector \code{x}.
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", signature(x="gpuVector", y = "gpuMatrix"),
@@ -46,10 +50,13 @@ setMethod("%*%", signature(x="gpuVector", y = "gpuMatrix"),
           valueClass = "gpuVector"
 )
 
+
+
 #' @title Outer Product
 #' @description The outer product of two gpuR vector objects
 #' @param X A gpuR object
 #' @param Y A gpuR object
+#' @return The outer product of the two gpuVector objects \code{X} and \code{Y}.
 #' @docType methods
 #' @rdname grapes-o-grapes-methods
 #' @author Charles Determan Jr.
@@ -59,6 +66,12 @@ setMethod("%o%", c(X="gpuVector", Y="gpuVector"),
               gpuVecOuterProd(X,Y)
           })
 
+
+
+
+
+#' @return The transpose of the outer product of the two 
+#' gpuVector objects \code{x} and \code{y}.
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("tcrossprod",
@@ -68,6 +81,11 @@ setMethod("tcrossprod",
           },
           valueClass = "gpuMatrix")
 
+
+
+
+#' @return The transpose of the outer product of the 
+#' gpuVector object \code{x} with itself.
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("tcrossprod",
@@ -77,6 +95,10 @@ setMethod("tcrossprod",
           },
           valueClass = "gpuMatrix")
 
+
+
+#' @return A gpuVector object resulting from the arithmetic 
+#' operation performed on the input gpuVector objects \code{e1} and \code{e2}.
 #' @rdname Arith-methods
 #' @aliases Arith-gpuVector-gpuVector-method
 #' @export
@@ -100,6 +122,9 @@ setMethod("Arith", c(e1="gpuVector", e2="gpuVector"),
           valueClass = "gpuVector"
 )
 
+
+#' @return A  gpuVector object resulting from the arithmetic operation 
+#' performed on the input numeric value \code{e1} and gpuVector object \code{e2}.
 #' @rdname Arith-methods
 #' @aliases Arith-numeric-gpuVector-method
 #' @export
@@ -127,6 +152,10 @@ setMethod("Arith", c(e1="numeric", e2="gpuVector"),
           valueClass = "gpuVector"
 )
 
+
+#' @return A  gpuVector object resulting from the arithmetic operation 
+#' performed on the input \code{gpuVector} object 
+#' \code{e1} and numeric value \code{e2}.
 #' @rdname Arith-methods
 #' @aliases Arith-gpuVector-numeric-method
 #' @export
@@ -154,6 +183,10 @@ setMethod("Arith", c(e1="gpuVector", e2="numeric"),
           valueClass = "gpuVector"
 )
 
+
+
+#' @return A  gpuVector object resulting from the unary arithmetic 
+#' operation performed on the input \code{gpuVector} object \code{e1}.
 #' @rdname Arith-methods
 #' @aliases Arith-gpuVector-missing-method
 #' @export
@@ -169,6 +202,12 @@ setMethod("Arith", c(e1="gpuVector", e2="missing"),
           valueClass = "gpuVector"
 )
 
+
+
+
+#' @return A  gpuMatrix object resulting from the matrix-vector 
+#' arithmetic operation performed on the input \code{gpuVector} 
+#' object \code{e1} and \code{gpuMatrix} object \code{e2}.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="gpuVector", e2="gpuMatrix"),
@@ -185,7 +224,9 @@ setMethod("Arith", c(e1="gpuVector", e2="gpuMatrix"),
           valueClass = "gpuMatrix"
 )
 
-
+#' @return A gpuVector object resulting from the 
+#' element-wise mathematical operation performed on 
+#' the input \code{gpuVector} object \code{x}.
 #' @rdname Math-methods
 #' @export
 setMethod("Math", c(x="gpuVector"),
@@ -213,6 +254,12 @@ setMethod("Math", c(x="gpuVector"),
           valueClass = "gpuVector"
 )
 
+
+
+
+
+#' @return A gpuVector object with the element-wise natural 
+#' logarithm of the elements of the input gpuVector object \code{x}.
 #' @rdname log-methods
 #' @export
 setMethod("log", c(x="gpuVector"),
@@ -229,6 +276,10 @@ setMethod("log", c(x="gpuVector"),
           valueClass = "gpuVector"
 )
 
+
+
+
+#' @return The maximum or minimum value of the gpuVector object.
 #' @rdname Summary-methods
 #' @export
 setMethod("Summary", c(x="gpuVector"),
@@ -243,6 +294,9 @@ setMethod("Summary", c(x="gpuVector"),
               return(result)
           }
 )
+
+
+
 
 # These compare functions need improvement to have
 # a C++ backend function to make faster and more efficient
@@ -269,6 +323,11 @@ setMethod("Compare", c(e1="vector", e2="gpuVector"),
           valueClass = "vector"
 )
 
+
+
+
+
+#' @return A logical vector
 #' @rdname Compare-methods
 #' @aliases Compare-gpuVector-vector
 #' @export
@@ -289,6 +348,7 @@ valueClass = "vector"
 
 # setOldClass("length")
 
+#' @return Length of the gpuVector object \code{x}.
 #' @rdname length-methods
 #' @export
 setMethod('length', signature(x = "gpuVector"),
@@ -303,6 +363,8 @@ setMethod('length', signature(x = "gpuVector"),
 )
 
 
+
+#' @return A sliced gpuVector object from index \code{start} to \code{end}.
 #' @rdname gpuR-slice
 setMethod("slice",
           signature(object = "gpuVector", start = "integer", end = "integer"),
@@ -339,6 +401,8 @@ setMethod("slice",
           
         })
 
+
+#' @return A deep copy of the input gpuVector object.
 #' @rdname gpuR-deepcopy
 setMethod("deepcopy", signature(object ="gpuVector"),
           function(object){

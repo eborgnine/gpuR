@@ -21,6 +21,7 @@ setClassUnion("missingOrNULL", c("missing", "NULL"))
 #'      \item{\code{.device_index}:}{Integer index of active device}
 #'      \item{\code{.device}:}{Name of active device}
 #'  }
+#' @return An object of class 'gpuVector' with the specified slots.
 #' @name gpuVector-class
 #' @rdname gpuVector-class
 #' @author Charles Determan Jr.

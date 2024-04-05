@@ -13,6 +13,15 @@ splitAt <- function(x, pos) unname(split(x, cumsum(seq_along(x) %in% pos)))
 #' @param kernel_maps The corresponding arguments names in the provided OpenCL kernel
 #' corresponds to the gpuR objects passed and contains a character vector of
 #' which kernels the object will be enqueued.
+#' @return A \code{data.frame} with columns:
+#' \describe{
+#'  \item{\code{object}:}{The name of the gpuR object.}
+#'  \item{\code{intents}:}{The intent of the object, specified as 'IN', 'OUT', or 'INOUT'.}
+#'  \item{\code{queues}:}{A character vector reflecting equal length to \code{objects}, 
+#'  where each element reflects a kernel function defined in an OpenCL kernel file.}
+#'  \item{\code{map}:}{The corresponding arguments names in the provided OpenCL kernel 
+#'  corresponding to the gpuR objects passed.}
+#' }
 # @importFrom assertive.types assert_is_character assert_is_list
 #' @import BH RViennaCL RcppEigen
 #' @export
@@ -31,7 +40,7 @@ setup_opencl <- function(objects, intents, queues, kernel_maps = NULL){
 
     # make sure defining possible objects
     assertive.base::assert_all_are_true(objects %in% c('gpuVector', 'vclVector', 'gpuMatrix', 'vclMatrix', 'scalar'))
-  assertive.base::assert_all_are_true(intents %in% c("IN", "OUT", "INOUT"))
+    assertive.base::assert_all_are_true(intents %in% c("IN", "OUT", "INOUT"))
 
     if(is.null(kernel_maps) & is.null(names(objects))){
         stop("Either 'objects' must have names corresponding to kernel arguments
@@ -60,6 +69,8 @@ setup_opencl <- function(objects, intents, queues, kernel_maps = NULL){
 #' Provided by \code{\link{setup_opencl}}
 #' @param type The precision on which the kernel is compiled.  Options include
 #' \code{"int"}, \code{"float"}, and \code{"double"}
+#' @return This function does not return a value directly, but it compiles 
+#' the provided OpenCL \code{kernel} and performs necessary operations for using it.
 #' @importFrom assertive.base assert_are_identical
 #' @importFrom tools file_path_sans_ext
 #' @importFrom Rcpp sourceCpp

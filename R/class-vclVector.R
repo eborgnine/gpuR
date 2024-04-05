@@ -19,6 +19,7 @@
 #'      \item{\code{.device_index}:}{Integer index of active device}
 #'      \item{\code{.device}:}{Name of active device}
 #'  }
+#' @return An object of class 'vclVector' with the specified slots.
 #' @name vclVector-class
 #' @rdname vclVector-class
 #' @author Charles Determan Jr.
