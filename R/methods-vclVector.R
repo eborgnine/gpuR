@@ -26,7 +26,6 @@ as.vector.vclVector <- function(x, mode = "any"){
 }
 
 
-#' @return A vclVector object.
 #' @rdname as.vclVector-methods
 #' @aliases as.vclVector,vclMatrix
 setMethod('as.vclVector', 
@@ -73,7 +72,7 @@ setMethod('as.vclVector',
 
 
 
-#' @return A vclVector object.
+
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", signature(x="vclVector", y = "vclVector"),
@@ -89,7 +88,7 @@ setMethod("%*%", signature(x="vclVector", y = "vclVector"),
 
 
 
-#' @return A vclVector object.
+
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", signature(x="vclVector", y = "vclMatrix"),
@@ -118,7 +117,7 @@ setMethod("%o%", signature(X="vclVector", Y = "vclVector"),
 )
 
 
-#' @return A vclMatrix object.
+
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("tcrossprod",
@@ -128,7 +127,7 @@ setMethod("tcrossprod",
           },
           valueClass = "vclMatrix")
 
-#' @return A vclMatrix object.
+
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("tcrossprod",
@@ -139,7 +138,7 @@ setMethod("tcrossprod",
           valueClass = "vclMatrix")
 
 
-#' @return A vclVector object.
+
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="vclVector", e2="vclVector"),
@@ -163,7 +162,7 @@ setMethod("Arith", c(e1="vclVector", e2="vclVector"),
 )
 
 
-#' @return A vclVector object.
+
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="numeric", e2="vclVector"),
@@ -197,7 +196,6 @@ setMethod("Arith", c(e1="numeric", e2="vclVector"),
 )
 
 
-#' @return A vclVector object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="vclVector", e2="numeric"),
@@ -225,7 +223,6 @@ setMethod("Arith", c(e1="vclVector", e2="numeric"),
 )
 
 
-#' @return A vclVector object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="vclVector", e2="missing"),
@@ -241,7 +238,6 @@ setMethod("Arith", c(e1="vclVector", e2="missing"),
 )
 
 
-#' @return A vclMatrix object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="vclVector", e2="vclMatrix"),

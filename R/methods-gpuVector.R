@@ -5,7 +5,7 @@ as.vector.gpuVector <- function(x, mode = "any"){
     return(out)
 }
 
-#' @return A gpuVector object.
+
 #' @rdname as.gpuVector-methods
 #' @aliases as.gpuVector,vector
 setMethod('as.gpuVector', 
@@ -97,8 +97,8 @@ setMethod("tcrossprod",
 
 
 
-#' @return A gpuVector object resulting from the arithmetic 
-#' operation performed on the input gpuVector objects \code{e1} and \code{e2}.
+
+
 #' @rdname Arith-methods
 #' @aliases Arith-gpuVector-gpuVector-method
 #' @export
@@ -123,8 +123,8 @@ setMethod("Arith", c(e1="gpuVector", e2="gpuVector"),
 )
 
 
-#' @return A  gpuVector object resulting from the arithmetic operation 
-#' performed on the input numeric value \code{e1} and gpuVector object \code{e2}.
+
+
 #' @rdname Arith-methods
 #' @aliases Arith-numeric-gpuVector-method
 #' @export
@@ -153,9 +153,8 @@ setMethod("Arith", c(e1="numeric", e2="gpuVector"),
 )
 
 
-#' @return A  gpuVector object resulting from the arithmetic operation 
-#' performed on the input \code{gpuVector} object 
-#' \code{e1} and numeric value \code{e2}.
+
+
 #' @rdname Arith-methods
 #' @aliases Arith-gpuVector-numeric-method
 #' @export
@@ -185,8 +184,8 @@ setMethod("Arith", c(e1="gpuVector", e2="numeric"),
 
 
 
-#' @return A  gpuVector object resulting from the unary arithmetic 
-#' operation performed on the input \code{gpuVector} object \code{e1}.
+
+
 #' @rdname Arith-methods
 #' @aliases Arith-gpuVector-missing-method
 #' @export
@@ -205,9 +204,7 @@ setMethod("Arith", c(e1="gpuVector", e2="missing"),
 
 
 
-#' @return A  gpuMatrix object resulting from the matrix-vector 
-#' arithmetic operation performed on the input \code{gpuVector} 
-#' object \code{e1} and \code{gpuMatrix} object \code{e2}.
+
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="gpuVector", e2="gpuMatrix"),

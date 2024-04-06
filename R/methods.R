@@ -103,7 +103,7 @@ setMethod("Arith", c(e1="gpuMatrix", e2="gpuMatrix"),
           valueClass = "gpuMatrix"
 )
 
-#' @return A gpuMatrix object.
+
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="gpuMatrix", e2="matrix"),
@@ -127,7 +127,6 @@ setMethod("Arith", c(e1="gpuMatrix", e2="matrix"),
 )
 
 
-#' @return A gpuMatrix object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="matrix", e2="gpuMatrix"),
@@ -150,7 +149,6 @@ setMethod("Arith", c(e1="matrix", e2="gpuMatrix"),
 )
 
 
-#' @return A gpuMatrix object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="gpuMatrix", e2="numeric"),
@@ -178,8 +176,6 @@ setMethod("Arith", c(e1="gpuMatrix", e2="numeric"),
 )
 
 
-
-#' @return A gpuMatrix object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="numeric", e2="gpuMatrix"),
@@ -214,7 +210,6 @@ setMethod("Arith", c(e1="numeric", e2="gpuMatrix"),
 
 
 
-#' @return A gpuMatrix object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="gpuMatrix", e2="missing"),
@@ -230,8 +225,6 @@ setMethod("Arith", c(e1="gpuMatrix", e2="missing"),
 )
 
 
-
-#' @return A gpuMatrix object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="gpuMatrix", e2="gpuVector"),
@@ -357,7 +350,6 @@ setMethod('ncol', signature(x="gpuMatrix"),
 #' @title gpuMatrix/vclMatrix dim method
 #' @description Retrieve dimension of object
 #' @param x A gpuMatrix/vclMatrix object
-#' @return A length 2 vector of the number of rows and columns respectively.
 #' @docType methods
 #' @rdname dim-methods
 #' @author Charles Determan Jr.
@@ -446,8 +438,8 @@ setMethod("cov",
               return(gpu_pmcc(x))
           })
 
+
 #' @rdname cov-methods
-#' @return A gpuMatrix of covariances or correlation coefficients.
 #' @export
 setMethod("cov",
           signature(x = "gpuMatrix", y = "gpuMatrix", use = "missing", method = "missing"),
@@ -460,7 +452,7 @@ setMethod("cov",
 
 
 
-#' @return A gpuMatrix.
+
 #' @rdname cov-methods
 #' @export
 setMethod("cov",

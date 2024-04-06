@@ -78,11 +78,6 @@ setMethod("%*%", signature(x="matrix", y = "vclMatrix"),
 
 
 
-
-
-
-#' @return A \code{vclMatrix} object, the result of the arithmetic operation 
-#' between two vclMatrix objects e1 and e2. 
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="vclMatrix", e2="vclMatrix"),
@@ -104,8 +99,6 @@ setMethod("Arith", c(e1="vclMatrix", e2="vclMatrix"),
 
 
 
-#' @return A \code{vclMatrix} object, the result of the arithmetic operation 
-#' between a \code{vclMatrix} object e1 and a regular R matrix object e2. 
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="vclMatrix", e2="matrix"),
@@ -130,9 +123,6 @@ setMethod("Arith", c(e1="vclMatrix", e2="matrix"),
 
 
 
-
-
-#' @return A \code{vclMatrix} object
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="matrix", e2="vclMatrix"),
@@ -158,8 +148,7 @@ setMethod("Arith", c(e1="matrix", e2="vclMatrix"),
 
 
 
-#' @return A \code{vclMatrix} object: The result of the arithmetic operation 
-#' between a \code{vclMatrix} object `e1` and a numeric `e2`.
+
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="vclMatrix", e2="numeric"),
@@ -188,7 +177,6 @@ setMethod("Arith", c(e1="vclMatrix", e2="numeric"),
 )
 
 
-#' @return A \code{vclMatrix} object.
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="numeric", e2="vclMatrix"),
@@ -223,7 +211,7 @@ setMethod("Arith", c(e1="numeric", e2="vclMatrix"),
 )
 
 
-#' @return A \code{vclMatrix} object.
+
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="vclMatrix", e2="missing"),
@@ -239,7 +227,7 @@ setMethod("Arith", c(e1="vclMatrix", e2="missing"),
 )
 
 
-#' @return A \code{vclMatrix} object.
+
 #' @rdname Arith-methods
 #' @export
 setMethod("Arith", c(e1="vclMatrix", e2="vclVector"),
@@ -305,7 +293,7 @@ setMethod("log", c(x="vclMatrix"),
 )
 
 
-#' @return An integer: The number of rows in the \code{vclMatrix} object `x`.
+#' @return An integer.
 #' @rdname nrow-gpuR
 #' @export
 setMethod('nrow', signature(x="vclMatrix"), 
@@ -325,7 +313,7 @@ setMethod('nrow', signature(x="vclMatrix"),
 )
 
 
-#' @return An integer: The number of columns in the \code{vclMatrix} object `x`.
+
 #' @rdname nrow-gpuR
 #' @export
 setMethod('ncol', signature(x="vclMatrix"),
@@ -1077,7 +1065,7 @@ setMethod("diag", c(x = "vclMatrix"),
 
 
 
-#' @return The \code{vclMatrix} object `x` with its diagonal replaced by `value`.
+
 #' @rdname diag-methods
 #' @aliases diag<-,vclMatrix,vclVector
 #' @export
