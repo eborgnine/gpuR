@@ -4,6 +4,9 @@
 \name{dvclMatrix-class}
 \alias{dvclMatrix-class}
 \title{dvclMatrix Class}
+\value{
+If the vclMatrix object is of type 'double', returns TRUE, if not, returns an error message.
+}
 \description{
 An integer type matrix in the S4 \code{vclMatrix}
 representation.

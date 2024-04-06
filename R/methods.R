@@ -374,7 +374,7 @@ setMethod('length', signature(x="gpuMatrix"),
 #' @title Row and Column Sums and Means of gpuMatrix
 #' @description Row and column sums and of gpuMatrix objects
 #' @param x A gpuMatrix object
-#' @return A gpuVector object
+#' @return A gpuvector containing the sum of each column in the gpuMatrix.
 #' @author Charles Determan Jr.
 #' @docType methods
 #' @rdname gpuMatrix.colSums
@@ -388,7 +388,7 @@ setMethod("colSums",
           })
 
 #' @rdname gpuMatrix.colSums
-#' @return A vector containing the sum of each row in the gpuMatrix.
+#' @return A gpuvector containing the sum of each row in the gpuMatrix.
 #' @export
 setMethod("rowSums",
           signature(x = "gpuMatrix"),
@@ -399,7 +399,7 @@ setMethod("rowSums",
 
 
 #' @rdname gpuMatrix.colSums
-#' @return A vector containing the mean of each column in the gpuMatrix.
+#' @return A gpuvector containing the mean of each column in the gpuMatrix.
 #' @export
 setMethod("colMeans",
           signature(x = "gpuMatrix"),
@@ -409,7 +409,7 @@ setMethod("colMeans",
 
 
 #' @rdname gpuMatrix.colSums
-#' @return A vector.
+#' @return A gpuvector containing the mean of each row in the gpuMatrix.
 #' @export
 setMethod("rowMeans",
           signature(x = "gpuMatrix"),
@@ -496,7 +496,7 @@ setMethod("crossprod",
           })
 
 
-#' @return A gpuMatrix.
+
 #' @rdname gpuMatrix-crossprod
 #' @export
 setMethod("crossprod",
@@ -506,7 +506,7 @@ setMethod("crossprod",
           })
 
 
-#' @return A gpuMatrix.
+
 #' @rdname gpuMatrix-crossprod
 #' @export
 setMethod("crossprod",
@@ -517,7 +517,7 @@ setMethod("crossprod",
           })
 
 
-#' @return A gpuMatrix.
+
 #' @rdname gpuMatrix-crossprod
 #' @export
 setMethod("crossprod",
@@ -567,7 +567,7 @@ setMethod("tcrossprod",
 
 
 
-#' @return A matrix of distances between rows of the gpuMatrix object `x`.
+
 #' @rdname dist-vclMatrix
 #' @aliases dist,gpuMatrix
 #' @export
@@ -607,7 +607,7 @@ setMethod("dist", signature(x="gpuMatrix"),
 
 
 
-#' @return A gpuMatrix object containing the pairwise distances between rows of `x` and `y`.
+
 #' @rdname dist-vclMatrix
 #' @aliases distance,gpuMatrix
 setMethod("distance", signature(x = "gpuMatrix", y = "gpuMatrix"),
@@ -693,7 +693,6 @@ setMethod("deepcopy", signature(object ="gpuMatrix"),
 
 
 
-#' @return A gpuMatrix object.
 #' @rdname gpuR-block
 setMethod("block",
           signature(object = "gpuMatrix",

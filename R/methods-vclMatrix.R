@@ -480,7 +480,7 @@ setMethod("tcrossprod",
           })
 
 
-#' @return A \code{vclMatrix} object.
+
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("tcrossprod",
@@ -491,7 +491,7 @@ setMethod("tcrossprod",
 
 
 
-#' @return A \code{vclMatrix} object.
+
 #' @rdname cov-methods
 #' @export
 setMethod("cov",
@@ -504,7 +504,7 @@ setMethod("cov",
           })
 
 
-#' @return A \code{vclMatrix} object.
+
 #' @rdname cov-methods
 #' @export
 setMethod("cov",
@@ -517,7 +517,7 @@ setMethod("cov",
           })
 
 
-#' @return A \code{vclMatrix} object.
+
 #' @rdname cov-methods
 #' @export
 setMethod("cov",
@@ -532,7 +532,7 @@ setMethod("cov",
 
 
 
-#' @return A \code{vclMatrix} object.
+
 #' @rdname cov-methods
 #' @export
 setMethod("cov",
@@ -565,7 +565,7 @@ setMethod("colSums",
 
 
 
-#' @return A \code{vclVector} object
+
 #' @rdname vclMatrix.colSums
 #' @export
 setMethod("rowSums",
@@ -575,7 +575,7 @@ setMethod("rowSums",
           })
 
 
-#' @return A \code{vclVector} object
+
 #' @rdname vclMatrix.colSums
 #' @export
 setMethod("colMeans",
@@ -584,7 +584,7 @@ setMethod("colMeans",
               vclMatrix_colMeans(x)
           })
 
-#' @return A \code{vclVector} object
+
 #' @rdname vclMatrix.colSums
 #' @export
 setMethod("rowMeans",
@@ -593,7 +593,8 @@ setMethod("rowMeans",
               vclMatrix_rowMeans(x)
           })
 
-#' @return A \code{vclVector} object
+
+
 #' @rdname Summary-methods
 #' @export
 setMethod("Summary", c(x="vclMatrix"),
@@ -623,7 +624,8 @@ setMethod("Summary", c(x="vclMatrix"),
 #' @param upper logical value indicating whether the upper triangle of the 
 #' distance matrix
 #' @param p The power of the Minkowski distance (not currently used)
-#' @return a \code{gpuMatrix}/\code{vclMatrix} containing the corresponding distances
+#' @return a \code{gpuMatrix}/\code{vclMatrix} containing the pairwise distances 
+#' between rows of `x` and `y`, based on the specified method.
 #' @rdname dist-vclMatrix
 #' @aliases dist,vclMatrix
 #' @export
@@ -662,8 +664,7 @@ setMethod("dist", signature(x="vclMatrix"),
 )
 
 
-#' @return A \code{vclMatrix} containing the pairwise distances 
-#' between rows of `x` and `y`, based on the specified method.
+
 #' @rdname dist-vclMatrix
 #' @aliases distance,vclMatrix
 setMethod("distance", signature(x = "vclMatrix", y = "vclMatrix"),
@@ -757,8 +758,6 @@ setMethod("deepcopy", signature(object ="vclMatrix"),
 
 
 
-
-#' @return A block of the input \code{vclMatrix} object.
 #' @rdname gpuR-block
 setMethod("block",
           signature(object = "vclMatrix", 

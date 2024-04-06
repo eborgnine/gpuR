@@ -55,6 +55,7 @@ setClass('gpuVector',
 #' @name igpuVector-class
 #' @rdname igpuVector-class
 #' @author Charles Determan Jr.
+#' @return If the gpuVector object is of type 'integer', returns TRUE, if not, returns an error message. 
 #' @seealso \code{\link{gpuVector-class}}
 #' @export
 setClass("igpuVector",
@@ -87,6 +88,7 @@ setClass("igpuVector",
 #' @name fgpuVector-class
 #' @rdname fgpuVector-class
 #' @author Charles Determan Jr.
+#' @return If the gpuVector object is of type 'float', returns TRUE, if not, returns an error message. 
 #' @seealso \code{\link{gpuVector-class}}
 #' @export
 setClass("fgpuVector",
@@ -109,6 +111,7 @@ setClass("fgpuVector",
 #' @name dgpuVector-class
 #' @rdname dgpuVector-class
 #' @author Charles Determan Jr.
+#' @return If the gpuVector object is of type 'double', returns TRUE, if not, returns an error message. 
 #' @seealso \code{\link{gpuVector-class}}
 #' @export
 setClass("dgpuVector",

@@ -27,12 +27,6 @@
 not currently used)}
 }
 \value{
-The maximum or minimum value of the gpuVector object.
-
-A \code{vclVector} object
-
-The maximum or minimum value of the vclVector object.
-
 For \code{min} or \code{max}, a length-one vector
 }
 \description{

@@ -4,7 +4,6 @@
 #' @description stuff
 #' @param shared Logical indicating if memory should be shared with x
 #' @return A vclVector object.
-#' @aliases as.vclVector,vector
 #' @rdname as.vclVector-methods
 setMethod('as.vclVector', 
           signature(object = 'vector'),
@@ -301,7 +300,7 @@ setMethod("log", c(x="vclVector"),
 )
 
 
-#' @return The maximum or minimum value of the vclVector object.
+
 #' @rdname Summary-methods
 #' @export
 setMethod("Summary", c(x="vclVector"),

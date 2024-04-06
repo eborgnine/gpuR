@@ -36,12 +36,6 @@
 }
 \value{
 A gpuMatrix
-
-A gpuMatrix.
-
-A gpuMatrix.
-
-A gpuMatrix.
 }
 \description{
 Return the matrix cross-product of two conformable

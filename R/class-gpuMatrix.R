@@ -58,6 +58,7 @@ setClass('gpuMatrix',
 #' @name igpuMatrix-class
 #' @rdname igpuMatrix-class
 #' @author Charles Determan Jr.
+#' @return If the gpuMatrix object is of type 'integer', returns TRUE, if not, returns an error message. 
 #' @seealso \code{\link{gpuMatrix-class}}, 
 #' \code{\link{igpuMatrix-class}},
 #' \code{\link{dgpuMatrix-class}}
@@ -72,6 +73,8 @@ setClass("igpuMatrix",
          })
 
 
+
+
 #' @title fgpuMatrix Class
 #' @description A float type matrix in the S4 \code{gpuMatrix}
 #' representation.
@@ -82,6 +85,7 @@ setClass("igpuMatrix",
 #' @name fgpuMatrix-class
 #' @rdname fgpuMatrix-class
 #' @author Charles Determan Jr.
+#' @return If the gpuMatrix object is of type 'float', returns TRUE, if not, returns an error message. 
 #' @seealso \code{\link{gpuMatrix-class}}, 
 #' \code{\link{igpuMatrix-class}},
 #' \code{\link{dgpuMatrix-class}}
@@ -106,6 +110,7 @@ setClass("fgpuMatrix",
 #' @name dgpuMatrix-class
 #' @rdname dgpuMatrix-class
 #' @author Charles Determan Jr.
+#' @return If the gpuMatrix object is of type 'double', returns TRUE, if not, returns an error message. 
 #' @seealso \code{\link{gpuMatrix-class}}, 
 #' \code{\link{igpuMatrix-class}},
 #' \code{\link{fgpuMatrix-class}}
@@ -129,6 +134,7 @@ setClass("dgpuMatrix",
 #' @name cgpuMatrix-class
 #' @rdname cgpuMatrix-class
 #' @author Charles Determan Jr.
+#' @return If the gpuMatrix object is of type 'complex float', returns TRUE, if not, returns an error message. 
 #' @seealso \code{\link{gpuMatrix-class}}, 
 #' \code{\link{igpuMatrix-class}},
 #' \code{\link{dgpuMatrix-class}}
@@ -153,6 +159,7 @@ setClass("cgpuMatrix",
 #' @name zgpuMatrix-class
 #' @rdname zgpuMatrix-class
 #' @author Charles Determan Jr.
+#' @return If the gpuMatrix object is of type 'complex double', returns TRUE, if not, returns an error message.
 #' @seealso \code{\link{gpuMatrix-class}}, 
 #' \code{\link{igpuMatrix-class}},
 #' \code{\link{dgpuMatrix-class}}

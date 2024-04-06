@@ -276,7 +276,6 @@ setMethod("log", c(x="gpuVector"),
 
 
 
-#' @return The maximum or minimum value of the gpuVector object.
 #' @rdname Summary-methods
 #' @export
 setMethod("Summary", c(x="gpuVector"),
@@ -323,8 +322,6 @@ setMethod("Compare", c(e1="vector", e2="gpuVector"),
 
 
 
-
-#' @return A logical vector
 #' @rdname Compare-methods
 #' @aliases Compare-gpuVector-vector
 #' @export

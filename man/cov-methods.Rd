@@ -38,14 +38,6 @@
 \item{method}{Character string indicating with covariance to be computed.}
 }
 \value{
-A \code{vclMatrix} object.
-
-A \code{vclMatrix} object.
-
-A \code{vclMatrix} object.
-
-A \code{vclMatrix} object.
-
 A gpuMatrix/vclMatrix containing the symmetric covariance values.
 }
 \description{

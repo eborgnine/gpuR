@@ -60,6 +60,7 @@ setClass('vclMatrix',
 #' @name ivclMatrix-class
 #' @rdname ivclMatrix-class
 #' @author Charles Determan Jr.
+#' @return If the vclMatrix object is of type 'integer', returns TRUE, if not, returns an error message. 
 #' @seealso \code{\link{vclMatrix-class}}, 
 #' \code{\link{ivclMatrix-class}},
 #' \code{\link{dvclMatrix-class}}
@@ -84,6 +85,7 @@ setClass("ivclMatrix",
 #' @name fvclMatrix-class
 #' @rdname fvclMatrix-class
 #' @author Charles Determan Jr.
+#' @return If the vclMatrix object is of type 'float', returns TRUE, if not, returns an error message. 
 #' @seealso \code{\link{vclMatrix-class}}, 
 #' \code{\link{ivclMatrix-class}},
 #' \code{\link{dvclMatrix-class}}
@@ -108,6 +110,7 @@ setClass("fvclMatrix",
 #' @name dvclMatrix-class
 #' @rdname dvclMatrix-class
 #' @author Charles Determan Jr.
+#' @return If the vclMatrix object is of type 'double', returns TRUE, if not, returns an error message. 
 #' @seealso \code{\link{vclMatrix-class}}, 
 #' \code{\link{ivclMatrix-class}},
 #' \code{\link{fvclMatrix-class}}
@@ -131,6 +134,7 @@ setClass("dvclMatrix",
 #' @name cvclMatrix-class
 #' @rdname cvclMatrix-class
 #' @author Charles Determan Jr.
+#' @return If the vclMatrix object is of type 'complex float', returns TRUE, if not, returns an error message. 
 #' @seealso \code{\link{vclMatrix-class}}, 
 #' \code{\link{ivclMatrix-class}},
 #' \code{\link{fvclMatrix-class}}
@@ -154,6 +158,7 @@ setClass("cvclMatrix",
 #' @name zvclMatrix-class
 #' @rdname zvclMatrix-class
 #' @author Charles Determan Jr.
+#' @return If the vclMatrix object is of type 'complex double', returns TRUE, if not, returns an error message. 
 #' @seealso \code{\link{vclMatrix-class}}, 
 #' \code{\link{ivclMatrix-class}},
 #' \code{\link{fvclMatrix-class}}

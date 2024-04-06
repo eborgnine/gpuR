@@ -139,13 +139,7 @@
 \item{value}{data of similar type to be added to gpuMatrix object}
 }
 \value{
-A matrix-like object of the same type as the input \code{x}, containing
-the elements specified by the indices \code{i} and \code{j}.
-
-A matrix-like object of the same type as the input \code{x}, containing
-the elements specified by the indices \code{i} and \code{j}.
-
-A matrix-like object of the same type as the input \code{x}, containing
+A gpuR object of the same type as the input \code{x}, containing
 the elements specified by the indices \code{i} and \code{j}.
 
 A vector-like object of the same type as the input \code{x}, containing

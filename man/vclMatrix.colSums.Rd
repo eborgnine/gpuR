@@ -23,12 +23,6 @@
 }
 \value{
 A \code{vclVector} object
-
-A \code{vclVector} object
-
-A \code{vclVector} object
-
-A \code{vclVector} object
 }
 \description{
 Row and column sums and of vclMatrix objects

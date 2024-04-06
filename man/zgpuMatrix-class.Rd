@@ -4,6 +4,9 @@
 \name{zgpuMatrix-class}
 \alias{zgpuMatrix-class}
 \title{zgpuMatrix Class}
+\value{
+If the gpuMatrix object is of type 'complex double', returns TRUE, if not, returns an error message.
+}
 \description{
 An complex double type matrix in the S4 \code{gpuMatrix}
 representation.

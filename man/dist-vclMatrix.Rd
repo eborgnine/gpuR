@@ -39,14 +39,8 @@ distance matrix}
 \item{p}{The power of the Minkowski distance (not currently used)}
 }
 \value{
-a \code{gpuMatrix}/\code{vclMatrix} containing the corresponding distances
-
-A \code{vclMatrix} containing the pairwise distances 
+a \code{gpuMatrix}/\code{vclMatrix} containing the pairwise distances 
 between rows of `x` and `y`, based on the specified method.
-
-A matrix of distances between rows of the gpuMatrix object `x`.
-
-A gpuMatrix object containing the pairwise distances between rows of `x` and `y`.
 }
 \description{
 This function computes and returns the distance matrix 

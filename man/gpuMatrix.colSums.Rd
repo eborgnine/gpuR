@@ -22,13 +22,13 @@
 \item{x}{A gpuMatrix object}
 }
 \value{
-A gpuVector object
+A gpuvector containing the sum of each column in the gpuMatrix.
 
-A vector containing the sum of each row in the gpuMatrix.
+A gpuvector containing the sum of each row in the gpuMatrix.
 
-A vector containing the mean of each column in the gpuMatrix.
+A gpuvector containing the mean of each column in the gpuMatrix.
 
-A vector.
+A gpuvector containing the mean of each row in the gpuMatrix.
 }
 \description{
 Row and column sums and of gpuMatrix objects

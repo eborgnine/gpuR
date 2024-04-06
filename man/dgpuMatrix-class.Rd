@@ -4,6 +4,9 @@
 \name{dgpuMatrix-class}
 \alias{dgpuMatrix-class}
 \title{dgpuMatrix Class}
+\value{
+If the gpuMatrix object is of type 'double', returns TRUE, if not, returns an error message.
+}
 \description{
 A double type matrix in the S4 \code{gpuMatrix}
 representation.

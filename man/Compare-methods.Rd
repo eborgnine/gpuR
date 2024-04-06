@@ -19,8 +19,6 @@
 }
 \value{
 A logical vector
-
-A logical vector
 }
 \description{
 Methods for comparison operators

@@ -4,7 +4,6 @@
 \name{as.vclVector}
 \alias{as.vclVector}
 \alias{as.vclVector,vector-method}
-\alias{as.vclVector,vector}
 \alias{as.vclVector,vclMatrix-method}
 \alias{as.vclVector,vclMatrix}
 \title{Convert object to a vclVector}

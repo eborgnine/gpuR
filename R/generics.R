@@ -88,7 +88,7 @@ setGeneric("slice", function(object, start, end){
 #' 
 #' NOTE - this means that altering values in a matrix block object will alter
 #' values in the source matrix.
-#' @return A \code{gpuMatrixBlock} or \code{vclMatrixBlock} object
+#' @return A block of the input \code{gpuMatrixBlock} or \code{vclMatrixBlock} object.
 #' @author Charles Determan Jr.
 #' @docType methods
 #' @name block

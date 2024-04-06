@@ -87,8 +87,6 @@ A \code{vclMatrix} object.
 A \code{vclMatrix} object.
 
 A \code{vclMatrix} object.
-
-A \code{vclMatrix} object.
 }
 \description{
 Return the matrix cross-product of two conformable

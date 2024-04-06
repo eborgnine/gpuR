@@ -4,6 +4,9 @@
 \name{fvclMatrix-class}
 \alias{fvclMatrix-class}
 \title{fvclMatrix Class}
+\value{
+If the vclMatrix object is of type 'float', returns TRUE, if not, returns an error message.
+}
 \description{
 An integer type matrix in the S4 \code{vclMatrix}
 representation.

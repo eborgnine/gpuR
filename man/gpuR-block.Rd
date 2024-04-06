@@ -25,11 +25,7 @@ block(object, rowStart, rowEnd, colStart, colEnd)
 \item{colEnd}{An integer indicating the last column of block}
 }
 \value{
-A \code{gpuMatrixBlock} or \code{vclMatrixBlock} object
-
-A block of the input \code{vclMatrix} object.
-
-A gpuMatrix object.
+A block of the input \code{gpuMatrixBlock} or \code{vclMatrixBlock} object.
 }
 \description{
 This doesn't create a copy, it provides a child class that
