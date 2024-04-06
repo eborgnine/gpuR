@@ -47,28 +47,21 @@
 \item{y}{A gpuR object}
 }
 \value{
-The inner product of the two gpuVector objects \code{x} and \code{y}.
+The inner product of the two \code{gpuVector} objects \code{x} and \code{y}.
 
-The result of matrix-vector multiplication between the gpuMatrix \code{y}
-and the gpuVector \code{x}.
+The result of matrix-vector multiplication between the \code{gpuMatrix} \code{y}
+and the \code{gpuVector} \code{x}.
 
-The result of multiplying the two \code{vclMatrix} objects `x` and `y`.
-
-The result of multiplying the \code{vclMatrix} `x` and the vclVector `y`.
+The result of multiplying the \code{vclMatrix} `x` and the \code{vclVector} `y`.
 
 A \code{vclMatrix} object, the result of multiplying 
-the vclMatrix `x` and the regular R matrix `y`.
+the \code{vclMatrix} `x` and the regular R matrix `y`.
 
 A \code{vclMatrix} object, the result of multiplying the regular 
-R matrix x and the vclMatrix y.
+R matrix x and the \code{vclMatrix} y.
 
-A gpuMatrix object which is the result of the matrix multiplication.
-
-A gpuVector object.
-
-A gpuMatrix object.
-
-A gpuMatrix object.
+A \code{gpuMatrix} object which is the result of multiplying 
+the two \code{gpuMatrix} objects `x` and `y`.
 }
 \description{
 Multiply two gpuR objects, if they are conformable.  If both

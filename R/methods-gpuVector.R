@@ -21,7 +21,7 @@ setMethod('as.gpuVector',
 
 
 #' @title Methods for gpu/vcl Vector
-#' @return The inner product of the two gpuVector objects \code{x} and \code{y}.
+#' @return The inner product of the two \code{gpuVector} objects \code{x} and \code{y}.
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", c(x="gpuVector", y="gpuVector"),
@@ -33,8 +33,8 @@ setMethod("%*%", c(x="gpuVector", y="gpuVector"),
               gpuVecInnerProd(x,y)
           })
 
-#' @return The result of matrix-vector multiplication between the gpuMatrix \code{y}
-#' and the gpuVector \code{x}.
+#' @return The result of matrix-vector multiplication between the \code{gpuMatrix} \code{y}
+#' and the \code{gpuVector} \code{x}.
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", signature(x="gpuVector", y = "gpuMatrix"),
@@ -56,7 +56,7 @@ setMethod("%*%", signature(x="gpuVector", y = "gpuMatrix"),
 #' @description The outer product of two gpuR vector objects
 #' @param X A gpuR object
 #' @param Y A gpuR object
-#' @return The outer product of the two gpuVector objects \code{X} and \code{Y}.
+#' @return The outer product of the two \code{gpuVector} objects \code{X} and \code{Y}.
 #' @docType methods
 #' @rdname grapes-o-grapes-methods
 #' @author Charles Determan Jr.
@@ -68,10 +68,6 @@ setMethod("%o%", c(X="gpuVector", Y="gpuVector"),
 
 
 
-
-
-#' @return The transpose of the outer product of the two 
-#' gpuVector objects \code{x} and \code{y}.
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("tcrossprod",
@@ -84,8 +80,7 @@ setMethod("tcrossprod",
 
 
 
-#' @return The transpose of the outer product of the 
-#' gpuVector object \code{x} with itself.
+
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("tcrossprod",
@@ -358,7 +353,7 @@ setMethod('length', signature(x = "gpuVector"),
 
 
 
-#' @return A sliced gpuVector object from index \code{start} to \code{end}.
+
 #' @rdname gpuR-slice
 setMethod("slice",
           signature(object = "gpuVector", start = "integer", end = "integer"),
@@ -396,7 +391,7 @@ setMethod("slice",
         })
 
 
-#' @return A deep copy of the input gpuVector object.
+#' @return A deep copy of the input \code{gpuVector} object.
 #' @rdname gpuR-deepcopy
 setMethod("deepcopy", signature(object ="gpuVector"),
           function(object){

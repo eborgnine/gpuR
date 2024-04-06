@@ -28,8 +28,6 @@
 }
 \value{
 The matrix norm, a non-negative number
-
-The norm of the vclMatrix object `x`.
 }
 \description{
 Computes a matrix norm of x. The norm can be the one \("O"\) norm, 

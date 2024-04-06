@@ -6,6 +6,9 @@
 \usage{
 synchronize()
 }
+\value{
+It does not return anything.
+}
 \description{
 This pauses execution until the processing is complete
 on the device (CPU/GPU/etc.).  This is important especially for

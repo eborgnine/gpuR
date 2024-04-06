@@ -7,7 +7,6 @@ as.matrix.vclMatrix <- function(x, ...){
 } 
 
 
-#' @return The result of multiplying the two \code{vclMatrix} objects `x` and `y`.
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", signature(x="vclMatrix", y = "vclMatrix"),
@@ -22,7 +21,7 @@ setMethod("%*%", signature(x="vclMatrix", y = "vclMatrix"),
 )
 
 
-#' @return The result of multiplying the \code{vclMatrix} `x` and the vclVector `y`.
+#' @return The result of multiplying the \code{vclMatrix} `x` and the \code{vclVector} `y`.
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", signature(x="vclMatrix", y = "vclVector"),
@@ -38,7 +37,7 @@ setMethod("%*%", signature(x="vclMatrix", y = "vclVector"),
 
 
 #' @return A \code{vclMatrix} object, the result of multiplying 
-#' the vclMatrix `x` and the regular R matrix `y`.
+#' the \code{vclMatrix} `x` and the regular R matrix `y`.
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", signature(x="vclMatrix", y = "matrix"),
@@ -61,7 +60,7 @@ setMethod("%*%", signature(x="vclMatrix", y = "matrix"),
 
 
 #' @return A \code{vclMatrix} object, the result of multiplying the regular 
-#' R matrix x and the vclMatrix y.
+#' R matrix x and the \code{vclMatrix} y.
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", signature(x="matrix", y = "vclMatrix"),
@@ -368,7 +367,8 @@ setMethod("length", signature(x="vclMatrix"),
 #' device and host is required.
 #' @param x A \code{vclMatrix} object.
 #' @param y A \code{vclMatrix} object.
-#' @return A \code{vclMatrix} object.
+#' @return A \code{vclMatrix} object of the transpose of the outer 
+#' product of the two objects \code{x} and \code{y}.
 #' @author Charles Determan Jr.
 #' @docType methods
 #' @rdname vclMatrix-crossprod
@@ -380,7 +380,7 @@ setMethod("crossprod",
               vcl_crossprod(x, x)
           })
 
-#' @return A \code{vclMatrix} object.
+
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("crossprod",
@@ -391,7 +391,7 @@ setMethod("crossprod",
 
 
 
-#' @return A \code{vclMatrix} object.
+
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("crossprod",
@@ -403,7 +403,7 @@ setMethod("crossprod",
 
 
 
-#' @return A \code{vclMatrix} object.
+
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("crossprod",
@@ -413,7 +413,7 @@ setMethod("crossprod",
               vcl_crossprod(x, y)
           })
 
-#' @return A \code{vclMatrix} object.
+
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("crossprod",
@@ -422,7 +422,7 @@ setMethod("crossprod",
               vcl_mat_vec_crossprod(x, y)
           })
 
-#' @return A \code{vclMatrix} object.
+
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("crossprod",
@@ -431,7 +431,7 @@ setMethod("crossprod",
               vcl_mat_vec_crossprod(x, y)
           })
 
-#' @return A \code{vclMatrix} object.
+
 #' @rdname vclMatrix-crossprod
 setMethod("tcrossprod",
           signature(x = "vclMatrix", y = "missing"),
@@ -439,7 +439,7 @@ setMethod("tcrossprod",
               vcl_tcrossprod(x, x)
           })
 
-#' @return A \code{vclMatrix} object.
+
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("tcrossprod",
@@ -448,7 +448,7 @@ setMethod("tcrossprod",
               vcl_tcrossprod(x, y)
           })
 
-#' @return A \code{vclMatrix} object.
+
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("tcrossprod",
@@ -459,7 +459,7 @@ setMethod("tcrossprod",
           })
 
 
-#' @return A \code{vclMatrix} object.
+
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("tcrossprod",
@@ -470,7 +470,7 @@ setMethod("tcrossprod",
           })
 
 
-#' @return A \code{vclMatrix} object.
+
 #' @rdname vclMatrix-crossprod
 #' @export
 setMethod("tcrossprod",

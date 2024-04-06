@@ -277,6 +277,8 @@ deviceHasDouble <- function(gpu_idx=currentDevice()$device_index,
 #' @title Set Context
 #' @description Change the current context used by default
 #' @param id Integer identifying which context to set
+#' @return It does not return anything. This function is 
+#' designed to set the current context to the specified context ID.
 #' @seealso \link{listContexts}
 #' @export
 setContext <- function(id = 1L){

@@ -14,7 +14,8 @@ as.matrix.gpuMatrix <- function(x, ...){
 #' are vectors of the same length, it will return the inner product (as a matrix).
 #' @param x A gpuR object
 #' @param y A gpuR object
-#' @return A gpuMatrix object which is the result of the matrix multiplication.
+#' @return A \code{gpuMatrix} object which is the result of multiplying 
+#' the two \code{gpuMatrix} objects `x` and `y`.
 #' @docType methods
 #' @rdname grapes-times-grapes-methods
 #' @author Charles Determan Jr.
@@ -30,7 +31,7 @@ setMethod("%*%", signature(x="gpuMatrix", y = "gpuMatrix"),
           valueClass = "gpuMatrix"
 )
 
-#' @return A gpuVector object.
+
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", signature(x="gpuMatrix", y = "gpuVector"),
@@ -45,7 +46,7 @@ setMethod("%*%", signature(x="gpuMatrix", y = "gpuVector"),
 )
 
 
-#' @return A gpuMatrix object.
+
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", signature(x="gpuMatrix", y = "matrix"),
@@ -61,7 +62,7 @@ setMethod("%*%", signature(x="gpuMatrix", y = "matrix"),
 )
 
 
-#' @return A gpuMatrix object.
+
 #' @rdname grapes-times-grapes-methods
 #' @export
 setMethod("%*%", signature(x="matrix", y = "gpuMatrix"),
@@ -658,7 +659,7 @@ setMethod("distance", signature(x = "gpuMatrix", y = "gpuMatrix"),
 
 
 
-#' @return A gpuMatrix object.
+#' @return A deep copy of the input \code{gpuMatrix} object.
 #' @rdname gpuR-deepcopy
 setMethod("deepcopy", signature(object ="gpuMatrix"),
           function(object){

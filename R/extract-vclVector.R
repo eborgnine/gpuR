@@ -1,5 +1,4 @@
-#' @return A vector-like object of the same type as the input \code{x}, containing
-#' the elements specified by the indices \code{i} and \code{j}.
+
 #' @rdname extract-methods
 #' @export
 setMethod("[",

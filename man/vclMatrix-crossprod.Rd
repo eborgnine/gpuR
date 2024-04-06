@@ -60,33 +60,8 @@
 \item{y}{A \code{vclMatrix} object.}
 }
 \value{
-The transpose of the outer product of the two 
-gpuVector objects \code{x} and \code{y}.
-
-The transpose of the outer product of the 
-gpuVector object \code{x} with itself.
-
-A \code{vclMatrix} object.
-
-A \code{vclMatrix} object.
-
-A \code{vclMatrix} object.
-
-A \code{vclMatrix} object.
-
-A \code{vclMatrix} object.
-
-A \code{vclMatrix} object.
-
-A \code{vclMatrix} object.
-
-A \code{vclMatrix} object.
-
-A \code{vclMatrix} object.
-
-A \code{vclMatrix} object.
-
-A \code{vclMatrix} object.
+A \code{vclMatrix} object of the transpose of the outer 
+product of the two objects \code{x} and \code{y}.
 }
 \description{
 Return the matrix cross-product of two conformable

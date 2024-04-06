@@ -141,9 +141,6 @@
 \value{
 A gpuR object of the same type as the input \code{x}, containing
 the elements specified by the indices \code{i} and \code{j}.
-
-A vector-like object of the same type as the input \code{x}, containing
-the elements specified by the indices \code{i} and \code{j}.
 }
 \description{
 Operators to extract or replace elements

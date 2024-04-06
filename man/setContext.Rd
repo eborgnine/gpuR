@@ -9,6 +9,10 @@ setContext(id = 1L)
 \arguments{
 \item{id}{Integer identifying which context to set}
 }
+\value{
+It does not return anything. This function is 
+designed to set the current context to the specified context ID.
+}
 \description{
 Change the current context used by default
 }

@@ -104,7 +104,7 @@ setMethod("%*%", signature(x="vclVector", y = "vclMatrix"),
 )
 
 
-#' @return A vclMatrix object.
+
 #' @rdname grapes-o-grapes-methods
 #' @export
 setMethod("%o%", signature(X="vclVector", Y = "vclVector"),
@@ -331,7 +331,7 @@ setMethod('length', signature(x = "vclVector"),
 )
 
 
-#' @return A deep copy of the input vclVector object.
+#' @return A deep copy of the input \code{vclVector} object.
 #' @rdname gpuR-deepcopy
 setMethod("deepcopy", signature(object ="vclVector"),
           function(object){
@@ -374,7 +374,7 @@ setMethod("deepcopy", signature(object ="vclVector"),
 
 
 
-#' @return A sliced vclVector object.
+
 #' @rdname gpuR-slice
 setMethod("slice",
           signature(object = "vclVector", start = "integer", end = "integer"),
