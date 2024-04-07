@@ -254,7 +254,7 @@ cpp_gpuMatrix_solve <- function(ptrA, ptrB, AisVCL, BisVCL, type_flag, ctx_id, B
 #' @description This pauses execution until the processing is complete
 #' on the device (CPU/GPU/etc.).  This is important especially for
 #' benchmarking applications.
-#' @return NULL
+#' @return This does not return anything.
 #' @author Charles Determan Jr.
 #' @examples \dontrun{
 #'     mat <- vclMatrix(rnorm(500^2), ncol = 500, nrow = 500)
