@@ -333,8 +333,6 @@ setMethod('ncol', signature(x="vclMatrix"),
 
 
 
-#' @return A numeric vector of length 2: the number of 
-#' rows and columns in the \code{vclMatrix} object `x`.
 #' @rdname dim-methods
 #' @aliases dim-vclMatrix
 #' @export

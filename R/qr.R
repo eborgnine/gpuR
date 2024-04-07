@@ -105,7 +105,7 @@ qr.vclMatrix <-
 #' @description Returns the components of the QR decomposition.
 #' @param qr \code{gpuQR} object
 #' @param complete not currently used
-#' @return \code{qr.Q} returns all of \code{Q}
+#' @return \code{qr.Q} returns all of \code{Q},
 #' \code{qr.R} returns all of \code{R}
 #' @author Charles Determan Jr.
 #' @rdname qr.R-methods

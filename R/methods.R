@@ -351,6 +351,8 @@ setMethod('ncol', signature(x="gpuMatrix"),
 #' @title gpuMatrix/vclMatrix dim method
 #' @description Retrieve dimension of object
 #' @param x A gpuMatrix/vclMatrix object
+#' @return A numeric vector of length 2: the number of 
+#' rows and columns in the gpuR object `x`.
 #' @docType methods
 #' @rdname dim-methods
 #' @author Charles Determan Jr.
