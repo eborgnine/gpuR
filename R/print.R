@@ -5,7 +5,7 @@
 #' @param n Number of rows to display
 #' @param width Number of columns to display
 #' @return This function prints a truncated summary of a gpuMatrix object `x`
-#' to fit the screen,
+#' to fit the screen
 #' @export
 print.gpuMatrix <- function(x, ..., n = NULL, width = NULL) {
     cat("Source: gpuR Matrix ", dim_desc(x), "\n", sep = "")
