@@ -17,7 +17,7 @@
 }
 \value{
 A numeric vector of length 2: the number of 
-rows and columns in the \code{vclMatrix} object `x`.
+rows and columns in the gpuR object `x`.
 }
 \description{
 Retrieve dimension of object

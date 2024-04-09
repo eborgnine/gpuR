@@ -7,7 +7,7 @@
 synchronize()
 }
 \value{
-It does not return anything.
+This does not return anything.
 }
 \description{
 This pauses execution until the processing is complete

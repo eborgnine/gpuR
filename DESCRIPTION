@@ -18,7 +18,7 @@ Authors@R: c(
                      comment = c(ORCID = '0000-0003-2541-3744')
                      ),
      person("The Khronos Group Inc", role = "cph", 
-       comment = "Copyright holder of some included header files ")
+       comment = "Copyright holder of some included header files")
               )
 VignetteBuilder: knitr
 License: "GPL (>= 2) + file COPYRIGHTS"

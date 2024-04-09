@@ -15,7 +15,7 @@
 \item{complete}{not currently used}
 }
 \value{
-\code{qr.Q} returns all of \code{Q}
+\code{qr.Q} returns all of \code{Q},
 \code{qr.R} returns all of \code{R}
 }
 \description{
