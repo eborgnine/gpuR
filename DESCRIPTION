@@ -1,10 +1,10 @@
 Package: gpuR
 Type: Package
 Title: GPU Functions for R Objects
-Description: Provides GPU enabled functions for R objects in a simple and
+Description: Provides GPU enabled functions for 'R' objects in a simple and
     approachable manner.  New gpu* and vcl* classes have been provided to
-    wrap typical R objects (e.g. vector, matrix), in both host and device
-    spaces, to mirror typical R syntax without the need to know OpenCL.
+    wrap typical 'R' objects (e.g. vector, matrix), in both host and device
+    spaces, to mirror typical 'R' syntax without the need to know 'OpenCL'.
 Version: 2.0.4
 Date: 2024-04-03
 Authors@R: c(
@@ -21,7 +21,7 @@ Authors@R: c(
        comment = "Copyright holder of some included header files")
               )
 VignetteBuilder: knitr
-License: "GPL (>= 2) + file COPYRIGHTS"
+License: GPL (>= 2)
 Encoding: UTF-8
 Depends:
     R (>= 3.0.2),
