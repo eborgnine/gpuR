@@ -199,7 +199,7 @@ listContexts()
 		device_type[id] = "accelerator";
 	    }else{
 
-	 	msg(Rcpp::wrap("device found: " + check));
+	 	msg(Rcpp::wrap("device found: " + std::to_string(check)));
 		
 		throw Rcpp::exception("unrecognized device detected");
  

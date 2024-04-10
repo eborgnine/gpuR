@@ -41,7 +41,7 @@ SEXP cpp_deviceType(SEXP gpu_idx_, int ctx_idx)
     }else if(check & CL_DEVICE_TYPE_ACCELERATOR){
         device_type = "accelerator";
     }else{
-      msg(Rcpp::wrap("device found: " + check));
+      msg(Rcpp::wrap("device found: " + std::to_string(check)));
       
 //        Rcpp::Rcout << "device found: " << std::endl;
 //        Rcpp::Rcout << check << std::endl;
@@ -225,7 +225,7 @@ SEXP currentDevice()
     }else if(check & CL_DEVICE_TYPE_ACCELERATOR){
 	device_type = "accelerator";
     }else{
-  msg(Rcpp::wrap("device found: " + check));
+  msg(Rcpp::wrap("device found: " + std::to_string(check)));
       
 //	Rcpp::Rcout << "device found: " << std::endl;
 //	Rcpp::Rcout << check << std::endl;
