@@ -173,7 +173,7 @@ case `uname` in
         ;;
 esac
 
-echo 'CXX_STD=CXX11' > src/Makevars
+#echo 'CXX_STD=CXX11' > src/Makevars
 echo "${CPPFLAGS}" >> src/Makevars
 echo "${CXXFLAGS}" >> src/Makevars
 echo "${LIBS}" >> src/Makevars
