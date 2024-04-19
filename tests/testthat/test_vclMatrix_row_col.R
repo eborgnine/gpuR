@@ -363,6 +363,7 @@ test_that("vclMatrix Single Precision Block Sum",
 test_that("vclMatrix Double Precision Block Sum", 
 {
     has_gpu_skip()
+    has_double_skip()
     
     dgpuX <- vclMatrix(A, type="double")
     dgpuXS <- block(dgpuX, 2L,4L,2L,4L)

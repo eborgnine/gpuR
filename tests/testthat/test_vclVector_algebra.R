@@ -539,7 +539,8 @@ test_that("vclVector Double Precision Outer Product ", {
 test_that("vclVector Double precision tcrossprod", {
     
     has_gpu_skip()
-    
+    has_double_skip()
+
     C <- tcrossprod(A,B)
     C2 <- tcrossprod(A)
     

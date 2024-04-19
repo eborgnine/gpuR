@@ -64,7 +64,8 @@ test_that("gpuMatrix Single Precision Sum",
 test_that("gpuMatrix Double Precision Sum", 
 {
   has_gpu_skip()
-  
+  has_double_skip()
+
   dgpuX <- gpuMatrix(A, type="double")
   
   gpuC <-sum(dgpuX)
@@ -397,6 +398,7 @@ test_that("gpuMatrix Double Precision Block Sum",
 {
   
   has_gpu_skip()
+  has_double_skip()
   
   dgpuX <- gpuMatrix(A, type="double")
   dgpuXS <- block(dgpuX, 2L,4L,2L,4L)

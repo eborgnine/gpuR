@@ -833,7 +833,8 @@ test_that("gpuMatrix Double Precision Matrix multiplication", {
 test_that("gpuMatrix Double Precision Matrix-Vector multiplication", {
     
     has_gpu_skip()
-    
+    has_double_skip()
+
     C <- A %*% v
     C2 <- v %*% B
     

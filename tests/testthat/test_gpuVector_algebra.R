@@ -600,6 +600,7 @@ test_that("gpuVector Double precision outer product", {
 test_that("gpuVector Double precision tcrossprod", {
     
     has_gpu_skip()
+    has_double_skip()
     
     C <- tcrossprod(A,B)
     C2 <- tcrossprod(A)
