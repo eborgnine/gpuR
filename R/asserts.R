@@ -35,7 +35,23 @@ function(device_idx, context_idx,
 # if the assertive package becomes available again 
 # these functions will be removed
 
-assert_all_are_true = assert_all_are_in_range = assert_all_are_positive = 
-assert_all_are_in_closed_range = assert_are_identical = 
-assert_engine = assert_all_are_positive = function(...) {NULL}
+assert_all_are_in_range = function(x, lower, upper) {
+    if(any(x < lower | x > upper | x==upper, na.rm=TRUE)) {
+        stop("out of range")
+    }
+}
+
+assert_all_are_in_closed_range = function(x, lower, upper) {
+    if(any(x < lower | x > upper, na.rm=TRUE)) {
+        stop("out of range")
+    }
+}
+
+assert_all_are_positive = function(x) {
+    if(any(x <= 0, na.rm=TRUE)) {
+        stop("out of range")
+    }
+}
+
+assert_all_are_true =  assert_are_identical = assert_engine  = function(...) {NULL}
 

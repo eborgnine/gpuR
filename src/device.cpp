@@ -31,6 +31,7 @@ SEXP cpp_deviceType(SEXP gpu_idx_, int ctx_idx)
     Rcpp::Function msg = Rcpp::Environment::base_env()["packageStartupMessage"];
     
 
+
     // Get device
     cl_device_type check = ctx.opencl_context().devices()[gpu_idx].type();
     

@@ -15,8 +15,8 @@ deviceType <- function(device_idx = NULL,
     if(!is.null(device_idx)){
  #       assertive.types::assert_is_integer(device_idx)
         assert_all_are_positive(device_idx)
-    }
-    
+    } 
+
     out <- try(cpp_deviceType(device_idx, context_idx - 1L), silent=TRUE)
     if(identical(class(out), 'try-error')) {
       out = 'other'
@@ -64,6 +64,7 @@ detectCPUs <- function(platform_idx=NULL){
     }else{
  #       assertive.types::assert_is_integer(platform_idx)
         assert_all_are_positive(platform_idx)
+
         numPlats <- detectPlatforms()
         
         if(platform_idx > numPlats){
@@ -110,7 +111,8 @@ detectGPUs <- function(platform_idx=NULL){
         
     }else{
 #        assertive.types::assert_is_integer(platform_idx)
-      assert_all_are_positive(platform_idx)
+        platform_idx = as.integer(platform_idx) 
+          assert_all_are_positive(platform_idx)
         
         numPlats <- detectPlatforms()
         
@@ -240,6 +242,7 @@ cpuInfo <- function(device_idx=NULL,
 platformInfo <- function(platform_idx=1L){
 #    assertive.types::assert_is_integer(platform_idx)
    assert_all_are_positive(platform_idx)
+
     
     out <- cpp_platformInfo(platform_idx)
     return(out)
