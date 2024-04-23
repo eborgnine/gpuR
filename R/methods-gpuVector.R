@@ -359,8 +359,8 @@ setMethod("slice",
           signature(object = "gpuVector", start = "integer", end = "integer"),
           function(object, start, end){
               
-            assertive.numbers::assert_all_are_positive(c(start, end))
-            assertive.numbers::assert_all_are_in_range(c(start, end), lower = 1, upper = length(object)+1)
+             assert_all_are_positive(c(start, end))
+             assert_all_are_in_range(c(start, end), lower = 1, upper = length(object)+1)
           
           ptr <- switch(typeof(object),
                         "float" = {

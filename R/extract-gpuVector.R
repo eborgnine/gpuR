@@ -17,7 +17,7 @@ setMethod("[",
           signature(x = "gpuVector", i = "numeric", j = "missing", drop = "missing"),
           function(x, i, j, drop) {
               
-            assertive.numbers::assert_all_are_in_closed_range(i, lower = 1, upper = length(x))
+        assert_all_are_in_closed_range(i, lower = 1, upper = length(x))
               
               switch(typeof(x),
                      "integer" = return(GetVecElement(x@address, i, 4L)),
@@ -32,7 +32,7 @@ setMethod("[<-",
           signature(x = "gpuVector", i = "numeric", j = "missing", value = "numeric"),
           function(x, i, j, value) {
               
-            assertive.numbers::assert_all_are_in_closed_range(i, lower = 1, upper = length(x))
+           assert_all_are_in_closed_range(i, lower = 1, upper = length(x))
               
               if(length(value) != length(i)){
                   value <- rep(value, length(i))
@@ -52,7 +52,7 @@ setMethod("[<-",
           signature(x = "gpuVector", i = "numeric", j = "missing", value = "integer"),
           function(x, i, j, value) {
               
-            assertive.numbers::assert_all_are_in_closed_range(i, lower = 1, upper = length(x))
+            assert_all_are_in_closed_range(i, lower = 1, upper = length(x))
               
               switch(typeof(x),
                      "integer" = SetVecElement(x@address, i, value, 4L),

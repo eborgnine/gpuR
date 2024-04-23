@@ -39,8 +39,8 @@ setup_opencl <- function(objects, intents, queues, kernel_maps = NULL){
 #    assert_are_same_length(objects, queues)
 
     # make sure defining possible objects
-    assertive.base::assert_all_are_true(objects %in% c('gpuVector', 'vclVector', 'gpuMatrix', 'vclMatrix', 'scalar'))
-    assertive.base::assert_all_are_true(intents %in% c("IN", "OUT", "INOUT"))
+    assert_all_are_true(objects %in% c('gpuVector', 'vclVector', 'gpuMatrix', 'vclMatrix', 'scalar'))
+     assert_all_are_true(intents %in% c("IN", "OUT", "INOUT"))
 
     if(is.null(kernel_maps) & is.null(names(objects))){
         stop("Either 'objects' must have names corresponding to kernel arguments

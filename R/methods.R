@@ -703,9 +703,9 @@ setMethod("block",
                     colStart = "integer", colEnd = "integer"),
           function(object, rowStart, rowEnd, colStart, colEnd){
               
-              assertive.numbers::assert_all_are_positive(c(rowStart, rowEnd, colStart, colEnd))
-            assertive.numbers::assert_all_are_in_range(c(rowStart, rowEnd), lower = 1, upper = nrow(object)+1)
-            assertive.numbers::assert_all_are_in_range(c(colStart, colEnd), lower = 1, upper = ncol(object)+1)
+            assert_all_are_positive(c(rowStart, rowEnd, colStart, colEnd))
+            assert_all_are_in_range(c(rowStart, rowEnd), lower = 1, upper = nrow(object)+1)
+            assert_all_are_in_range(c(colStart, colEnd), lower = 1, upper = ncol(object)+1)
               
               ptr <- switch(typeof(object),
                             "float" = {
