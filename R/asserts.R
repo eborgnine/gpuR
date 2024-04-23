@@ -29,6 +29,10 @@ function(device_idx, context_idx,
         msg = msg,
         severity = severity
     )
+    if(!deviceHasDouble(device_idx, context_idx)) {
+        stop("no double support")
+    }
+
 }
 
 # below we create empty functions 
