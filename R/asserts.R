@@ -17,6 +17,7 @@ function(device_idx, context_idx,
     msg <- gettextf(
         "The device %s on context %s does not support double.
         Try setting type = 'float' or change device if multiple available.",
+        'device_idx', 'context_idx',
 #        get_name_in_parent(device_idx),
 #        get_name_in_parent(context_idx),
         domain = "R-assertive.base"
@@ -53,5 +54,5 @@ assert_all_are_positive = function(x) {
     }
 }
 
-assert_all_are_true =  assert_are_identical = assert_engine  = function(...) {NULL}
+assert_all_are_true =  assert_are_identical = assert_engine = function(...) {NULL}
 
