@@ -64,7 +64,7 @@ detectCPUs <- function(platform_idx=NULL){
         if(platform_idx >= numPlats){
             stop("Platform index exceeds number of platforms.")
         }
-        if(platform_idx <0 numPlats){
+        if(platform_idx < 0){
             stop("Platform index can't be negative.")
         }
         
