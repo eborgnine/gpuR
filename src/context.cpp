@@ -236,8 +236,8 @@ int currentContext()
 void
 cpp_setContext(int id)
 {
-    if(id <= 0){
-        stop("Index cannot be 0 or less");
+    if(id < 0){
+        stop("Index cannot be less than 0");
     }
     viennacl::ocl::switch_context(id);
 }

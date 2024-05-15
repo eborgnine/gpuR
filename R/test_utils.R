@@ -90,7 +90,7 @@ has_multiple_double_skip <- function() {
     contextsGpu = contexts[Sgpu, , drop=FALSE]
     
     gpus_with_double = sum(unlist(mapply(function(device_index, context) {
-      gpuInfo(device_index + 1L, context)$double_support
+      gpuInfo(device_index , context)$double_support
     },
     device_index = contextsGpu$device_index, 
     context = contextsGpu$context)))
@@ -119,7 +119,7 @@ set_device_context <- function(type){
         }else{
             
         }
-        setContext(head(cpus, 1))
+        setContext(min(cpus))
     }
     return(current_context)
 }

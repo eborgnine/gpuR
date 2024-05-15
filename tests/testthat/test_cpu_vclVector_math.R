@@ -3,7 +3,6 @@ library(gpuR)
 context("CPU vclVector math operations")
 
 current_context <- set_device_context("cpu")
-
 # set seed
 set.seed(123)
 

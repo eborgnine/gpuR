@@ -275,7 +275,7 @@ deviceHasDouble <- function(gpu_idx=currentDevice()$device_index,
 #' designed to set the current context to the specified context ID.
 #' @seealso \link{listContexts}
 #' @export
-setContext <- function(id = 1L){
+setContext <- function(id = 0L){
     if(!id %in% listContexts()$context){
         stop("context index not initialized")
     }

@@ -43,9 +43,9 @@ setMethod('gpuMatrix',
               device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id,]
               
               context_index <- ifelse(is.null(ctx_id), currentContext(), as.integer(ctx_id))
-              device_index <- if(is.null(ctx_id)) as.integer(device$device_index) else device$device_index + 1L
+              device_index <- if(is.null(ctx_id)) as.integer(device$device_index) else device$device_index  
               
-              platform_index <- if(is.null(ctx_id)) currentPlatform()$platform_index else device$platform_index + 1L
+              platform_index <- if(is.null(ctx_id)) currentPlatform()$platform_index else device$platform_index  
               platform_name <- platformInfo(platform_index)$platformName
               
               device_type <- device$device_type
@@ -151,9 +151,9 @@ setMethod('gpuMatrix',
               device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id,]
               
               context_index <- ifelse(is.null(ctx_id), currentContext(), as.integer(ctx_id))
-              device_index <- if(is.null(ctx_id)) as.integer(device$device_index) else device$device_index + 1L
+              device_index <- if(is.null(ctx_id)) as.integer(device$device_index) else device$device_index 
               
-              platform_index <- if(is.null(ctx_id)) currentPlatform()$platform_index else device$platform_index + 1L
+              platform_index <- if(is.null(ctx_id)) currentPlatform()$platform_index else device$platform_index 
               platform_name <- platformInfo(platform_index)$platformName
               
               device_type <- device$device_type
@@ -220,9 +220,9 @@ setMethod('gpuMatrix',
               device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id,]
               
               context_index <- ifelse(is.null(ctx_id), currentContext(), as.integer(ctx_id))
-              device_index <- if(is.null(ctx_id)) as.integer(device$device_index) else device$device_index + 1L
+              device_index <- if(is.null(ctx_id)) as.integer(device$device_index) else device$device_index 
               
-              platform_index <- if(is.null(ctx_id)) currentPlatform()$platform_index else device$platform_index + 1L
+              platform_index <- if(is.null(ctx_id)) currentPlatform()$platform_index else device$platform_index 
               platform_name <- platformInfo(platform_index)$platformName
               
               device_type <- device$device_type
@@ -307,9 +307,9 @@ setMethod('gpuMatrix',
               device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id,]
               
               context_index <- ifelse(is.null(ctx_id), currentContext(), as.integer(ctx_id))
-              device_index <- if(is.null(ctx_id)) as.integer(device$device_index) else device$device_index + 1L
+              device_index <- if(is.null(ctx_id)) as.integer(device$device_index) else device$device_index 
               
-              platform_index <- if(is.null(ctx_id)) currentPlatform()$platform_index else device$platform_index + 1L
+              platform_index <- if(is.null(ctx_id)) currentPlatform()$platform_index else device$platform_index 
               platform_name <- platformInfo(platform_index)$platformName
               
               device_type <- device$device_type
