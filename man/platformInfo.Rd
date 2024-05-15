@@ -4,7 +4,7 @@
 \alias{platformInfo}
 \title{OpenCL Platform Information}
 \usage{
-platformInfo(platform_idx = 1L)
+platformInfo(platform_idx = 0L)
 }
 \arguments{
 \item{platform_idx}{An integer value to specify which platform to check}
