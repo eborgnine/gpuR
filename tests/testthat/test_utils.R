@@ -12,7 +12,7 @@ test_that("detectGPUs() accepts appropriate input", {
     
     # should function regardless of GPUs
     expect_gte(detectGPUs(NULL), 0)
-    expect_gte(detectGPUs(1L), 0)
+    expect_gte(detectGPUs(0L), 0)
     
     has_gpu_skip()
 
@@ -53,7 +53,7 @@ test_that("detectCPUs() accepts correct input", {
     
     has_cpu_skip()
     
-    expect_error(detectCPUs(0))
+    expect_error(detectCPUs(-1))
     expect_error(detectCPUs(c(2,3)))
     expect_error(detectCPUs(detectPlatforms() + 7))
 })
