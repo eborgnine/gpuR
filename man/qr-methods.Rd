@@ -4,14 +4,11 @@
 \alias{qr.gpuMatrix}
 \alias{qr.gpuR}
 \alias{qr.vclMatrix}
-\alias{qr.Q,gpuQR-method}
 \title{The QR Decomposition of a gpuR matrix}
 \usage{
 \method{qr}{gpuMatrix}(x, ..., inplace = FALSE)
 
 \method{qr}{vclMatrix}(x, ..., inplace = FALSE)
-
-\S4method{qr.Q}{gpuQR}(qr, complete = FALSE)
 }
 \arguments{
 \item{x}{A gpuR matrix}

@@ -154,7 +154,7 @@ qr.vclMatrix <-
           }) 
 
 
-#' @rdname qr-methods
+#' @rdname qrR-methods
 #' @export qr.Q.gpuQR
 setMethod("qr.Q", signature(qr = "gpuQR"),
            function(qr, complete = FALSE){

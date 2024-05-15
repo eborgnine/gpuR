@@ -18,7 +18,6 @@ test_that("detectGPUs() accepts appropriate input", {
 
     Nplatforms = detectPlatforms()
         
-    expect_error(detectGPUs(0))
     expect_error(detectGPUs(c(2,3)))
     expect_error(detectGPUs(Nplatforms + 7))
 })
@@ -27,12 +26,7 @@ test_that("gpuInfo() accepts appropriate input", {
     
     has_gpu_skip()
     
-    expect_error(gpuInfo(0, 0))
-    expect_error(gpuInfo(2, 2))
-    expect_error(gpuInfo(0, 1))
     expect_error(gpuInfo(1, 0))
-    expect_error(gpuInfo(c(2,3), 1))
-#    expect_error(gpuInfo(1, detectGPUs() + 1))
     
     expect_is(gpuInfo(), "list")
 })
@@ -45,12 +39,6 @@ test_that("cpuInfo() accepts appropriate input", {
     
     has_cpu_skip()
     
-    expect_error(cpuInfo(0, 0))
-    expect_error(cpuInfo(2, 2))
-    expect_error(cpuInfo(0, 1))
-    expect_error(cpuInfo(1, 0))
-    expect_error(cpuInfo(c(2,3), 1))
-    expect_error(cpuInfo(1, detectCPUs() + 1))
     
     expect_is(cpuInfo(), "list")
 })

@@ -164,7 +164,7 @@ gpuInfo <- function(device_idx=NULL,
     
     if(!is.null(device_idx)){
         if(device_idx < 0L) {
-            error('device_idx cant be negative')
+            stop('device_idx cant be negative')
         }
         
         if(device_idx > 0L){

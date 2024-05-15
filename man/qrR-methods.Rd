@@ -2,9 +2,12 @@
 % Please edit documentation in R/qr.R
 \name{qr.R,gpuQR-method}
 \alias{qr.R,gpuQR-method}
+\alias{qr.Q,gpuQR-method}
 \title{Reconstruct the Q or R Matrices from a gpuQR Object}
 \usage{
 qr.R(qr)
+
+\S4method{qr.Q}{gpuQR}(qr, complete = FALSE)
 }
 \arguments{
 \item{qr}{\code{gpuQR} object}
