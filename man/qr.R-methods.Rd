@@ -5,7 +5,7 @@
 \alias{qr.Q,gpuQR-method}
 \title{Reconstruct the Q or R Matrices from a gpuQR Object}
 \usage{
-qr.R(qr)
+\S4method{qr.R}{gpuQR}(qr, complete = FALSE)
 
 \S4method{qr.Q}{gpuQR}(qr, complete = FALSE)
 }

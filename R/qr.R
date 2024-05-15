@@ -107,10 +107,9 @@ qr.vclMatrix <-
 #' @param complete not currently used
 #' @return \code{qr.Q} returns all of \code{Q},
 #' \code{qr.R} returns all of \code{R}
-#' @usage qr.R(qr)          
 #' @author Charles Determan Jr.
 #' @seealso \link[base]{qr.R}, \link[base]{qr.Q}
-#' @rdname qrR-methods
+#' @rdname qr.R-methods
 #' @export qr.R.gpuQR
     setMethod("qr.R", signature(qr = "gpuQR"),
           function(qr, complete = FALSE){
@@ -154,7 +153,7 @@ qr.vclMatrix <-
           }) 
 
 
-#' @rdname qrR-methods
+#' @rdname qr.R-methods
 #' @export qr.Q.gpuQR
 setMethod("qr.Q", signature(qr = "gpuQR"),
            function(qr, complete = FALSE){

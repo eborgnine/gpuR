@@ -44,7 +44,7 @@ detectCPUs <- function(platform_idx=NULL){
     
     if(is.null(platform_idx)){
         total_cpus = 0
-        for(p in seq(detectPlatforms())){
+        for(p in seq(detectPlatforms())-1){
             cpus <- try(cpp_detectCPUs(p), silent=TRUE)
             if(class(cpus)[1] == "try-error"){
                 # need to make sure if errors out to switch back to original context
@@ -61,7 +61,7 @@ detectCPUs <- function(platform_idx=NULL){
 
         numPlats <- detectPlatforms()
         
-        if(platform_idx > numPlats){
+        if(platform_idx >= numPlats){
             stop("Platform index exceeds number of platforms.")
         }
         
@@ -90,7 +90,7 @@ detectGPUs <- function(platform_idx=NULL){
     
     if(is.null(platform_idx)){
         total_gpus = 0
-        for(p in seq(detectPlatforms())){
+        for(p in seq(detectPlatforms())-1){
             gpus <- try(cpp_detectGPUs(p), silent=TRUE)
             if(class(gpus)[1] == "try-error"){
                 # need to make sure if errors out to switch back to original context
@@ -108,7 +108,7 @@ detectGPUs <- function(platform_idx=NULL){
         
         numPlats <- detectPlatforms()
         
-        if(platform_idx > numPlats){
+        if(platform_idx >= numPlats){
             stop("Platform index exceeds number of platforms.")
         }
         
