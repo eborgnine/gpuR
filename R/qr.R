@@ -47,11 +47,11 @@ qr.gpuMatrix <-
                         "float" = cpp_gpuR_qr(z@address,
                                               FALSE,
                                               6L,
-                                              z@.context_index - 1),
+                                              z@.context_index),
                         "double" = cpp_gpuR_qr(z@address,
                                                FALSE,
                                                8L,
-                                               z@.context_index - 1),
+                                               z@.context_index),
                         stop("type not currently supported")
         )
         
@@ -62,8 +62,8 @@ qr.gpuMatrix <-
     }
 
 
-#' @rdname qr-methods
 #' @export
+#' @rdname qr-methods
 qr.vclMatrix <-
           function(x, ..., inplace = FALSE)
           {
@@ -87,11 +87,11 @@ qr.vclMatrix <-
                               "float" = cpp_gpuR_qr(z@address,
                                                     TRUE,
                                                     6L,
-                                                    x@.context_index - 1),
+                                                    x@.context_index),
                               "double" = cpp_gpuR_qr(z@address,
                                                      TRUE,
                                                      8L,
-                                                     x@.context_index - 1),
+                                                     x@.context_index),
                               stop("type not currently supported")
               )
 
@@ -107,11 +107,12 @@ qr.vclMatrix <-
 #' @param complete not currently used
 #' @return \code{qr.Q} returns all of \code{Q},
 #' \code{qr.R} returns all of \code{R}
+#' @usage qr.R(qr)          
 #' @author Charles Determan Jr.
-#' @rdname qr.R-methods
 #' @seealso \link[base]{qr.R}, \link[base]{qr.Q}
-#' @export
-setMethod("qr.R", signature(qr = "gpuQR"),
+#' @rdname qrR-methods
+#' @export qr.R.gpuQR
+    setMethod("qr.R", signature(qr = "gpuQR"),
           function(qr, complete = FALSE){
               
               type <- typeof(qr$qr)
@@ -136,7 +137,7 @@ setMethod("qr.R", signature(qr = "gpuQR"),
                                               inherits(R, "vclMatrix"),
                                               qr$betas,
                                               6L,
-                                              qr$qr@.context_index - 1),
+                                              qr$qr@.context_index),
                      "double" = cpp_recover_qr(qr$qr@address,
                                                isVCL,
                                                Q@address,
@@ -145,7 +146,7 @@ setMethod("qr.R", signature(qr = "gpuQR"),
                                                inherits(R, "vclMatrix"),
                                                qr$betas,
                                                8L,
-                                               qr$qr@.context_index - 1),
+                                               qr$qr@.context_index),
                      stop("type not currently supported")
               )
               
@@ -153,10 +154,10 @@ setMethod("qr.R", signature(qr = "gpuQR"),
           }) 
 
 
-#' @rdname qr.R-methods
-#' @export
+#' @rdname qr-methods
+#' @export qr.Q.gpuQR
 setMethod("qr.Q", signature(qr = "gpuQR"),
-          function(qr, complete = FALSE){
+           function(qr, complete = FALSE){
               
               type <- typeof(qr$qr)
               
@@ -179,7 +180,7 @@ setMethod("qr.Q", signature(qr = "gpuQR"),
                                               inherits(R, "vclMatrix"),
                                               qr$betas,
                                               6L,
-                                              qr$qr@.context_index - 1),
+                                              qr$qr@.context_index),
                      "double" = cpp_recover_qr(qr$qr@address,
                                                isVCL,
                                                Q@address,
@@ -188,9 +189,9 @@ setMethod("qr.Q", signature(qr = "gpuQR"),
                                                inherits(R, "vclMatrix"),
                                                qr$betas,
                                                8L,
-                                               qr$qr@.context_index - 1),
+                                               qr$qr@.context_index),
                      stop("type not currently supported")
               )
               
               return(Q)
-          }) 
+          })

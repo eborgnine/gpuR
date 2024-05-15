@@ -27,7 +27,7 @@ vclMatInitNumVec <- function(data, nrow, ncol, type, ctx_id){
                       new("fvclMatrix", 
                           address=vectorToMatVCL(data, 
                                                  nrow, ncol, 
-                                                 6L, context_index - 1),
+                                                 6L, context_index),
                           .context_index = context_index,
                           .platform_index = platform_index,
                           .platform = platform_name,
@@ -39,7 +39,7 @@ vclMatInitNumVec <- function(data, nrow, ncol, type, ctx_id){
                       new("dvclMatrix",
                           address = vectorToMatVCL(data, 
                                                    nrow, ncol, 
-                                                   8L, context_index - 1),
+                                                   8L, context_index),
                           .context_index = context_index,
                           .platform_index = platform_index,
                           .platform = platform_name,
@@ -83,7 +83,7 @@ vclMatInitNumScalar <- function(data, nrow, ncol, type, ctx_id){
                               cpp_scalar_vclMatrix(
                                   data, 
                                   nrow, ncol, 
-                                  6L, context_index - 1),
+                                  6L, context_index),
                           .context_index = context_index,
                           .platform_index = platform_index,
                           .platform = platform_name,
@@ -98,7 +98,7 @@ vclMatInitNumScalar <- function(data, nrow, ncol, type, ctx_id){
                               cpp_scalar_vclMatrix(
                                   data, 
                                   nrow, ncol, 
-                                  8L, context_index - 1),
+                                  8L, context_index),
                           .context_index = context_index,
                           .platform_index = platform_index,
                           .platform = platform_name,
@@ -140,7 +140,7 @@ vclMatInitIntVec <- function(data, nrow, ncol, type, ctx_id){
                       new("ivclMatrix", 
                           address=vectorToMatVCL(data, 
                                                  nrow, ncol,
-                                                 4L, context_index - 1),
+                                                 4L, context_index),
                           .context_index = context_index,
                           .platform_index = platform_index,
                           .platform = platform_name,
@@ -151,7 +151,7 @@ vclMatInitIntVec <- function(data, nrow, ncol, type, ctx_id){
                       new("fvclMatrix", 
                           address=vectorToMatVCL(data, 
                                                  nrow, ncol, 
-                                                 6L, context_index - 1),
+                                                 6L, context_index),
                           .context_index = context_index,
                           .platform_index = platform_index,
                           .platform = platform_name,
@@ -163,7 +163,7 @@ vclMatInitIntVec <- function(data, nrow, ncol, type, ctx_id){
                       new("dvclMatrix",
                           address = vectorToMatVCL(data, 
                                                    nrow, ncol, 
-                                                   8L, context_index - 1),
+                                                   8L, context_index),
                           .context_index = context_index,
                           .platform_index = platform_index,
                           .platform = platform_name,
@@ -206,7 +206,7 @@ vclMatInitIntScalar <- function(data, nrow, ncol, type, ctx_id){
                               cpp_scalar_vclMatrix(
                                   data, 
                                   nrow, ncol, 
-                                  4L, context_index - 1),
+                                  4L, context_index),
                           .context_index = context_index,
                           .platform_index = platform_index,
                           .platform = platform_name,
@@ -220,7 +220,7 @@ vclMatInitIntScalar <- function(data, nrow, ncol, type, ctx_id){
                               cpp_scalar_vclMatrix(
                                   data, 
                                   nrow, ncol, 
-                                  6L, context_index - 1),
+                                  6L, context_index),
                           .context_index = context_index,
                           .platform_index = platform_index,
                           .platform = platform_name,
@@ -235,7 +235,7 @@ vclMatInitIntScalar <- function(data, nrow, ncol, type, ctx_id){
                               cpp_scalar_vclMatrix(
                                   data, 
                                   nrow, ncol, 
-                                  8L, context_index - 1),
+                                  8L, context_index),
                           .context_index = context_index,
                           .platform_index = platform_index,
                           .platform = platform_name,
@@ -286,7 +286,7 @@ vclMatMult <- function(A, B){
                                           TRUE,
                                           kernel,
                                           sqrt(maxWorkGroupSize),
-                                          C@.context_index - 1)
+                                          C@.context_index)
            },
            float = {cpp_vclMatrix_gemm(A@address,
                                        B@address,
@@ -362,7 +362,7 @@ vclGEMV<- function(A, B){
                    #                            TRUE,
                    #                            kernel,
                    #                            sqrt(maxWorkGroupSize),
-                   #                            C@.context_index - 1)
+                   #                            C@.context_index)
                },
                float = {cpp_gpuMatrix_gevm(A@address,
                                            inherits(A, "vclVector"),
@@ -370,7 +370,7 @@ vclGEMV<- function(A, B){
                                            inherits(B, "vclMatrix"),
                                            C@address,
                                            inherits(C, "vclVector"),
-                                           A@.context_index - 1L,
+                                           A@.context_index,
                                            6L)
                },
                double = {
@@ -380,7 +380,7 @@ vclGEMV<- function(A, B){
                                       inherits(B, "vclMatrix"),
                                       C@address,
                                       inherits(C, "vclVector"),
-                                      A@.context_index - 1L,
+                                      A@.context_index,
                                       8L)
                    
                },
@@ -419,7 +419,7 @@ vclGEMV<- function(A, B){
                    #                            TRUE,
                    #                            kernel,
                    #                            sqrt(maxWorkGroupSize),
-                   #                            C@.context_index - 1)
+                   #                            C@.context_index)
                },
                float = {cpp_gpuMatrix_gemv(A@address,
                                            inherits(A, "vclMatrix"),
@@ -427,7 +427,7 @@ vclGEMV<- function(A, B){
                                            inherits(B, "vclVector"),
                                            C@address,
                                            inherits(C, "vclVector"),
-                                           A@.context_index - 1L,
+                                           A@.context_index,
                                            6L)
                },
                double = {
@@ -437,7 +437,7 @@ vclGEMV<- function(A, B){
                                       inherits(B, "vclVector"),
                                       C@address,
                                       inherits(C, "vclVector"),
-                                      A@.context_index - 1L,
+                                      A@.context_index,
                                       8L)
                    
                },
@@ -845,11 +845,11 @@ vclMatrix_pmcc <- function(A, B){
                "float" = cpp_vclMatrix_pmcc(A@address, 
                                             B@address, 
                                             6L,
-                                            A@.context_index - 1),
+                                            A@.context_index),
                "double" = cpp_vclMatrix_pmcc(A@address, 
                                              B@address,
                                              8L,
-                                             A@.context_index - 1),
+                                             A@.context_index),
                stop("unsupported matrix type")
         )
         
@@ -866,12 +866,12 @@ vclMatrix_pmcc <- function(A, B){
                                             B@address, 
                                             C@address,
                                             6L,
-                                            A@.context_index - 1),
+                                            A@.context_index),
                "double" = cpp_vclMatrix_pmcc2(A@address, 
                                              B@address,
                                              C@address,
                                              8L,
-                                             A@.context_index - 1),
+                                             A@.context_index),
                stop("unsupported matrix type")
         )
         
@@ -894,18 +894,18 @@ vclMatrix_euclidean <- function(A, D, diag, upper, p, squareDist){
                #                    D@address, 
                #                    squareDist, 
                #                    4L,
-               #                    A@.context_index - 1)
+               #                    A@.context_index)
                },
            "float" = cpp_vclMatrix_eucl(A@address, 
                                         D@address, 
                                         squareDist, 
                                         6L,
-					A@.context_index - 1),
+					A@.context_index),
            "double" = cpp_vclMatrix_eucl(A@address, 
                                          D@address,
                                          squareDist,
                                          8L,
-					 A@.context_index - 1),
+					 A@.context_index),
            stop("Unsupported matrix type")
     )
     
@@ -929,20 +929,20 @@ vclMatrix_peuclidean <- function(A, B, D, squareDist){
                #                     D@address, 
                #                     squareDist, 
                #                     4L,
-               #                     A@.context_index - 1)
+               #                     A@.context_index)
                },
            "float" = cpp_vclMatrix_peucl(A@address,
                                          B@address,
                                         D@address, 
                                         squareDist, 
                                         6L,
-					A@.context_index - 1),
+					A@.context_index),
            "double" = cpp_vclMatrix_peucl(A@address, 
                                           B@address,
                                          D@address,
                                          squareDist,
                                          8L,
-					 A@.context_index - 1),
+					 A@.context_index),
            stop("Unsupported matrix type")
     )
     

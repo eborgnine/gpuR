@@ -52,9 +52,9 @@ setMethod("[<-",
                   end <- tail(i, 1)
                   
                   switch(typeof(x),
-                         "integer" = vclFillVectorRangeScalar(x@address, value, start-1, end, 4L, x@.context_index - 1),
-                         "float" = vclFillVectorRangeScalar(x@address, value, start-1, end, 6L, x@.context_index - 1),
-                         "double" = vclFillVectorRangeScalar(x@address, value, start-1, end, 8L, x@.context_index - 1),
+                         "integer" = vclFillVectorRangeScalar(x@address, value, start-1, end, 4L, x@.context_index),
+                         "float" = vclFillVectorRangeScalar(x@address, value, start-1, end, 6L, x@.context_index),
+                         "double" = vclFillVectorRangeScalar(x@address, value, start-1, end, 8L, x@.context_index),
                          stop("unsupported matrix type")
                   )
               }
@@ -114,9 +114,9 @@ setMethod("[<-",
               switch(f,
                      "scalar" = {
                          switch(typeof(x),
-                                "integer" = vclFillVectorScalar(x@address, value, 4L, x@.context_index - 1),
-                                "float" = vclFillVectorScalar(x@address, value, 6L, x@.context_index - 1),
-                                "double" = vclFillVectorScalar(x@address, value, 8L, x@.context_index - 1),
+                                "integer" = vclFillVectorScalar(x@address, value, 4L, x@.context_index),
+                                "float" = vclFillVectorScalar(x@address, value, 6L, x@.context_index),
+                                "double" = vclFillVectorScalar(x@address, value, 8L, x@.context_index),
                                 stop("unsupported vector type")
                          )
                      },
@@ -127,9 +127,9 @@ setMethod("[<-",
                          stride <- length(i)
                          
                          switch(typeof(x),
-                                "integer" = vclFillVectorSliceScalar(x@address, value, starts - 1L, stride, 4L, x@.context_index - 1L),
-                                "float" = vclFillVectorSliceScalar(x@address, value, starts - 1L, stride, 6L, x@.context_index - 1L),
-                                "double" = vclFillVectorSliceScalar(x@address, value, starts - 1L, stride, 8L, x@.context_index - 1L),
+                                "integer" = vclFillVectorSliceScalar(x@address, value, starts - 1L, stride, 4L, x@.context_index),
+                                "float" = vclFillVectorSliceScalar(x@address, value, starts - 1L, stride, 6L, x@.context_index),
+                                "double" = vclFillVectorSliceScalar(x@address, value, starts - 1L, stride, 8L, x@.context_index),
                                 stop("unsupported vector type")
                          )
                      },
@@ -138,9 +138,9 @@ setMethod("[<-",
                          elems <- which(i) - 1L
                          
                          switch(typeof(x),
-                                "integer" = vclFillVectorElementwise(x@address, value, elems, 4L, x@.context_index - 1L),
-                                "float" = vclFillVectorElementwise(x@address, value, elems, 6L, x@.context_index - 1L),
-                                "double" = vclFillVectorElementwise(x@address, value, elems, 8L, x@.context_index - 1L),
+                                "integer" = vclFillVectorElementwise(x@address, value, elems, 4L, x@.context_index),
+                                "float" = vclFillVectorElementwise(x@address, value, elems, 6L, x@.context_index),
+                                "double" = vclFillVectorElementwise(x@address, value, elems, 8L, x@.context_index),
                                 stop("unsupported vector type")
                          )
                      },
@@ -162,16 +162,16 @@ setMethod("[<-",
                   }
                   
                   switch(typeof(x),
-                         "integer" = vclSetVector(x@address, value, 4L, x@.context_index - 1),
-                         "float" = vclSetVector(x@address, value, 6L, x@.context_index - 1),
-                         "double" = vclSetVector(x@address, value, 8L, x@.context_index - 1),
+                         "integer" = vclSetVector(x@address, value, 4L, x@.context_index),
+                         "float" = vclSetVector(x@address, value, 6L, x@.context_index),
+                         "double" = vclSetVector(x@address, value, 8L, x@.context_index),
                          stop("unsupported vector type")
                   )
               }else{
                   switch(typeof(x),
-                         "integer" = vclFillVectorScalar(x@address, value, 4L, x@.context_index - 1),
-                         "float" = vclFillVectorScalar(x@address, value, 6L, x@.context_index - 1),
-                         "double" = vclFillVectorScalar(x@address, value, 8L, x@.context_index - 1),
+                         "integer" = vclFillVectorScalar(x@address, value, 4L, x@.context_index),
+                         "float" = vclFillVectorScalar(x@address, value, 6L, x@.context_index),
+                         "double" = vclFillVectorScalar(x@address, value, 8L, x@.context_index),
                          stop("unsupported vector type")
                   )
               }
@@ -255,9 +255,9 @@ setMethod("[<-",
               end <- tail(i, 1)
               
               switch(typeof(x),
-                     "integer" = vclSetVCLMatrixRange(x@address, value@address, start, end, 4L, x@.context_index - 1L),
-                     "float" = vclSetVCLMatrixRange(x@address, value@address, start, end, 6L, x@.context_index - 1L),
-                     "double" = vclSetVCLMatrixRange(x@address, value@address, start, end, 8L, x@.context_index - 1L),
+                     "integer" = vclSetVCLMatrixRange(x@address, value@address, start, end, 4L, x@.context_index),
+                     "float" = vclSetVCLMatrixRange(x@address, value@address, start, end, 6L, x@.context_index),
+                     "double" = vclSetVCLMatrixRange(x@address, value@address, start, end, 8L, x@.context_index),
                      stop("unsupported matrix type")
               )
               

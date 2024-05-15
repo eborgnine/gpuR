@@ -70,7 +70,7 @@ chol.vclMatrix <- function(x, ...){
                                          kernel,
                                          sqrt(maxWorkGroupSize),
                                          6L,
-                                         B@.context_index - 1)
+                                         B@.context_index)
            },
            double = {
                file <- system.file("CL", "dcholesky.cl", package = "gpuR")
@@ -93,7 +93,7 @@ chol.vclMatrix <- function(x, ...){
                                          kernel,
                                          sqrt(maxWorkGroupSize),
                                          8L,
-                                         B@.context_index - 1)
+                                         B@.context_index)
            },
            stop("type not recognized")
     )
@@ -154,7 +154,7 @@ chol.gpuMatrix <- function(x, ...){
                                          kernel,
                                          sqrt(maxWorkGroupSize),
                                          6L,
-                                         B@.context_index - 1)
+                                         B@.context_index)
            },
            double = {
                file <- system.file("CL", "dcholesky.cl", package = "gpuR")
@@ -177,7 +177,7 @@ chol.gpuMatrix <- function(x, ...){
                                          kernel,
                                          sqrt(maxWorkGroupSize),
                                          8L,
-                                         B@.context_index - 1)
+                                         B@.context_index)
            },
            stop("type not recognized")
     )

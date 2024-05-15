@@ -115,14 +115,14 @@ permute.vclMatrix <- function(x, MARGIN = 1, order){
                                                  kernel,
                                                  sqrt(maxWorkGroupSize),
                                                  6L,
-                                                 x@.context_index - 1),
+                                                 x@.context_index),
            "double" = cpp_vclMatrix_set_row_order(x@address, 
                                                   TRUE,
                                                   order - 1,
                                                   kernel,
                                                   sqrt(maxWorkGroupSize),
                                                   8L,
-                                                  x@.context_index - 1),
+                                                  x@.context_index),
            stop("only float and double currently supported"))
     
     
@@ -148,7 +148,7 @@ permute.vclVector <- function(x, MARGIN = 1, order){
     }
     kernel <- readChar(file, file.info(file)$size)
     
-    ctx_id <- x@.context_index - 1
+    ctx_id <- x@.context_index
     
     switch(type,
            "float" = cpp_vclVector_permute(x@address,

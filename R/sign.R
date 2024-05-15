@@ -35,7 +35,7 @@ gpuMatSign <- function(A){
                                   kernel,
                                   sqrt(maxWorkGroupSize),
                                   4L,
-                                  A@.context_index - 1L)
+                                  A@.context_index)
            },
            float = {
                file <- system.file("CL", "fMatSign.cl", package = "gpuR")
@@ -52,7 +52,7 @@ gpuMatSign <- function(A){
                                   kernel,
                                   sqrt(maxWorkGroupSize),
                                   6L,
-                                  A@.context_index - 1L)
+                                  A@.context_index)
            },
            double = {
                file <- system.file("CL", "dMatSign.cl", package = "gpuR")
@@ -69,7 +69,7 @@ gpuMatSign <- function(A){
                                   kernel,
                                   sqrt(maxWorkGroupSize),
                                   8L,
-                                  A@.context_index - 1L)
+                                  A@.context_index)
            },
            stop("type not recognized")
     )
@@ -114,7 +114,7 @@ gpuVecSign <- function(A){
                                   kernel,
                                   maxWorkGroupSize,
                                   4L,
-                                  A@.context_index - 1L)
+                                  A@.context_index)
            },
            float = {
                file <- system.file("CL", "fVecSign.cl", package = "gpuR")
@@ -131,7 +131,7 @@ gpuVecSign <- function(A){
                                   kernel,
                                   maxWorkGroupSize,
                                   6L,
-                                  A@.context_index - 1L)
+                                  A@.context_index)
            },
            double = {
                file <- system.file("CL", "dVecSign.cl", package = "gpuR")
@@ -148,7 +148,7 @@ gpuVecSign <- function(A){
                                   kernel,
                                   maxWorkGroupSize,
                                   8L,
-                                  A@.context_index - 1L)
+                                  A@.context_index)
            },
            stop("type not recognized")
     )

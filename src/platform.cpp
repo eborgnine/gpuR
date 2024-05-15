@@ -67,7 +67,7 @@ SEXP currentPlatform()
 //    return wrap(platforms[plat_idx].info());
     
     return List::create(Named("platform") = wrap(platforms[plat_idx].info()),
-                        Named("platform_index") = wrap(plat_idx + 1));
+                        Named("platform_index") = wrap(plat_idx));
 }
 
 //List platformNames()
@@ -92,7 +92,7 @@ List cpp_platformInfo(SEXP platform_idx_)
     platforms_type platforms = viennacl::ocl::get_platforms();
     
     // subtract one for zero indexing
-    unsigned int platform_idx = as<unsigned int>(platform_idx_) - 1;
+    unsigned int platform_idx = as<unsigned int>(platform_idx_);
     
     viennacl::ocl::platform vcl_platform = platforms[platform_idx];
     

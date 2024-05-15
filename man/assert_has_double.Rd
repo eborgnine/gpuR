@@ -28,6 +28,3 @@ double precision
 \seealso{
 \link{deviceHasDouble}
 }
-\author{
-Charles Determan Jr.
-}

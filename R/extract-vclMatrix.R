@@ -36,13 +36,13 @@ setMethod("[",
                   out <- matrix(nrow= nrow(x), ncol = length(j))
                   
                   for(c in seq_along(j)){
-                      out[,c] <- vclGetCol(x@address, j[c], type, x@.context_index - 1)    
+                      out[,c] <- vclGetCol(x@address, j[c], type, x@.context_index)    
                   }
                   
                   return(out)
                   
               }else{
-                  return(vclGetCol(x@address, j, type, x@.context_index - 1))
+                  return(vclGetCol(x@address, j, type, x@.context_index))
               }
           })
 
@@ -69,13 +69,13 @@ setMethod("[",
                       out <- matrix(nrow = length(i), ncol = ncol(x))
                       
                       for(r in seq_along(i)){
-                          out[r,] <- vclGetRow(x@address, i[r], type, x@.context_index - 1)
+                          out[r,] <- vclGetRow(x@address, i[r], type, x@.context_index)
                       }
                       
                       return(out)
                       
                   }else{
-                      return(vclGetRow(x@address, i, type, x@.context_index - 1))    
+                      return(vclGetRow(x@address, i, type, x@.context_index))    
                   }
                   
               }else{
@@ -104,9 +104,9 @@ setMethod("[",
               }
               
               # Rmat <- switch(typeof(x),
-              #        "integer" = vclGetRow(x@address, i, 4L, x@.context_index - 1),
-              #        "float" = vclGetRow(x@address, i, 6L, x@.context_index - 1),
-              #        "double" = vclGetRow(x@address, i, 8L, x@.context_index - 1),
+              #        "integer" = vclGetRow(x@address, i, 4L, x@.context_index),
+              #        "float" = vclGetRow(x@address, i, 6L, x@.context_index),
+              #        "double" = vclGetRow(x@address, i, 8L, x@.context_index),
               #        stop("unsupported matrix type")
               # )
               
@@ -340,9 +340,9 @@ setMethod("[<-",
 #              assertive.types::assert_is_matrix(value)
               
               switch(typeof(x),
-                     "integer" = vclSetMatrix(x@address, value, 4L, x@.context_index - 1),
-                     "float" = vclSetMatrix(x@address, value, 6L, x@.context_index - 1),
-                     "double" = vclSetMatrix(x@address, value, 8L, x@.context_index - 1),
+                     "integer" = vclSetMatrix(x@address, value, 4L, x@.context_index),
+                     "float" = vclSetMatrix(x@address, value, 6L, x@.context_index),
+                     "double" = vclSetMatrix(x@address, value, 8L, x@.context_index),
                      stop("unsupported matrix type")
               )
               
@@ -357,9 +357,9 @@ setMethod("[<-",
           function(x, i, j, value) {
               
               switch(typeof(x),
-                     "integer" = vclSetVCLMatrix(x@address, value@address, 4L, x@.context_index - 1),
-                     "float" = vclSetVCLMatrix(x@address, value@address, 6L, x@.context_index - 1),
-                     "double" = vclSetVCLMatrix(x@address, value@address, 8L, x@.context_index - 1),
+                     "integer" = vclSetVCLMatrix(x@address, value@address, 4L, x@.context_index),
+                     "float" = vclSetVCLMatrix(x@address, value@address, 6L, x@.context_index),
+                     "double" = vclSetVCLMatrix(x@address, value@address, 8L, x@.context_index),
                      stop("unsupported matrix type")
               )
               
@@ -376,9 +376,9 @@ setMethod("[<-",
               end = tail(j, 1)
               
               switch(typeof(x),
-                     "integer" = vclMatSetVCLCols(x@address, value@address, start, end, 4L, x@.context_index - 1),
-                     "float" = vclMatSetVCLCols(x@address, value@address, start, end, 6L, x@.context_index - 1),
-                     "double" = vclMatSetVCLCols(x@address, value@address, start, end, 8L, x@.context_index - 1),
+                     "integer" = vclMatSetVCLCols(x@address, value@address, start, end, 4L, x@.context_index),
+                     "float" = vclMatSetVCLCols(x@address, value@address, start, end, 6L, x@.context_index),
+                     "double" = vclMatSetVCLCols(x@address, value@address, start, end, 8L, x@.context_index),
                      stop("unsupported matrix type")
               )
               
@@ -395,9 +395,9 @@ setMethod("[<-",
     #        assertive.types::assert_is_scalar(value)
               
               switch(typeof(x),
-                     "integer" = vclFillVCLMatrix(x@address, value, 4L, x@.context_index - 1),
-                     "float" = vclFillVCLMatrix(x@address, value, 6L, x@.context_index - 1),
-                     "double" = vclFillVCLMatrix(x@address, value, 8L, x@.context_index - 1),
+                     "integer" = vclFillVCLMatrix(x@address, value, 4L, x@.context_index),
+                     "float" = vclFillVCLMatrix(x@address, value, 6L, x@.context_index),
+                     "double" = vclFillVCLMatrix(x@address, value, 8L, x@.context_index),
                      stop("unsupported matrix type")
               )
               

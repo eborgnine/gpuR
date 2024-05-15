@@ -166,27 +166,30 @@ gpuInfo <- function(device_idx=NULL,
     
     ctxs <- listContexts()
     if(nrow(ctxs[ctxs$context == context_idx & ctxs$device_type == "gpu",]) == 0){
-        stop("No GPUs found in context")
+        message("No GPUs found in context")
+        return(NULL)
     }
     
     if(!is.null(device_idx)){
-#        assertive.types::assert_is_integer(device_idx)
-      assert_all_are_positive(device_idx)
+        if(device_idx < 0L) {
+            error('device_idx cant be negative')
+        }
         
-        if(device_idx > 1L){
+        if(device_idx > 0L){
             stop("multiple devices on contexts not currently supported")
         }
     }else{
         contexts <- listContexts()
-        idx <- which(contexts$device_type == 'gpu')
+        idx <- contexts[contexts$device_type == 'gpu', 'context']
         if(length(idx) == 0){
-            stop("No GPUs found in intialized contexts")
+            message("No GPUs found in intialized contexts")
+            return(NULL)
         }else{
-            device_idx <- contexts$device_index[idx[1]] + 1L
+            device_idx <- contexts[contexts$context == idx, 'device_index']
         }
     }
     
-    out <- cpp_gpuInfo(device_idx, context_idx - 1L)
+    out <- cpp_gpuInfo(device_idx, context_idx)
     return(out)
 }
 
@@ -198,29 +201,30 @@ cpuInfo <- function(device_idx=NULL,
     
     ctxs <- listContexts()
     if(nrow(ctxs[ctxs$context == context_idx & ctxs$device_type == "cpu",]) == 0){
-        stop("No CPUs found in context")
+        message("No CPUs found in context")
+        return(NULL)
     }
     
     if(!is.null(device_idx)){
-#        assertive.types::assert_is_integer(device_idx)
-      assert_all_are_positive(device_idx)
         
-        if(device_idx > 1L){
+        if(device_idx > 0L){
             stop("multiple devices on contexts not currently supported")
         }
         
     }else{
         contexts <- listContexts()
-        idx <- which(contexts$device_type == 'cpu')
+        idx <- contexts[contexts$device_type == 'cpu', 'context']
+
         if(length(idx) == 0){
-            stop("No CPUs found in intialized contexts")
+            message("No CPUs found in intialized contexts")
+            return(NULL)
         }else{
-            platform_idx <- contexts$platform_index[idx[1]] + 1
-            device_idx <- contexts$device_index[idx[1]] + 1
+            device_idx <- contexts[contexts$context == idx, 'device_index']
+            platform_idx <- contexts[contexts$context == idx, 'platform_index']
         }
     }
     
-    out <- cpp_cpuInfo(device_idx, context_idx - 1L)
+    out <- cpp_cpuInfo(device_idx, context_idx)
     
     if(Sys.info()["sysname"]=='Darwin'){
         out$maxWorkGroupSize <- 1
@@ -239,10 +243,7 @@ cpuInfo <- function(device_idx=NULL,
 #' @return \item{platformVersion}{Platform OpenCL Version}
 #' @return \item{platformExtensions}{Available platform extensions}
 #' @export
-platformInfo <- function(platform_idx=1L){
-#    assertive.types::assert_is_integer(platform_idx)
-   assert_all_are_positive(platform_idx)
-
+platformInfo <- function(platform_idx=0L){
     
     out <- cpp_platformInfo(platform_idx)
     return(out)
@@ -258,8 +259,6 @@ platformInfo <- function(platform_idx=1L){
 #' @export
 deviceHasDouble <- function(gpu_idx=currentDevice()$device_index,
                             context_idx = currentContext()){
-#    assertive.types::assert_is_integer(gpu_idx)
-   assert_all_are_positive(gpu_idx)
 
     device_type <- deviceType(gpu_idx, context_idx)
 
@@ -299,21 +298,21 @@ cbind_wrapper <- function(x, y, z){
                                               y@address, 
                                               z@address, 
                                               4L,
-                                              x@.context_index - 1)
+                                              x@.context_index)
            },
            "float" = {
                address <- cpp_cbind_vclMatrix(x@address, 
                                               y@address, 
                                               z@address, 
                                               6L,
-                                              x@.context_index - 1)
+                                              x@.context_index)
            },
            "double" = {
                address <- cpp_cbind_vclMatrix(x@address, 
                                               y@address, 
                                               z@address, 
                                               8L,
-                                              x@.context_index - 1)
+                                              x@.context_index)
            },
            stop("type not recognized")
     )
@@ -330,7 +329,7 @@ cbind_wrapper2 <- function(x, y, z, order = TRUE){
                                                   z@address, 
                                                   order,
                                                   4L,
-                                                  x@.context_index - 1)
+                                                  x@.context_index)
            },
            "float" = {
                address <- cpp_cbind_vclMat_vclVec(x@address, 
@@ -338,7 +337,7 @@ cbind_wrapper2 <- function(x, y, z, order = TRUE){
                                                   z@address, 
                                                   order,
                                                   6L,
-                                                  x@.context_index - 1)
+                                                  x@.context_index)
            },
            "double" = {
                address <- cpp_cbind_vclMat_vclVec(x@address, 
@@ -346,7 +345,7 @@ cbind_wrapper2 <- function(x, y, z, order = TRUE){
                                                   z@address, 
                                                   order,
                                                   8L,
-                                                  x@.context_index - 1)
+                                                  x@.context_index)
            },
            stop("type not recognized")
     )

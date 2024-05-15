@@ -35,7 +35,7 @@ setMethod('as.vclVector',
                   stop("unrecognized data type")
               }
               
-              ctx_id <- object@.context_index - 1
+              ctx_id <- object@.context_index
               
               tmp = vclMatTovclVec(object@address, shared, ctx_id, 6L)
               
@@ -342,7 +342,7 @@ setMethod("deepcopy", signature(object ="vclVector"),
                                          address = cpp_deepcopy_vclVector(
                                              object@address, 
                                              4L, 
-                                             object@.context_index - 1),
+                                             object@.context_index),
                                          .context_index = object@.context_index,
                                          .platform_index = object@.platform_index,
                                          .platform = object@.platform,
@@ -351,7 +351,7 @@ setMethod("deepcopy", signature(object ="vclVector"),
                          "float" = new("fvclVector", 
                                        address = cpp_deepcopy_vclVector(
                                            object@address, 6L, 
-                                           object@.context_index - 1),
+                                           object@.context_index),
                                        .context_index = object@.context_index,
                                        .platform_index = object@.platform_index,
                                        .platform = object@.platform,
@@ -360,7 +360,7 @@ setMethod("deepcopy", signature(object ="vclVector"),
                          "double" = new("dvclVector", 
                                         address = cpp_deepcopy_vclVector(
                                             object@address, 8L, 
-                                            object@.context_index - 1),
+                                            object@.context_index),
                                         .context_index = object@.context_index,
                                         .platform_index = object@.platform_index,
                                         .platform = object@.platform,

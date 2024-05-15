@@ -74,7 +74,7 @@ gpuMatpmax <- function(..., order){
                                       kernel,
                                       sqrt(maxWorkGroupSize),
                                       4L,
-                                      A@.context_index - 1L)
+                                      A@.context_index)
                },
                float = {
                    cpp_vclMatrix_pmax(B@address,
@@ -85,7 +85,7 @@ gpuMatpmax <- function(..., order){
                                       kernel,
                                       sqrt(maxWorkGroupSize),
                                       6L,
-                                      A@.context_index - 1L)
+                                      A@.context_index)
                },
                double = {
                    cpp_vclMatrix_pmax(B@address,
@@ -96,7 +96,7 @@ gpuMatpmax <- function(..., order){
                                       kernel,
                                       sqrt(maxWorkGroupSize),
                                       8L,
-                                      A@.context_index - 1L)
+                                      A@.context_index)
                }
         )    
     }
@@ -179,7 +179,7 @@ gpuVecpmax <- function(..., order){
                                       kernel,
                                       maxWorkGroupSize,
                                       4L,
-                                      A@.context_index - 1L)
+                                      A@.context_index)
                },
                float = {
                    cpp_vclVector_pmax(B@address,
@@ -190,7 +190,7 @@ gpuVecpmax <- function(..., order){
                                       kernel,
                                       maxWorkGroupSize,
                                       6L,
-                                      A@.context_index - 1L)
+                                      A@.context_index)
                },
                double = {
                    cpp_vclVector_pmax(B@address,
@@ -201,7 +201,7 @@ gpuVecpmax <- function(..., order){
                                       kernel,
                                       maxWorkGroupSize,
                                       8L,
-                                      A@.context_index - 1L)
+                                      A@.context_index)
                }
         )    
     }

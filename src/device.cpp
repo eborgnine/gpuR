@@ -27,7 +27,7 @@ SEXP cpp_deviceType(SEXP gpu_idx_, int ctx_idx)
     viennacl::context ctx(viennacl::ocl::get_context(ctx_idx));
     
 
-    unsigned int gpu_idx = (Rf_isNull(gpu_idx_)) ? ctx.opencl_context().current_device_id() : as<unsigned int>(gpu_idx_) - 1;
+    unsigned int gpu_idx = (Rf_isNull(gpu_idx_)) ? ctx.opencl_context().current_device_id() : as<unsigned int>(gpu_idx_);
     Rcpp::Function msg = Rcpp::Environment::base_env()["packageStartupMessage"];
     
 
@@ -77,7 +77,7 @@ SEXP cpp_detectGPUs(SEXP platform_idx)
         }
     }else{
         // subtract one for zero indexing
-        unsigned int plat_idx = as<unsigned int>(platform_idx) - 1;
+        unsigned int plat_idx = as<unsigned int>(platform_idx);
         
         devices = platforms[plat_idx].devices(CL_DEVICE_TYPE_ALL);
         for(unsigned int device_idx=0; device_idx < devices.size(); device_idx++){
@@ -97,7 +97,7 @@ List cpp_gpuInfo(SEXP gpu_idx_, int ctx_idx)
     // set context
     viennacl::context ctx(viennacl::ocl::get_context(ctx_idx));
     
-    unsigned int gpu_idx = (Rf_isNull(gpu_idx_)) ? ctx.opencl_context().current_device_id() : as<unsigned int>(gpu_idx_) - 1;
+    unsigned int gpu_idx = (Rf_isNull(gpu_idx_)) ? ctx.opencl_context().current_device_id() : as<unsigned int>(gpu_idx_);
     
     // Get device
     viennacl::ocl::device working_device = ctx.opencl_context().devices()[gpu_idx];
@@ -143,7 +143,7 @@ List cpp_cpuInfo(SEXP cpu_idx_, int ctx_idx)
     // set context
     viennacl::context ctx(viennacl::ocl::get_context(ctx_idx));
     
-    unsigned int cpu_idx = (Rf_isNull(cpu_idx_)) ? ctx.opencl_context().current_device_id() : as<unsigned int>(cpu_idx_) - 1;
+    unsigned int cpu_idx = (Rf_isNull(cpu_idx_)) ? ctx.opencl_context().current_device_id() : as<unsigned int>(cpu_idx_);
     
     // Get device
     viennacl::ocl::device working_device = ctx.opencl_context().devices()[cpu_idx];
@@ -234,7 +234,7 @@ SEXP currentDevice()
 
     }
     
-    int device_idx = (int)(viennacl::ocl::current_context().current_device_id()) + (int)(1);
+    int device_idx = (int)(viennacl::ocl::current_context().current_device_id());
             
     return List::create(Named("device") = wrap(viennacl::ocl::current_context().current_device().name()),
                         Named("device_index") = wrap(device_idx),
@@ -267,7 +267,7 @@ SEXP cpp_detectCPUs(SEXP platform_idx)
         }
     }else{
         // subtract one for zero indexing
-        unsigned int plat_idx = as<unsigned int>(platform_idx) - 1;
+        unsigned int plat_idx = as<unsigned int>(platform_idx);
         
         devices = platforms[plat_idx].devices(CL_DEVICE_TYPE_ALL);
         for(unsigned int device_idx=0; device_idx < devices.size(); device_idx++){

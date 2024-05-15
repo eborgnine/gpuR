@@ -23,7 +23,7 @@
 #' @note There are other packages that also provide wrappers for OpenCL 
 #' programming including \pkg{OpenCL} by Simon Urbanek and \bold{ROpenCL} at 
 #' Open Analytics by Willem Ligtenberg.  Both of these packages provide
-#' the R user an interface to directly call OpenCL functions.  This package, 
+#' the R user an interface to directly call OpenCL functions.  ThislistConte package, 
 #' however, hides these functions so the user does not require any knowledge
 #' of OpenCL to begin using their GPU.  The idea behind this package is to
 #' provide a means to begin using existing algorithms without the need
@@ -32,7 +32,7 @@
 #' Charles Determan \email{cdetermanjr@@gmail.com}
 #' 
 #' Maintainer: Charles Determan \email{cdetermanjr@@gmail.com}
-#' @docType _PACKAGE
+#' @docType package
 #' @name gpuR-package
 #' @aliases gpuR-package gpuR
 NULL

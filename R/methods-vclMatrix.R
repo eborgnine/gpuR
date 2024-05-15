@@ -723,7 +723,7 @@ setMethod("deepcopy", signature(object ="vclMatrix"),
               
               out <- switch(typeof(object),
                             "integer" = new("ivclMatrix",
-                                            address = cpp_deepcopy_vclMatrix(object@address, 4L, object@.context_index - 1,
+                                            address = cpp_deepcopy_vclMatrix(object@address, 4L, object@.context_index,
                                                                              source),
 										.context_index = object@.context_index,
 										.platform_index = object@.platform_index,
@@ -731,7 +731,7 @@ setMethod("deepcopy", signature(object ="vclMatrix"),
 										.device_index = object@.device_index,
 										.device = object@.device),
                             "float" = new("fvclMatrix", 
-                                          address = cpp_deepcopy_vclMatrix(object@address, 6L, object@.context_index - 1,
+                                          address = cpp_deepcopy_vclMatrix(object@address, 6L, object@.context_index,
                                                                            source),
                             							.context_index = object@.context_index,
                             							.platform_index = object@.platform_index,
@@ -739,7 +739,7 @@ setMethod("deepcopy", signature(object ="vclMatrix"),
                             							.device_index = object@.device_index,
                             							.device = object@.device),
                             "double" = new("dvclMatrix", 
-                                           address = cpp_deepcopy_vclMatrix(object@address, 8L, object@.context_index - 1,
+                                           address = cpp_deepcopy_vclMatrix(object@address, 8L, object@.context_index,
                                                                             source),
                             							 .context_index = object@.context_index,
                             							 .platform_index = object@.platform_index,
@@ -902,7 +902,7 @@ setMethod("rbind2",
               
               ptr <- switch(typeof(x),
                             "integer" = {
-                                address <- cpp_rbind_vclMatrix(x@address, y@address, 4L, x@.context_index - 1)
+                                address <- cpp_rbind_vclMatrix(x@address, y@address, 4L, x@.context_index)
                                 new("ivclMatrix", 
                                     address = address,
                                     .context_index = x@.context_index,
@@ -912,7 +912,7 @@ setMethod("rbind2",
                                     .device = x@.device)
                             },
                             "float" = {
-                                address <- cpp_rbind_vclMatrix(x@address, y@address, 6L, x@.context_index - 1)
+                                address <- cpp_rbind_vclMatrix(x@address, y@address, 6L, x@.context_index)
                                 new("fvclMatrix", 
                                     address = address,
                                     .context_index = x@.context_index,
@@ -922,7 +922,7 @@ setMethod("rbind2",
                                     .device = x@.device)
                             },
                             "double" = {
-                                address <- cpp_rbind_vclMatrix(x@address, y@address, 8L, x@.context_index - 1)
+                                address <- cpp_rbind_vclMatrix(x@address, y@address, 8L, x@.context_index)
                                 new("dvclMatrix", 
                                     address = address,
                                     .context_index = x@.context_index,
@@ -948,7 +948,7 @@ setMethod("rbind2",
               
               ptr <- switch(typeof(x),
                             "integer" = {
-                                address <- cpp_rbind_vclMatrix(x@address, y@address, 4L, y@.context_index - 1)
+                                address <- cpp_rbind_vclMatrix(x@address, y@address, 4L, y@.context_index)
                                 new("ivclMatrix",
                                     address = address,
                                     .context_index = x@.context_index,
@@ -958,7 +958,7 @@ setMethod("rbind2",
                                     .device = x@.device)
                             },
                             "float" = {
-                                address <- cpp_rbind_vclMatrix(x@address, y@address, 6L, y@.context_index - 1)
+                                address <- cpp_rbind_vclMatrix(x@address, y@address, 6L, y@.context_index)
                                 new("fvclMatrix", 
                                     address = address,
                                     .context_index = x@.context_index,
@@ -968,7 +968,7 @@ setMethod("rbind2",
                                     .device = x@.device)
                             },
                             "double" = {
-                                address <- cpp_rbind_vclMatrix(x@address, y@address, 8L, y@.context_index - 1)
+                                address <- cpp_rbind_vclMatrix(x@address, y@address, 8L, y@.context_index)
                                 new("dvclMatrix", 
                                     address = address,
                                     .context_index = x@.context_index,
@@ -993,7 +993,7 @@ setMethod("rbind2",
               
               ptr <- switch(typeof(x),
                             "integer" = {
-                                address <- cpp_rbind_vclMatrix(x@address, y@address, 4L, x@.context_index - 1)
+                                address <- cpp_rbind_vclMatrix(x@address, y@address, 4L, x@.context_index)
                                 new("ivclMatrix", 
                                     address = address,
                                     .context_index = x@.context_index,
@@ -1003,7 +1003,7 @@ setMethod("rbind2",
                                     .device = x@.device)
                             },
                             "float" = {
-                                address <- cpp_rbind_vclMatrix(x@address, y@address, 6L, x@.context_index - 1)
+                                address <- cpp_rbind_vclMatrix(x@address, y@address, 6L, x@.context_index)
                                 new("fvclMatrix", 
                                     address = address,
                                     .context_index = x@.context_index,
@@ -1013,7 +1013,7 @@ setMethod("rbind2",
                                     .device = x@.device)
                             },
                             "double" = {
-                                address <- cpp_rbind_vclMatrix(x@address, y@address, 8L, x@.context_index - 1)
+                                address <- cpp_rbind_vclMatrix(x@address, y@address, 8L, x@.context_index)
                                 new("dvclMatrix", 
                                     address = address,
                                     .context_index = x@.context_index,

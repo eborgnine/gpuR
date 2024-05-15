@@ -23,37 +23,37 @@
 \usage{
 inplace(f, x, y)
 
-\S4method{inplace}{`function`,vclMatrix,vclMatrix}(f, x, y)
+\S4method{inplace}{function,vclMatrix,vclMatrix}(f, x, y)
 
-\S4method{inplace}{`function`,vclMatrix,missing}(f, x, y)
+\S4method{inplace}{function,vclMatrix,missing}(f, x, y)
 
-\S4method{inplace}{`function`,numeric,vclMatrix}(f, x, y)
+\S4method{inplace}{function,numeric,vclMatrix}(f, x, y)
 
-\S4method{inplace}{`function`,vclMatrix,numeric}(f, x, y)
+\S4method{inplace}{function,vclMatrix,numeric}(f, x, y)
 
-\S4method{inplace}{`function`,gpuMatrix,gpuMatrix}(f, x, y)
+\S4method{inplace}{function,gpuMatrix,gpuMatrix}(f, x, y)
 
-\S4method{inplace}{`function`,gpuMatrix,missing}(f, x, y)
+\S4method{inplace}{function,gpuMatrix,missing}(f, x, y)
 
-\S4method{inplace}{`function`,numeric,gpuMatrix}(f, x, y)
+\S4method{inplace}{function,numeric,gpuMatrix}(f, x, y)
 
-\S4method{inplace}{`function`,gpuMatrix,numeric}(f, x, y)
+\S4method{inplace}{function,gpuMatrix,numeric}(f, x, y)
 
-\S4method{inplace}{`function`,vclVector,vclVector}(f, x, y)
+\S4method{inplace}{function,vclVector,vclVector}(f, x, y)
 
-\S4method{inplace}{`function`,vclVector,missing}(f, x, y)
+\S4method{inplace}{function,vclVector,missing}(f, x, y)
 
-\S4method{inplace}{`function`,vclVector,numeric}(f, x, y)
+\S4method{inplace}{function,vclVector,numeric}(f, x, y)
 
-\S4method{inplace}{`function`,numeric,vclVector}(f, x, y)
+\S4method{inplace}{function,numeric,vclVector}(f, x, y)
 
-\S4method{inplace}{`function`,gpuVector,gpuVector}(f, x, y)
+\S4method{inplace}{function,gpuVector,gpuVector}(f, x, y)
 
-\S4method{inplace}{`function`,gpuVector,missing}(f, x, y)
+\S4method{inplace}{function,gpuVector,missing}(f, x, y)
 
-\S4method{inplace}{`function`,gpuVector,numeric}(f, x, y)
+\S4method{inplace}{function,gpuVector,numeric}(f, x, y)
 
-\S4method{inplace}{`function`,numeric,gpuVector}(f, x, y)
+\S4method{inplace}{function,numeric,gpuVector}(f, x, y)
 }
 \arguments{
 \item{f}{A function}

@@ -48,9 +48,9 @@ svd.vclMatrix <-
               V <- vclMatrix(0, ncol = ncol(x), nrow = ncol(x), type = type, ctx_id=x@.context_index)
               
               switch(type,
-                     integer = {cpp_vclMatrix_svd(x@address, D@address, U@address, V@address, 4L, ctx_id = x@.context_index - 1)},
-                     float = {cpp_vclMatrix_svd(x@address, D@address, U@address, V@address, 6L, ctx_id = x@.context_index - 1)},
-                     double = {cpp_vclMatrix_svd(x@address, D@address, U@address, V@address, 8L, ctx_id = x@.context_index - 1)},
+                     integer = {cpp_vclMatrix_svd(x@address, D@address, U@address, V@address, 4L, ctx_id = x@.context_index)},
+                     float = {cpp_vclMatrix_svd(x@address, D@address, U@address, V@address, 6L, ctx_id = x@.context_index)},
+                     double = {cpp_vclMatrix_svd(x@address, D@address, U@address, V@address, 8L, ctx_id = x@.context_index)},
                      stop("type not recognized")
               )
               

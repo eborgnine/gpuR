@@ -23,7 +23,7 @@ gpuVec_axpy <- function(alpha, A, B, inplace = FALSE, order = 0){
                                   is(Z, "vclVector"),
                                   order,
                                   4L,
-                                  A@.context_index - 1)
+                                  A@.context_index)
            },
            float = {cpp_gpuVector_axpy(alpha, 
                                        A@address, 
@@ -32,7 +32,7 @@ gpuVec_axpy <- function(alpha, A, B, inplace = FALSE, order = 0){
                                        is(Z, "vclVector"),
                                        order,
                                        6L,
-                                       A@.context_index - 1)
+                                       A@.context_index)
            },
            double = {
                cpp_gpuVector_axpy(alpha, 
@@ -42,7 +42,7 @@ gpuVec_axpy <- function(alpha, A, B, inplace = FALSE, order = 0){
                                   is(Z, "vclVector"),
                                   order,
                                   8L,
-                                  A@.context_index - 1)
+                                  A@.context_index)
            },
            stop("type not recognized")
     )
@@ -71,13 +71,13 @@ gpuVector_unary_axpy <- function(A){
                cpp_gpuVector_unary_axpy(Z@address, 
                                         is(Z, "vclVector"),
                                         6L,
-                                        A@.context_index - 1)
+                                        A@.context_index)
            },
            double = {
                cpp_gpuVector_unary_axpy(Z@address,
                                         is(Z, "vclVector"),
                                         8L,
-                                        A@.context_index - 1)
+                                        A@.context_index)
            },
            stop("type not recognized")
     )
@@ -99,14 +99,14 @@ gpuVecInnerProd <- function(A, B){
                                                      B@address,
                                                      is(B, "vclVector"),
                                                      6L,
-                                                     A@.context_index - 1),
+                                                     A@.context_index),
                   "double" = {
                       cpp_gpuVector_inner_prod(A@address,
                                                is(A, "vclVector"),
                                                B@address,
                                                is(B, "vclVector"),
                                                8L,
-                                               A@.context_index - 1)
+                                               A@.context_index)
                   },
                   stop("unrecognized data type")
     )
@@ -137,7 +137,7 @@ gpuVecOuterProd <- function(A, B, C){
                                               C@address,
                                               is(C, "vclMatrix"),
                                               6L,
-                                              A@.context_index - 1),
+                                              A@.context_index),
            "double" = {
                cpp_gpuVector_outer_prod(A@address,
                                         is(A, "vclVector"),
@@ -146,7 +146,7 @@ gpuVecOuterProd <- function(A, B, C){
                                         C@address,
                                         is(C, "vclMatrix"),
                                         8L,
-                                        A@.context_index - 1)
+                                        A@.context_index)
            },
            stop("unrecognized data type")
     )
@@ -185,7 +185,7 @@ gpuVecElemMult <- function(A, B, inplace = FALSE){
                                             C@address,
                                             is(C, "vclVector"),
                                             6L,
-                                            A@.context_index - 1)
+                                            A@.context_index)
            },
            double = {
                cpp_gpuVector_elem_prod(A@address,
@@ -195,7 +195,7 @@ gpuVecElemMult <- function(A, B, inplace = FALSE){
                                        C@address,
                                        is(C, "vclVector"),
                                        8L,
-                                       A@.context_index - 1)
+                                       A@.context_index)
            },
            stop("type not recognized")
     )
@@ -242,14 +242,14 @@ gpuVecScalarMult <- function(A, B, inplace = FALSE){
                                          is(C, "vclVector"),
                                          Z,
                                          6L,
-                                         C@.context_index - 1)
+                                         C@.context_index)
            },
            double = {
                cpp_gpuVector_scalar_prod(C@address,
                                          is(C, "vclVector"),
                                          Z,
                                          8L,
-                                         C@.context_index - 1)
+                                         C@.context_index)
            },
            stop("type not recognized")
     )
@@ -293,7 +293,7 @@ gpuVecElemDiv <- function(A, B, inplace = FALSE){
                                            C@address,
                                            is(C, "vclVector"),
                                            6L,
-                                           A@.context_index - 1)
+                                           A@.context_index)
            },
            double = {
                cpp_gpuVector_elem_div(A@address,
@@ -303,7 +303,7 @@ gpuVecElemDiv <- function(A, B, inplace = FALSE){
                                       C@address,
                                       is(C, "vclVector"),
                                       8L,
-                                      A@.context_index - 1)
+                                      A@.context_index)
            },
            
            stop("type not recognized")
@@ -345,14 +345,14 @@ gpuVecScalarDiv <- function(A, B, order=0, inplace = FALSE){
                                         Z,
                                         order,
                                         4L,
-                                        C@.context_index - 1)
+                                        C@.context_index)
            },
            float = {cpp_gpuVector_scalar_div(C@address,
                                              is(C, "vclVector"),
                                              Z,
                                              order,
                                              6L,
-                                             C@.context_index - 1)
+                                             C@.context_index)
            },
            double = {
                cpp_gpuVector_scalar_div(C@address,
@@ -360,7 +360,7 @@ gpuVecScalarDiv <- function(A, B, order=0, inplace = FALSE){
                                         Z,
                                         order,
                                         8L,
-                                        C@.context_index - 1)
+                                        C@.context_index)
            },
            stop("type not recognized")
     )
@@ -400,7 +400,7 @@ gpuVecElemPow <- function(A, B){
                                            C@address,
                                            is(C, "vclVector"),
                                            6L,
-                                           A@.context_index - 1)
+                                           A@.context_index)
            },
            double = {
                cpp_gpuVector_elem_pow(A@address,
@@ -410,7 +410,7 @@ gpuVecElemPow <- function(A, B){
                                       C@address,
                                       is(C, "vclVector"),
                                       8L,
-                                      A@.context_index - 1)
+                                      A@.context_index)
            },
            stop("type not recognized")
     )
@@ -439,7 +439,7 @@ gpuVecScalarPow <- function(A, B, order){
                                              is(C, "vclVector"),
                                              order,
                                              6L,
-                                             A@.context_index - 1)
+                                             A@.context_index)
            },
            double = {
                cpp_gpuVector_scalar_pow(A@address,
@@ -449,7 +449,7 @@ gpuVecScalarPow <- function(A, B, order){
                                         is(C, "vclVector"),
                                         order,
                                         8L,
-                                        A@.context_index - 1)
+                                        A@.context_index)
            },
            stop("type not recognized")
     )
@@ -476,7 +476,7 @@ gpuVecSqrt <- function(A){
                                        C@address,
                                        is(C, "vclVector"),
                                        6L,
-                                       A@.context_index - 1)
+                                       A@.context_index)
            },
            double = {
                cpp_gpuVector_sqrt(A@address,
@@ -484,7 +484,7 @@ gpuVecSqrt <- function(A){
                                   C@address,
                                   is(C, "vclVector"),
                                   8L,
-                                  A@.context_index - 1)
+                                  A@.context_index)
            },
            {
                stop("type not recognized")
@@ -516,7 +516,7 @@ gpuVecElemSin <- function(A, inplace = FALSE){
                                            C@address,
                                            is(C, "vclVector"),
                                            6L,
-                                           A@.context_index - 1)
+                                           A@.context_index)
            },
            double = {
                cpp_gpuVector_elem_sin(A@address,
@@ -524,7 +524,7 @@ gpuVecElemSin <- function(A, inplace = FALSE){
                                       C@address,
                                       is(C, "vclVector"),
                                       8L,
-                                      A@.context_index - 1)
+                                      A@.context_index)
            },
            {
                stop("type not recognized")
@@ -561,7 +561,7 @@ gpuVecElemArcSin <- function(A, inplace = FALSE){
                                             C@address,
                                             is(C, "vclVector"),
                                             6L,
-                                            A@.context_index - 1)
+                                            A@.context_index)
            },
            double = {
                cpp_gpuVector_elem_asin(A@address,
@@ -569,7 +569,7 @@ gpuVecElemArcSin <- function(A, inplace = FALSE){
                                        C@address,
                                        is(C, "vclVector"),
                                        8L,
-                                       A@.context_index - 1)
+                                       A@.context_index)
            },
            stop("type not recognized")
     )
@@ -604,7 +604,7 @@ gpuVecElemHypSin <- function(A, inplace = FALSE){
                                             C@address,
                                             is(C, "vclVector"),
                                             6L,
-                                            A@.context_index - 1)
+                                            A@.context_index)
            },
            double = {
                cpp_gpuVector_elem_sinh(A@address,
@@ -612,7 +612,7 @@ gpuVecElemHypSin <- function(A, inplace = FALSE){
                                        C@address,
                                        is(C, "vclVector"),
                                        8L,
-                                       A@.context_index - 1)
+                                       A@.context_index)
            },
            stop("type not recognized")
     )
@@ -648,7 +648,7 @@ gpuVecElemCos <- function(A, inplace = FALSE){
                                            C@address,
                                            is(C, "vclVector"),
                                            6L,
-                                           A@.context_index - 1)
+                                           A@.context_index)
            },
            double = {
                cpp_gpuVector_elem_cos(A@address,
@@ -656,7 +656,7 @@ gpuVecElemCos <- function(A, inplace = FALSE){
                                       C@address,
                                       is(C, "vclVector"),
                                       8L,
-                                      A@.context_index - 1)
+                                      A@.context_index)
            },
            stop("type not recognized")
     )
@@ -692,7 +692,7 @@ gpuVecElemArcCos <- function(A, inplace = FALSE){
                                             C@address,
                                             is(C, "vclVector"),
                                             6L,
-                                            A@.context_index - 1)
+                                            A@.context_index)
            },
            double = {
                cpp_gpuVector_elem_acos(A@address,
@@ -700,7 +700,7 @@ gpuVecElemArcCos <- function(A, inplace = FALSE){
                                        C@address,
                                        is(C, "vclVector"),
                                        8L,
-                                       A@.context_index - 1)
+                                       A@.context_index)
            },
            stop("type not recognized")
     )
@@ -736,7 +736,7 @@ gpuVecElemHypCos <- function(A, inplace = FALSE){
                                             C@address,
                                             is(C, "vclVector"),
                                             6L,
-                                            A@.context_index - 1)
+                                            A@.context_index)
            },
            double = {
                cpp_gpuVector_elem_cosh(A@address,
@@ -744,7 +744,7 @@ gpuVecElemHypCos <- function(A, inplace = FALSE){
                                        C@address,
                                        is(C, "vclVector"),
                                        8L,
-                                       A@.context_index - 1)
+                                       A@.context_index)
            },
            stop("type not recognized")
     )
@@ -780,7 +780,7 @@ gpuVecElemTan <- function(A, inplace = FALSE){
                                            C@address,
                                            is(C, "vclVector"),
                                            6L,
-                                           A@.context_index - 1)
+                                           A@.context_index)
            },
            double = {
                cpp_gpuVector_elem_tan(A@address,
@@ -788,7 +788,7 @@ gpuVecElemTan <- function(A, inplace = FALSE){
                                       C@address,
                                       is(C, "vclVector"),
                                       8L,
-                                      A@.context_index - 1)
+                                      A@.context_index)
            },
            stop("type not recognized")
     )
@@ -824,7 +824,7 @@ gpuVecElemArcTan <- function(A, inplace = FALSE){
                                             C@address,
                                             is(C, "vclVector"),
                                             6L,
-                                            A@.context_index - 1)
+                                            A@.context_index)
            },
            double = {
                cpp_gpuVector_elem_atan(A@address,
@@ -832,7 +832,7 @@ gpuVecElemArcTan <- function(A, inplace = FALSE){
                                        C@address,
                                        is(C, "vclVector"),
                                        8L,
-                                       A@.context_index - 1)
+                                       A@.context_index)
            },
            stop("type not recognized")
     )
@@ -868,7 +868,7 @@ gpuVecElemHypTan <- function(A, inplace = FALSE){
                                             C@address,
                                             is(C, "vclVector"),
                                             6L,
-                                            A@.context_index - 1)
+                                            A@.context_index)
            },
            double = {
                cpp_gpuVector_elem_tanh(A@address,
@@ -876,7 +876,7 @@ gpuVecElemHypTan <- function(A, inplace = FALSE){
                                        C@address,
                                        is(C, "vclVector"),
                                        8L,
-                                       A@.context_index - 1)
+                                       A@.context_index)
            },
            stop("type not recognized")
     )
@@ -908,7 +908,7 @@ gpuVecElemLog10 <- function(A){
                                              C@address,
                                              is(C, "vclVector"),
                                              6L,
-                                             A@.context_index - 1)
+                                             A@.context_index)
            },
            double = {
                cpp_gpuVector_elem_log10(A@address,
@@ -916,7 +916,7 @@ gpuVecElemLog10 <- function(A){
                                         C@address,
                                         is(C, "vclVector"),
                                         8L,
-                                        A@.context_index - 1)
+                                        A@.context_index)
            },
            stop("type not recognized")
     )
@@ -943,7 +943,7 @@ gpuVecElemLog <- function(A){
                                            C@address,
                                            is(C, "vclVector"),
                                            6L,
-                                           A@.context_index - 1)
+                                           A@.context_index)
            },
            double = {
                cpp_gpuVector_elem_log(A@address,
@@ -951,7 +951,7 @@ gpuVecElemLog <- function(A){
                                       C@address,
                                       is(C, "vclVector"),
                                       8L,
-                                      A@.context_index - 1)
+                                      A@.context_index)
            },
            
            stop("type not recognized")
@@ -980,7 +980,7 @@ gpuVecElemLogBase <- function(A, base){
                                                 is(C, "vclVector"),
                                                 base,
                                                 6L,
-                                                A@.context_index - 1)
+                                                A@.context_index)
            },
            double = {
                cpp_gpuVector_elem_log_base(A@address,
@@ -989,7 +989,7 @@ gpuVecElemLogBase <- function(A, base){
                                            is(C, "vclVector"),
                                            base,
                                            8L,
-                                           A@.context_index - 1)
+                                           A@.context_index)
            },
            stop("type not recognized")
     )
@@ -1020,7 +1020,7 @@ gpuVecElemExp <- function(A, inplace = FALSE){
                                            C@address,
                                            is(C, "vclVector"),
                                            6L,
-                                           A@.context_index - 1)
+                                           A@.context_index)
            },
            double = {
                cpp_gpuVector_elem_exp(A@address,
@@ -1028,7 +1028,7 @@ gpuVecElemExp <- function(A, inplace = FALSE){
                                       C@address,
                                       is(C, "vclVector"),
                                       8L,
-                                      A@.context_index - 1)
+                                      A@.context_index)
            },
            stop("type not recognized")
     )
@@ -1064,7 +1064,7 @@ gpuVecElemAbs <- function(A, inplace = FALSE){
                                            C@address,
                                            is(C, "vclVector"),
                                            6L,
-                                           A@.context_index - 1)
+                                           A@.context_index)
            },
            double = {
                cpp_gpuVector_elem_abs(A@address,
@@ -1072,7 +1072,7 @@ gpuVecElemAbs <- function(A, inplace = FALSE){
                                       C@address,
                                       is(C, "vclVector"),
                                       8L,
-                                      A@.context_index - 1)
+                                      A@.context_index)
            },
            stop("type not recognized")
     )
@@ -1095,12 +1095,12 @@ gpuVecMax <- function(A){
                 },
                 float = {cpp_gpuVector_max(A@address,
                                            6L,
-                                           A@.context_index - 1)
+                                           A@.context_index)
                 },
                 double = {
                     cpp_gpuVector_max(A@address,
                                       8L,
-                                      A@.context_index - 1)
+                                      A@.context_index)
                 },
                 stop("type not recognized")
     )
@@ -1118,12 +1118,12 @@ gpuVecMin <- function(A){
                 },
                 float = {cpp_gpuVector_min(A@address,
                                            6L,
-                                           A@.context_index - 1)
+                                           A@.context_index)
                 },
                 double = {
                     cpp_gpuVector_min(A@address,
                                       8L,
-                                      A@.context_index - 1)
+                                      A@.context_index)
                 },
                 stop("type not recognized")
     )

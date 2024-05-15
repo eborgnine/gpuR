@@ -28,13 +28,12 @@ BEGIN_RCPP
 END_RCPP
 }
 // initContexts
-String initContexts();
+void initContexts();
 RcppExport SEXP _gpuR_initContexts() {
 BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(initContexts());
-    return rcpp_result_gen;
+    initContexts();
+    return R_NilValue;
 END_RCPP
 }
 // listContexts

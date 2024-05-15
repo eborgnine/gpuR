@@ -16,7 +16,7 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-String initContexts(){
+void initContexts(){
     // declarations
     int id = 0;
     String themessage;
@@ -65,7 +65,8 @@ String initContexts(){
     
     viennacl::ocl::switch_context(0);
 //    msg(Rcpp::wrap("completed initialization"));
-    return themessage;
+    msg(themessage);
+//    return themessage;
 }
 
 
@@ -165,7 +166,7 @@ listContexts()
 //            Rcout << "current platform index" << std::endl;
 //            Rcout << plat_idx << std::endl;
             
-            context_index[id] = id + 1;
+            context_index[id] = id;
             platform_index[id] = plat_idx;
             platform_name[id] = platforms[plat_idx].info();
             
@@ -227,7 +228,7 @@ listContexts()
 // [[Rcpp::export]]
 int currentContext()
 {
-    return viennacl::ocl::backend<>::current_context_id() + 1;
+    return viennacl::ocl::backend<>::current_context_id();
 }
 
 
@@ -238,7 +239,7 @@ cpp_setContext(int id)
     if(id <= 0){
         stop("Index cannot be 0 or less");
     }
-    viennacl::ocl::switch_context(id - 1);
+    viennacl::ocl::switch_context(id);
 }
 
 // [[Rcpp::export]]
