@@ -1,4 +1,3 @@
-
 #' @title Does device have 'double' support?
 #' @description Function to query if device (identified by index) supports
 #' double precision
@@ -8,55 +7,52 @@
 #' @return Returns nothing but throws an error if device does not support
 #' double precision
 #' @seealso \link{deviceHasDouble}
-#' @author Charles Determan Jr.
 #' @export
-assert_has_double <- 
-function(device_idx, context_idx,
-   severity = getOption("assertive.severity", "stop"))
-{
-    msg <- gettextf(
-        "The device %s on context %s does not support double.
-        Try setting type = 'float' or change device if multiple available.",
-        'device_idx', 'context_idx',
-#        get_name_in_parent(device_idx),
-#        get_name_in_parent(context_idx),
-        domain = "R-assertive.base"
-    )
-    assert_engine(
-        deviceHasDouble,
-        device_idx,
-        context_idx,
-        msg = msg,
-        severity = severity
-    )
-    if(!deviceHasDouble(device_idx, context_idx)) {
-        stop("no double support")
-    }
-
+assert_has_double <- function(device_idx, context_idx,
+                              severity = getOption("assertive.severity", "stop")) {
+  msg <- sprintf(
+    "The device %s on context %s does not support double. Try setting type = 'float' or change device if multiple available.",
+    device_idx, context_idx
+  )
+  if (!deviceHasDouble(device_idx, context_idx)) {
+    stop(msg)
+  }
 }
 
-# below we create empty functions 
-# corresponding to names in the assertive package.
-# if the assertive package becomes available again 
-# these functions will be removed
+# below we create functions corresponding to names in the assertive package.
 
-assert_all_are_in_range = function(x, lower, upper) {
-    if(any(x < lower | x > upper | x==upper, na.rm=TRUE)) {
-        stop("out of range")
-    }
+assert_all_are_in_range <- function(x, lower, upper) {
+  if (any(x < lower | x > upper | x == upper, na.rm = TRUE)) {
+    stop("out of range")
+  }
 }
 
-assert_all_are_in_closed_range = function(x, lower, upper) {
-    if(any(x < lower | x > upper, na.rm=TRUE)) {
-        stop("out of range")
-    }
+assert_all_are_in_closed_range <- function(x, lower, upper) {
+  if (any(x < lower | x > upper, na.rm = TRUE)) {
+    stop("out of range")
+  }
 }
 
-assert_all_are_positive = function(x) {
-    if(any(x <= 0, na.rm=TRUE)) {
-        stop("out of range")
-    }
+assert_all_are_positive <- function(x) {
+  if (any(x <= 0, na.rm = TRUE)) {
+    stop("out of range")
+  }
 }
 
-assert_all_are_true =  assert_are_identical = assert_engine = function(...) {NULL}
+assert_all_are_true <- function(x) {
+  if (!all(x, na.rm = TRUE)) {
+    stop("not all are true")
+  }
+}
 
+assert_are_identical <- function(x, y) {
+  if (!identical(x, y)) {
+    stop("objects are not identical")
+  }
+}
+
+assert_engine <- function(condition, ...) {
+  if (!condition(...)) {
+    stop("assertion failed")
+  }
+}

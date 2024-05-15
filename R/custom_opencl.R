@@ -22,7 +22,6 @@ splitAt <- function(x, pos) unname(split(x, cumsum(seq_along(x) %in% pos)))
 #'  \item{\code{map}:}{The corresponding arguments names in the provided OpenCL kernel 
 #'  corresponding to the gpuR objects passed.}
 #' }
-# @importFrom assertive.types assert_is_character assert_is_list
 #' @import BH RViennaCL RcppEigen
 #' @export
 setup_opencl <- function(objects, intents, queues, kernel_maps = NULL){
@@ -71,7 +70,6 @@ setup_opencl <- function(objects, intents, queues, kernel_maps = NULL){
 #' \code{"int"}, \code{"float"}, and \code{"double"}
 #' @return This function does not return a value directly, but it compiles 
 #' the provided OpenCL \code{kernel} and performs necessary operations for using it.
-#' @importFrom assertive.base assert_are_identical
 #' @importFrom tools file_path_sans_ext
 #' @importFrom Rcpp sourceCpp
 #' @export
