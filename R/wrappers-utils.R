@@ -13,7 +13,7 @@ deviceType <- function(device_idx = NULL,
 #    assertive.types::assert_is_integer(context_idx)
     
 
-    out <- try(cpp_deviceType(device_idx, context_idx - 1L), silent=TRUE)
+    out <- try(cpp_deviceType(device_idx, context_idx), silent=TRUE)
     if(identical(class(out), 'try-error')) {
       out = 'other'
     }
