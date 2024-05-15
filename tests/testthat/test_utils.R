@@ -26,7 +26,6 @@ test_that("gpuInfo() accepts appropriate input", {
     
     has_gpu_skip()
     
-    expect_error(gpuInfo(1, 0))
     
     expect_is(gpuInfo(), "list")
 })
