@@ -35,7 +35,7 @@ test_that("Switching GPU vclMatrix Symmetric Single Precision Matrix Eigen Decom
     
     fgpuX <- vclMatrix(X, type="float")
     
-    setContext(0L)
+    setContext(1L)
     
     E <- eigen(fgpuX, symmetric=TRUE)
     
@@ -59,7 +59,7 @@ test_that("Switching GPU vclMatrix Symmetric Single Precision Matrix Eigen Decom
                  info = "context index hasn't been assigned correctly")
     expect_equal(E$vectors@.context_index, 1L, 
                  info = "context index hasn't been assigned correctly")
-    expect_equal(currentContext(), 0L, 
+    expect_equal(currentContext(), 1L, 
                  info = "context index has been change unintentionally")
 })
 
@@ -70,12 +70,10 @@ test_that("Switching GPU vclMatrix Symmetric Double Precision Matrix Eigen Decom
     has_multiple_gpu_skip()
     has_multiple_double_skip()
     
-    #setContext(2L)
-     setContext(1L)
+    setContext(2L)
     fgpuX <- vclMatrix(X, type="double")
     
-    #setContext(1L)
-     setContext(0L)
+    setContext(1L)
      
     E <- eigen(fgpuX, symmetric=TRUE)     
     
@@ -99,7 +97,7 @@ test_that("Switching GPU vclMatrix Symmetric Double Precision Matrix Eigen Decom
                  info = "context index hasn't been assigned correctly")
     expect_equal(E$vectors@.context_index, 1L, 
                  info = "context index hasn't been assigned correctly")
-    expect_equal(currentContext(), 0L, 
+    expect_equal(currentContext(), 1L, 
                  info = "context index has been change unintentionally")
 })
 

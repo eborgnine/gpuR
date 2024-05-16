@@ -109,7 +109,7 @@ setMethod('vclVector',
               if (length <= 0) stop("length must be a positive integer")
               if (!is.integer(length)) stop("length must be a positive integer")
               
-              device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id+1L,]
+              device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id,]
               
               context_index <- ifelse(is.null(ctx_id), currentContext(), ctx_id)
               device_index <- if(is.null(ctx_id)) as.integer(device$device_index) else device$device_index 
@@ -176,7 +176,7 @@ setMethod('vclVector',
               
               if (is.null(type)) type <- getOption("gpuR.default.type")
               
-              device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id+1L,]
+              device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id,]
               
               context_index <- ifelse(is.null(ctx_id), currentContext(), ctx_id)
               device_index <- if(is.null(ctx_id)) as.integer(device$device_index) else device$device_index 

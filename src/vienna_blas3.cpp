@@ -24,6 +24,7 @@
 
 using namespace Rcpp;
 
+
 /*** gpuMatrix templates ***/
 
 template <typename T>

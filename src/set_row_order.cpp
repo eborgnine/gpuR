@@ -210,12 +210,14 @@ cpp_vclVector_permute(
     const int type_flag,
     const int ctx_id)
 {
+        const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
     case 6:
-        cpp_vclVector_permute<float>(ptrA, indices, sourceCode, ctx_id);
+        cpp_vclVector_permute<float>(ptrA, indices, sourceCode, ctx_id_zero);
         return;
     case 8:
-        cpp_vclVector_permute<double>(ptrA, indices, sourceCode, ctx_id);
+        cpp_vclVector_permute<double>(ptrA, indices, sourceCode, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");
@@ -233,12 +235,14 @@ cpp_vclMatrix_set_row_order(
     const int type_flag,
     const int ctx_id)
 {
+            const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
     case 6:
-        cpp_vclMatrix_set_row_order<float>(ptrA, AisVCL, indices, sourceCode, max_local_size, ctx_id);
+        cpp_vclMatrix_set_row_order<float>(ptrA, AisVCL, indices, sourceCode, max_local_size, ctx_id_zero);
         return;
     case 8:
-        cpp_vclMatrix_set_row_order<double>(ptrA, AisVCL, indices, sourceCode, max_local_size, ctx_id);
+        cpp_vclMatrix_set_row_order<double>(ptrA, AisVCL, indices, sourceCode, max_local_size, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");

@@ -67,7 +67,7 @@ SEXP currentPlatform()
 //    return wrap(platforms[plat_idx].info());
     
     return List::create(Named("platform") = wrap(platforms[plat_idx].info()),
-                        Named("platform_index") = wrap(plat_idx));
+                        Named("platform_index") = wrap(plat_idx + 1));
 }
 
 //List platformNames()

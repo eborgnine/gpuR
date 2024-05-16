@@ -45,8 +45,7 @@ void initContexts(){
         for(unsigned int gpu_idx = 0; gpu_idx < devices.size(); gpu_idx++) {
             
             themessage += "  - context device index: ";
-            themessage += std::to_string(gpu_idx);
-            themessage += "\n";
+            themessage += std::to_string(gpu_idx) + "in C, " +std::to_string(gpu_idx +1) + "in R\n";
             viennacl::ocl::set_context_platform_index(id, plat_idx);
             viennacl::ocl::setup_context(id, devices[gpu_idx]);
             themessage +=  "    - ";
@@ -211,11 +210,11 @@ listContexts()
         }
     }
     
-    return Rcpp::DataFrame::create(Rcpp::Named("context") = context_index,
+    return Rcpp::DataFrame::create(Rcpp::Named("context") = context_index +1,
     			  Rcpp::Named("platform") = platform_name,
-                  Rcpp::Named("platform_index") = platform_index,
+                  Rcpp::Named("platform_index") = platform_index +1,
 				  Rcpp::Named("device") = device_name,
-                  Rcpp::Named("device_index") = device_index,
+                  Rcpp::Named("device_index") = device_index +1,
                   Rcpp::Named("device_type") = device_type,
                   _["stringsAsFactors"] = false );
 }
@@ -228,7 +227,7 @@ listContexts()
 // [[Rcpp::export]]
 int currentContext()
 {
-    return viennacl::ocl::backend<>::current_context_id();
+    return viennacl::ocl::backend<>::current_context_id()+1;
 }
 
 
@@ -236,17 +235,18 @@ int currentContext()
 void
 cpp_setContext(int id)
 {
-    if(id < 0){
-        stop("Index cannot be less than 0");
+    if(id < 1){
+        stop("Index cannot be less than 1");
     }
-    viennacl::ocl::switch_context(id);
+    int idFromZero = id - 1;
+    viennacl::ocl::switch_context(idFromZero);
 }
 
 // [[Rcpp::export]]
 SEXP
 getContextPtr(const int ctx_id){
-    
-    viennacl::ocl::context ctx(viennacl::ocl::get_context(ctx_id));
+    int cts_id_from_zero = ctx_id-1;
+    viennacl::ocl::context ctx(viennacl::ocl::get_context(cts_id_from_zero));
     Rcpp::XPtr<viennacl::ocl::context> ptrctx(&ctx);
     return ptrctx;
 }

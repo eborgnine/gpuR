@@ -121,6 +121,7 @@ cpp_gpuVector_size(
     const int type_flag)
 {
     
+    
     switch(type_flag) {
         case 4:
             return wrap(cpp_gpuVector_size<int>(ptrA));
@@ -140,14 +141,15 @@ cpp_gpuVector_max(
     const int type_flag,
     int ctx_id)
 {
-    
+    const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
     case 4:
-        return wrap(cpp_gpuVector_max<int>(ptrA, ctx_id));
+        return wrap(cpp_gpuVector_max<int>(ptrA, ctx_id_zero));
     case 6:
-        return wrap(cpp_gpuVector_max<float>(ptrA, ctx_id));
+        return wrap(cpp_gpuVector_max<float>(ptrA, ctx_id_zero));
     case 8:
-        return wrap(cpp_gpuVector_max<double>(ptrA, ctx_id));
+        return wrap(cpp_gpuVector_max<double>(ptrA, ctx_id_zero));
     default:
         throw Rcpp::exception("unknown type detected for gpuVector object!");
     }

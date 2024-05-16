@@ -1204,13 +1204,15 @@ cpp_deepcopy_vclMatrix(SEXP ptrA,
                        const int ctx_id, 
                        const bool source)
 {
+            const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
         case 4:
-            return cpp_deepcopy_vclMatrix<int>(ptrA, ctx_id, source);
+            return cpp_deepcopy_vclMatrix<int>(ptrA, ctx_id_zero, source);
         case 6:
-            return cpp_deepcopy_vclMatrix<float>(ptrA, ctx_id, source);
+            return cpp_deepcopy_vclMatrix<float>(ptrA, ctx_id_zero, source);
         case 8:
-            return cpp_deepcopy_vclMatrix<double>(ptrA, ctx_id, source);
+            return cpp_deepcopy_vclMatrix<double>(ptrA, ctx_id_zero, source);
         default:
             throw Rcpp::exception("unknown type detected for vclMatrix object!");
     }
@@ -1224,13 +1226,14 @@ cpp_deepcopy_vclVector(
     const int type_flag,
     int ctx_id)
 {
+        const int ctx_id_zero = ctx_id-1;
     switch(type_flag) {
         case 4:
-            return cpp_deepcopy_vclVector<int>(ptrA, ctx_id);
+            return cpp_deepcopy_vclVector<int>(ptrA, ctx_id_zero);
         case 6:
-            return cpp_deepcopy_vclVector<float>(ptrA, ctx_id);
+            return cpp_deepcopy_vclVector<float>(ptrA, ctx_id_zero);
         case 8:
-            return cpp_deepcopy_vclVector<double>(ptrA, ctx_id);
+            return cpp_deepcopy_vclVector<double>(ptrA, ctx_id_zero);
         default:
             throw Rcpp::exception("unknown type detected for vclVector object!");
     }
@@ -1285,15 +1288,17 @@ cpp_cbind_vclMatrix(
     const int type_flag,
     const int ctx_id)
 {    
+        const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
         case 4:
-            cpp_cbind_vclMatrix<int>(ptrA, ptrB, ptrC, ctx_id);
+            cpp_cbind_vclMatrix<int>(ptrA, ptrB, ptrC, ctx_id_zero);
             return;
         case 6:
-            cpp_cbind_vclMatrix<float>(ptrA, ptrB, ptrC, ctx_id);
+            cpp_cbind_vclMatrix<float>(ptrA, ptrB, ptrC, ctx_id_zero);
             return;
         case 8:
-            cpp_cbind_vclMatrix<double>(ptrA, ptrB, ptrC, ctx_id);
+            cpp_cbind_vclMatrix<double>(ptrA, ptrB, ptrC, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for vclMatrix object!");
@@ -1310,15 +1315,17 @@ cpp_cbind_vclMat_vclVec(
     const int type_flag,
     const int ctx_id)
 {    
+        const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
     case 4:
-        cpp_cbind_vclMat_vclVec<int>(ptrA, ptrB, ptrC, order, ctx_id);
+        cpp_cbind_vclMat_vclVec<int>(ptrA, ptrB, ptrC, order, ctx_id_zero);
         return;
     case 6:
-        cpp_cbind_vclMat_vclVec<float>(ptrA, ptrB, ptrC, order, ctx_id);
+        cpp_cbind_vclMat_vclVec<float>(ptrA, ptrB, ptrC, order, ctx_id_zero);
         return;
     case 8:
-        cpp_cbind_vclMat_vclVec<double>(ptrA, ptrB, ptrC, order, ctx_id);
+        cpp_cbind_vclMat_vclVec<double>(ptrA, ptrB, ptrC, order, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");
@@ -1334,13 +1341,14 @@ cpp_rbind_vclMatrix(
     int type_flag,
     int ctx_id)
 {    
+    const int ctx_id_zero = ctx_id-1;
     switch(type_flag) {
         case 4:
-            return cpp_rbind_vclMatrix<int>(ptrA, ptrB, ctx_id);
+            return cpp_rbind_vclMatrix<int>(ptrA, ptrB, ctx_id_zero);
         case 6:
-            return cpp_rbind_vclMatrix<float>(ptrA, ptrB, ctx_id);
+            return cpp_rbind_vclMatrix<float>(ptrA, ptrB, ctx_id_zero);
         case 8:
-            return cpp_rbind_vclMatrix<double>(ptrA, ptrB, ctx_id);
+            return cpp_rbind_vclMatrix<double>(ptrA, ptrB, ctx_id_zero);
         default:
             throw Rcpp::exception("unknown type detected for vclMatrix object!");
     }
@@ -1355,13 +1363,14 @@ cpp_sexp_mat_to_vclMatrix(
     int type_flag,
     int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     switch(type_flag) {
         case 4:
-            return cpp_sexp_mat_to_vclMatrix<int>(ptrA, ctx_id);
+            return cpp_sexp_mat_to_vclMatrix<int>(ptrA, ctx_id_zero);
         case 6:
-            return cpp_sexp_mat_to_vclMatrix<float>(ptrA, ctx_id);
+            return cpp_sexp_mat_to_vclMatrix<float>(ptrA, ctx_id_zero);
         case 8:
-            return cpp_sexp_mat_to_vclMatrix<double>(ptrA, ctx_id);
+            return cpp_sexp_mat_to_vclMatrix<double>(ptrA, ctx_id_zero);
         // case 10:
         //     return cpp_sexp_mat_to_vclMatrix<std::complex<float> >(ptrA, ctx_id);
         // case 12:
@@ -1406,13 +1415,14 @@ cpp_zero_vclMatrix(
     int type_flag,
     int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     switch(type_flag) {
         case 4:
-            return cpp_zero_vclMatrix<int>(nr, nc, ctx_id);
+            return cpp_zero_vclMatrix<int>(nr, nc, ctx_id_zero);
         case 6:
-            return cpp_zero_vclMatrix<float>(nr, nc, ctx_id);
+            return cpp_zero_vclMatrix<float>(nr, nc, ctx_id_zero);
         case 8:
-            return cpp_zero_vclMatrix<double>(nr, nc, ctx_id);
+            return cpp_zero_vclMatrix<double>(nr, nc, ctx_id_zero);
         default:
             throw Rcpp::exception("unknown type detected for vclMatrix object!");
     }
@@ -1427,13 +1437,15 @@ cpp_scalar_vclMatrix(
     int type_flag,
     int ctx_id)
 {
+        const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
         case 4:
-            return cpp_scalar_vclMatrix<int>(scalar, nr, nc, ctx_id);
+            return cpp_scalar_vclMatrix<int>(scalar, nr, nc, ctx_id_zero);
         case 6:
-            return cpp_scalar_vclMatrix<float>(scalar, nr, nc, ctx_id);
+            return cpp_scalar_vclMatrix<float>(scalar, nr, nc, ctx_id_zero);
         case 8:
-            return cpp_scalar_vclMatrix<double>(scalar, nr, nc, ctx_id);
+            return cpp_scalar_vclMatrix<double>(scalar, nr, nc, ctx_id_zero);
         default:
             throw Rcpp::exception("unknown type detected for vclMatrix object!");
     }
@@ -1464,16 +1476,17 @@ vclSetCol(SEXP ptrA, const int nc, SEXP newdata, const int type_flag)
 void
 vclFillCol(SEXP ptrA, const int nc, SEXP newdata, 
            const int ctx_id, const int type_flag){
-	
+	    const int ctx_id_zero = ctx_id-1;
+
 	switch(type_flag) {
 		case 4:
-			vclFillCol<int>(ptrA, newdata, nc, ctx_id);
+			vclFillCol<int>(ptrA, newdata, nc, ctx_id_zero);
 			return;
 		case 6:
-			vclFillCol<float>(ptrA, newdata, nc, ctx_id);
+			vclFillCol<float>(ptrA, newdata, nc, ctx_id_zero);
 			return;
 		case 8:
-			vclFillCol<double>(ptrA, newdata, nc, ctx_id);
+			vclFillCol<double>(ptrA, newdata, nc, ctx_id_zero);
 			return;
 		default:
 			throw Rcpp::exception("unknown type detected for vclMatrix object!");
@@ -1522,15 +1535,16 @@ vclSetElement(SEXP ptrA, const int nr, const int nc, SEXP newdata, const int typ
 void
 vclSetMatrix(SEXP ptrA, SEXP newdata, const int type_flag, const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     switch(type_flag) {
     case 4:
-        vclSetMatrix<int>(ptrA, newdata, ctx_id);
+        vclSetMatrix<int>(ptrA, newdata, ctx_id_zero);
         return;
     case 6:
-        vclSetMatrix<float>(ptrA, newdata, ctx_id);
+        vclSetMatrix<float>(ptrA, newdata, ctx_id_zero);
         return;
     case 8:
-        vclSetMatrix<double>(ptrA, newdata, ctx_id);
+        vclSetMatrix<double>(ptrA, newdata, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");
@@ -1541,15 +1555,16 @@ vclSetMatrix(SEXP ptrA, SEXP newdata, const int type_flag, const int ctx_id)
 void
 vclSetVCLMatrix(SEXP ptrA, SEXP newdata, const int type_flag, const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     switch(type_flag) {
     case 4:
-        vclSetVCLMatrix<int>(ptrA, newdata, ctx_id);
+        vclSetVCLMatrix<int>(ptrA, newdata, ctx_id_zero);
         return;
     case 6:
-        vclSetVCLMatrix<float>(ptrA, newdata, ctx_id);
+        vclSetVCLMatrix<float>(ptrA, newdata, ctx_id_zero);
         return;
     case 8:
-        vclSetVCLMatrix<double>(ptrA, newdata, ctx_id);
+        vclSetVCLMatrix<double>(ptrA, newdata, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");
@@ -1561,15 +1576,17 @@ vclSetVCLMatrix(SEXP ptrA, SEXP newdata, const int type_flag, const int ctx_id)
 void
 vclMatSetVCLCols(SEXP ptrA, SEXP newdata, const int start, const int end, const int type_flag, const int ctx_id)
 {
+                            const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
     case 4:
-        vclMatSetVCLCols<int>(ptrA, newdata, start, end, ctx_id);
+        vclMatSetVCLCols<int>(ptrA, newdata, start, end, ctx_id_zero);
         return;
     case 6:
-        vclMatSetVCLCols<float>(ptrA, newdata, start, end, ctx_id);
+        vclMatSetVCLCols<float>(ptrA, newdata, start, end, ctx_id_zero);
         return;
     case 8:
-        vclMatSetVCLCols<double>(ptrA, newdata, start, end, ctx_id);
+        vclMatSetVCLCols<double>(ptrA, newdata, start, end, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");
@@ -1580,15 +1597,17 @@ vclMatSetVCLCols(SEXP ptrA, SEXP newdata, const int start, const int end, const 
 void
 vclFillVCLMatrix(SEXP ptrA, SEXP newdata, const int type_flag, const int ctx_id)
 {
+                            const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
     case 4:
-        vclFillVCLMatrix<int>(ptrA, as<int>(newdata), ctx_id);
+        vclFillVCLMatrix<int>(ptrA, as<int>(newdata), ctx_id_zero);
         return;
     case 6:
-        vclFillVCLMatrix<float>(ptrA, as<float>(newdata), ctx_id);
+        vclFillVCLMatrix<float>(ptrA, as<float>(newdata), ctx_id_zero);
         return;
     case 8:
-        vclFillVCLMatrix<double>(ptrA, as<double>(newdata), ctx_id);
+        vclFillVCLMatrix<double>(ptrA, as<double>(newdata), ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");
@@ -1601,13 +1620,15 @@ vclFillVCLMatrix(SEXP ptrA, SEXP newdata, const int type_flag, const int ctx_id)
 SEXP
 vclGetCol(SEXP ptrA, const int nc, const int type_flag, int ctx_id)
 {
+                        const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
         case 4:
-            return wrap(vclGetCol<int>(ptrA, nc, ctx_id));
+            return wrap(vclGetCol<int>(ptrA, nc, ctx_id_zero));
         case 6:
-            return wrap(vclGetCol<float>(ptrA, nc, ctx_id));
+            return wrap(vclGetCol<float>(ptrA, nc, ctx_id_zero));
         case 8:
-            return wrap(vclGetCol<double>(ptrA, nc, ctx_id));
+            return wrap(vclGetCol<double>(ptrA, nc, ctx_id_zero));
         default:
             throw Rcpp::exception("unknown type detected for vclMatrix object!");
     }
@@ -1617,13 +1638,15 @@ vclGetCol(SEXP ptrA, const int nc, const int type_flag, int ctx_id)
 SEXP
 vclGetRow(SEXP ptrA, const int nr, const int type_flag, int ctx_id)
 {
+                        const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
         case 4:
-            return wrap(vclGetRow<int>(ptrA, nr, ctx_id));
+            return wrap(vclGetRow<int>(ptrA, nr, ctx_id_zero));
         case 6:
-            return wrap(vclGetRow<float>(ptrA, nr, ctx_id));
+            return wrap(vclGetRow<float>(ptrA, nr, ctx_id_zero));
         case 8:
-            return wrap(vclGetRow<double>(ptrA, nr, ctx_id));
+            return wrap(vclGetRow<double>(ptrA, nr, ctx_id_zero));
         default:
             throw Rcpp::exception("unknown type detected for vclMatrix object!");
     }
@@ -1633,13 +1656,15 @@ vclGetRow(SEXP ptrA, const int nr, const int type_flag, int ctx_id)
 SEXP
 extractRow(SEXP ptrA, const int row_idx, const int type_flag, const int ctx_id)
 {
+                    const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
     case 4:
-        return wrap(extractRow<int>(ptrA, row_idx, ctx_id));
+        return wrap(extractRow<int>(ptrA, row_idx, ctx_id_zero));
     case 6:
-        return wrap(extractRow<float>(ptrA, row_idx, ctx_id));
+        return wrap(extractRow<float>(ptrA, row_idx, ctx_id_zero));
     case 8:
-        return wrap(extractRow<double>(ptrA, row_idx, ctx_id));
+        return wrap(extractRow<double>(ptrA, row_idx, ctx_id_zero));
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");
     }
@@ -1649,13 +1674,14 @@ extractRow(SEXP ptrA, const int row_idx, const int type_flag, const int ctx_id)
 SEXP
 extractCol(SEXP ptrA, const int col_idx, const int type_flag, const int ctx_id)
 {
+                const int ctx_id_zero = ctx_id-1;
     switch(type_flag) {
     case 4:
-        return wrap(extractCol<int>(ptrA, col_idx, ctx_id));
+        return wrap(extractCol<int>(ptrA, col_idx, ctx_id_zero));
     case 6:
-        return wrap(extractCol<float>(ptrA, col_idx, ctx_id));
+        return wrap(extractCol<float>(ptrA, col_idx, ctx_id_zero));
     case 8:
-        return wrap(extractCol<double>(ptrA, col_idx, ctx_id));
+        return wrap(extractCol<double>(ptrA, col_idx, ctx_id_zero));
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");
     }
@@ -1699,6 +1725,7 @@ vclVecGetElement(SEXP ptrA, const int idx, const int type_flag)
 void
 vclVecSetElement(SEXP ptrA, const int idx, SEXP newdata, const int type_flag)
 {
+
     switch(type_flag) {
         case 4:
             vclVecSetElement<int>(ptrA, newdata, idx);
@@ -1718,15 +1745,17 @@ vclVecSetElement(SEXP ptrA, const int idx, SEXP newdata, const int type_flag)
 void
 vclSetVector(SEXP ptrA, SEXP newdata, const int type_flag, const int ctx_id)
 {
+                const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
     case 4:
-        vclSetVector<int>(ptrA, newdata, ctx_id);
+        vclSetVector<int>(ptrA, newdata, ctx_id_zero);
         return;
     case 6:
-        vclSetVector<float>(ptrA, newdata, ctx_id);
+        vclSetVector<float>(ptrA, newdata, ctx_id_zero);
         return;
     case 8:
-        vclSetVector<double>(ptrA, newdata, ctx_id);
+        vclSetVector<double>(ptrA, newdata, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclVector object!");
@@ -1737,15 +1766,17 @@ vclSetVector(SEXP ptrA, SEXP newdata, const int type_flag, const int ctx_id)
 void
 vclFillVectorScalar(SEXP ptrA, SEXP newdata, const int type_flag, const int ctx_id)
 {
+                const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
     case 4:
-        vclFillVectorScalar<int>(ptrA, as<int>(newdata), ctx_id);
+        vclFillVectorScalar<int>(ptrA, as<int>(newdata), ctx_id_zero);
         return;
     case 6:
-        vclFillVectorScalar<float>(ptrA, as<float>(newdata), ctx_id);
+        vclFillVectorScalar<float>(ptrA, as<float>(newdata), ctx_id_zero);
         return;
     case 8:
-        vclFillVectorScalar<double>(ptrA, as<double>(newdata), ctx_id);
+        vclFillVectorScalar<double>(ptrA, as<double>(newdata), ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclVector object!");
@@ -1759,15 +1790,17 @@ vclFillVectorRangeScalar(
     const int start, const int end,
     const int type_flag, const int ctx_id)
 {
+            const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
     case 4:
-        vclFillVectorRangeScalar<int>(ptrA, as<int>(newdata), start, end, ctx_id);
+        vclFillVectorRangeScalar<int>(ptrA, as<int>(newdata), start, end, ctx_id_zero);
         return;
     case 6:
-        vclFillVectorRangeScalar<float>(ptrA, as<float>(newdata), start, end, ctx_id);
+        vclFillVectorRangeScalar<float>(ptrA, as<float>(newdata), start, end, ctx_id_zero);
         return;
     case 8:
-        vclFillVectorRangeScalar<double>(ptrA, as<double>(newdata), start, end, ctx_id);
+        vclFillVectorRangeScalar<double>(ptrA, as<double>(newdata), start, end, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclVector object!");
@@ -1782,15 +1815,17 @@ vclFillVectorSliceScalar(
     const IntegerVector start, const int stride,
     const int type_flag, const int ctx_id)
 {
+        const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
     case 4:
-        vclFillVectorSliceScalar<int>(ptrA, newdata, start, stride, ctx_id);
+        vclFillVectorSliceScalar<int>(ptrA, newdata, start, stride, ctx_id_zero);
         return;
     case 6:
-        vclFillVectorSliceScalar<float>(ptrA, newdata, start, stride, ctx_id);
+        vclFillVectorSliceScalar<float>(ptrA, newdata, start, stride, ctx_id_zero);
         return;
     case 8:
-        vclFillVectorSliceScalar<double>(ptrA, newdata, start, stride, ctx_id);
+        vclFillVectorSliceScalar<double>(ptrA, newdata, start, stride, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclVector object!");
@@ -1805,15 +1840,16 @@ vclFillVectorElementwise(
     const IntegerVector start,
     const int type_flag, const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     switch(type_flag) {
     case 4:
-        vclFillVectorElementwise<int>(ptrA, newdata, start, ctx_id);
+        vclFillVectorElementwise<int>(ptrA, newdata, start, ctx_id_zero);
         return;
     case 6:
-        vclFillVectorElementwise<float>(ptrA, newdata, start, ctx_id);
+        vclFillVectorElementwise<float>(ptrA, newdata, start, ctx_id_zero);
         return;
     case 8:
-        vclFillVectorElementwise<double>(ptrA, newdata, start, ctx_id);
+        vclFillVectorElementwise<double>(ptrA, newdata, start, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclVector object!");
@@ -1882,15 +1918,16 @@ vclVecSetVCLMatrix(SEXP ptrA, SEXP newdata, const int type_flag)
 void
 vclSetVCLMatrixRange(SEXP ptrA, SEXP newdata, const int start, const int end, const int type_flag, const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     switch(type_flag) {
     case 4:
-        vclSetVCLMatrixRange<int>(ptrA, newdata, start, end, ctx_id);
+        vclSetVCLMatrixRange<int>(ptrA, newdata, start, end, ctx_id_zero);
         return;
     case 6:
-        vclSetVCLMatrixRange<float>(ptrA, newdata, start, end, ctx_id);
+        vclSetVCLMatrixRange<float>(ptrA, newdata, start, end, ctx_id_zero);
         return;
     case 8:
-        vclSetVCLMatrixRange<double>(ptrA, newdata, start, end, ctx_id);
+        vclSetVCLMatrixRange<double>(ptrA, newdata, start, end, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclVector object!");
@@ -1906,14 +1943,16 @@ vectorToVCL(
     SEXP ptrA, 
     int type_flag,
     int ctx_id)
+
 {
+                         const int ctx_id_zero = ctx_id-1;
     switch(type_flag) {
         case 4:
-            return sexpVecToVCL<int>(ptrA, ctx_id);
+            return sexpVecToVCL<int>(ptrA, ctx_id_zero);
         case 6:
-            return sexpVecToVCL<float>(ptrA, ctx_id);
+            return sexpVecToVCL<float>(ptrA, ctx_id_zero);
         case 8:
-            return sexpVecToVCL<double>(ptrA, ctx_id);
+            return sexpVecToVCL<double>(ptrA, ctx_id_zero);
         default:
             throw Rcpp::exception("unknown type detected for vclMatrix object!");
     }
@@ -1928,13 +1967,15 @@ vectorToMatVCL(
     int type_flag,
     int ctx_id)
 {
+                             const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
         case 4:
-            return vectorToMatVCL<int>(ptrA, nr, nc, ctx_id);
+            return vectorToMatVCL<int>(ptrA, nr, nc, ctx_id_zero);
         case 6:
-            return vectorToMatVCL<float>(ptrA, nr, nc, ctx_id);
+            return vectorToMatVCL<float>(ptrA, nr, nc, ctx_id_zero);
         case 8:
-            return vectorToMatVCL<double>(ptrA, nr, nc, ctx_id);
+            return vectorToMatVCL<double>(ptrA, nr, nc, ctx_id_zero);
         default:
             throw Rcpp::exception("unknown type detected for vclMatrix object!");
     }
@@ -1949,13 +1990,15 @@ vclMatTovclVec(
     const int ctx_id,
     const int type_flag)
 {
+                         const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
     case 4:
-        return vclMatTovclVec<int>(ptrA, shared, ctx_id);
+        return vclMatTovclVec<int>(ptrA, shared, ctx_id_zero);
     case 6:
-        return vclMatTovclVec<float>(ptrA, shared, ctx_id);
+        return vclMatTovclVec<float>(ptrA, shared, ctx_id_zero);
     case 8:
-        return vclMatTovclVec<double>(ptrA, shared, ctx_id);
+        return vclMatTovclVec<double>(ptrA, shared, ctx_id_zero);
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");
     }
@@ -1969,13 +2012,15 @@ cpp_scalar_vclVector(
     const int type_flag,
     const int ctx_id)
 {
+                         const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
     case 4:
-        return cpp_scalar_vclVector<int>(scalar, size, ctx_id);
+        return cpp_scalar_vclVector<int>(scalar, size, ctx_id_zero);
     case 6:
-        return cpp_scalar_vclVector<float>(scalar, size, ctx_id);
+        return cpp_scalar_vclVector<float>(scalar, size, ctx_id_zero);
     case 8:
-        return cpp_scalar_vclVector<double>(scalar, size, ctx_id);
+        return cpp_scalar_vclVector<double>(scalar, size, ctx_id_zero);
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");
     }
@@ -2008,13 +2053,15 @@ emptyVecVCL(
     int type_flag,
     int ctx_id)
 {
+                     const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
         case 4:
-            return emptyVecVCL<int>(length, ctx_id);
+            return emptyVecVCL<int>(length, ctx_id_zero);
         case 6:
-            return emptyVecVCL<float>(length, ctx_id);
+            return emptyVecVCL<float>(length, ctx_id_zero);
         case 8:
-            return emptyVecVCL<double>(length, ctx_id);
+            return emptyVecVCL<double>(length, ctx_id_zero);
         default:
             throw Rcpp::exception("unknown type detected for vclMatrix object!");
     }
@@ -2081,15 +2128,17 @@ getVCLcols(SEXP ptrA, const int type_flag)
 void
 vectorizeList(List mylist, SEXP ptrV, const int ctx_id, const int type_flag)
 {
+                 const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag){
         case 4:
-            vectorizeList<int>(mylist, ptrV, ctx_id);
+            vectorizeList<int>(mylist, ptrV, ctx_id_zero);
             return;
         case 6:
-            vectorizeList<float>(mylist, ptrV, ctx_id);
+            vectorizeList<float>(mylist, ptrV, ctx_id_zero);
             return;
         case 8:
-            vectorizeList<double>(mylist, ptrV, ctx_id);
+            vectorizeList<double>(mylist, ptrV, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for vclMatrix");

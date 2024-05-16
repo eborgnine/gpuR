@@ -25,6 +25,7 @@
 
 using namespace Rcpp;
 
+#define ctxToZero(ctx_id) ((ctx_id)-1)
 
 
 /*** vclMatrix Templates ***/
@@ -315,13 +316,13 @@ cpp_gpuMatrix_gemv(
     
     switch(type_flag) {
     case 4:
-        cpp_gpuMatrix_gemv<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+        cpp_gpuMatrix_gemv<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctxToZero(ctx_id));
         return;
     case 6:
-        cpp_gpuMatrix_gemv<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+        cpp_gpuMatrix_gemv<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctxToZero(ctx_id));
         return;
     case 8:
-        cpp_gpuMatrix_gemv<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+        cpp_gpuMatrix_gemv<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctxToZero(ctx_id));
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");
@@ -344,13 +345,13 @@ cpp_gpuMatrix_gevm(
     
     switch(type_flag) {
     case 4:
-        cpp_gpuMatrix_gevm<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+        cpp_gpuMatrix_gevm<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctxToZero(ctx_id));
         return;
     case 6:
-        cpp_gpuMatrix_gevm<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+        cpp_gpuMatrix_gevm<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctxToZero(ctx_id));
         return;
     case 8:
-        cpp_gpuMatrix_gevm<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+        cpp_gpuMatrix_gevm<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctxToZero(ctx_id));
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");
@@ -426,13 +427,13 @@ cpp_vclMatVec_axpy(
     
     switch(type_flag) {
     case 4:
-        cpp_vclMatVec_axpy<int>(alpha, ptrA, AisVec, ptrB, BisVec, ctx_id);
+        cpp_vclMatVec_axpy<int>(alpha, ptrA, AisVec, ptrB, BisVec, ctxToZero(ctx_id));
         return;
     case 6:
-        cpp_vclMatVec_axpy<float>(alpha, ptrA, AisVec, ptrB, BisVec, ctx_id);
+        cpp_vclMatVec_axpy<float>(alpha, ptrA, AisVec, ptrB, BisVec, ctxToZero(ctx_id));
         return;
     case 8:
-        cpp_vclMatVec_axpy<double>(alpha, ptrA, AisVec, ptrB, BisVec, ctx_id);
+        cpp_vclMatVec_axpy<double>(alpha, ptrA, AisVec, ptrB, BisVec, ctxToZero(ctx_id));
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");

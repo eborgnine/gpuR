@@ -22,6 +22,7 @@ cpp_vclMatrix_sign(
     int max_local_size,
     const int ctx_id)
 {
+
     std::string my_kernel = as<std::string>(sourceCode_);
     
     viennacl::ocl::context ctx(viennacl::ocl::get_context(ctx_id));
@@ -95,6 +96,7 @@ cpp_vclMatrix_pmax(
     unsigned int max_local_size,
     const int ctx_id)
 {
+
     std::string my_kernel = as<std::string>(sourceCode_);
     
     viennacl::ocl::context ctx(viennacl::ocl::get_context(ctx_id));
@@ -170,6 +172,7 @@ cpp_vclVector_sign(
     unsigned int max_local_size,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     std::string my_kernel = as<std::string>(sourceCode_);
     
     viennacl::ocl::context ctx(viennacl::ocl::get_context(ctx_id));
@@ -237,6 +240,7 @@ cpp_vclVector_pmax(
     unsigned int max_local_size,
     const int ctx_id)
 {
+
     std::string my_kernel = as<std::string>(sourceCode_);
     
     viennacl::ocl::context ctx(viennacl::ocl::get_context(ctx_id));
@@ -306,15 +310,17 @@ cpp_vclMatrix_sign(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
     case 4:
-        cpp_vclMatrix_sign<int>(ptrA, AisVCL, ptrB, BisVCL, sourceCode, max_local_size, ctx_id);
+        cpp_vclMatrix_sign<int>(ptrA, AisVCL, ptrB, BisVCL, sourceCode, max_local_size, ctx_id_zero);
         return;
     case 6:
-        cpp_vclMatrix_sign<float>(ptrA, AisVCL, ptrB, BisVCL, sourceCode, max_local_size, ctx_id);
+        cpp_vclMatrix_sign<float>(ptrA, AisVCL, ptrB, BisVCL, sourceCode, max_local_size, ctx_id_zero);
         return;
     case 8:
-        cpp_vclMatrix_sign<double>(ptrA, AisVCL, ptrB, BisVCL, sourceCode, max_local_size, ctx_id);
+        cpp_vclMatrix_sign<double>(ptrA, AisVCL, ptrB, BisVCL, sourceCode, max_local_size, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");
@@ -334,15 +340,17 @@ cpp_vclVector_sign(
     const int type_flag,
     const int ctx_id)
 {
+        const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
     case 4:
-        cpp_vclVector_sign<int>(ptrA, AisVCL, ptrB, BisVCL, sourceCode, max_local_size, ctx_id);
+        cpp_vclVector_sign<int>(ptrA, AisVCL, ptrB, BisVCL, sourceCode, max_local_size, ctx_id_zero);
         return;
     case 6:
-        cpp_vclVector_sign<float>(ptrA, AisVCL, ptrB, BisVCL, sourceCode, max_local_size, ctx_id);
+        cpp_vclVector_sign<float>(ptrA, AisVCL, ptrB, BisVCL, sourceCode, max_local_size, ctx_id_zero);
         return;
     case 8:
-        cpp_vclVector_sign<double>(ptrA, AisVCL, ptrB, BisVCL, sourceCode, max_local_size, ctx_id);
+        cpp_vclVector_sign<double>(ptrA, AisVCL, ptrB, BisVCL, sourceCode, max_local_size, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");
@@ -362,15 +370,17 @@ cpp_vclMatrix_pmax(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
     case 4:
-        cpp_vclMatrix_pmax<int>(ptrA, AisVCL, ptrB, BisVCL, value, sourceCode, max_local_size, ctx_id);
+        cpp_vclMatrix_pmax<int>(ptrA, AisVCL, ptrB, BisVCL, value, sourceCode, max_local_size, ctx_id_zero);
         return;
     case 6:
-        cpp_vclMatrix_pmax<float>(ptrA, AisVCL, ptrB, BisVCL, value, sourceCode, max_local_size, ctx_id);
+        cpp_vclMatrix_pmax<float>(ptrA, AisVCL, ptrB, BisVCL, value, sourceCode, max_local_size, ctx_id_zero);
         return;
     case 8:
-        cpp_vclMatrix_pmax<double>(ptrA, AisVCL, ptrB, BisVCL, value, sourceCode, max_local_size, ctx_id);
+        cpp_vclMatrix_pmax<double>(ptrA, AisVCL, ptrB, BisVCL, value, sourceCode, max_local_size, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");
@@ -390,15 +400,16 @@ cpp_vclVector_pmax(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     switch(type_flag) {
     case 4:
-        cpp_vclVector_pmax<int>(ptrA, AisVCL, ptrB, BisVCL, value, sourceCode, max_local_size, ctx_id);
+        cpp_vclVector_pmax<int>(ptrA, AisVCL, ptrB, BisVCL, value, sourceCode, max_local_size, ctx_id_zero);
         return;
     case 6:
-        cpp_vclVector_pmax<float>(ptrA, AisVCL, ptrB, BisVCL, value, sourceCode, max_local_size, ctx_id);
+        cpp_vclVector_pmax<float>(ptrA, AisVCL, ptrB, BisVCL, value, sourceCode, max_local_size, ctx_id_zero);
         return;
     case 8:
-        cpp_vclVector_pmax<double>(ptrA, AisVCL, ptrB, BisVCL, value, sourceCode, max_local_size, ctx_id);
+        cpp_vclVector_pmax<double>(ptrA, AisVCL, ptrB, BisVCL, value, sourceCode, max_local_size, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");

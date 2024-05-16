@@ -654,13 +654,14 @@ SEXP initScalarEigenXptr(T A, const int nr, const int nc, const int ctx_id)
 SEXP
 sexpVecToEigenXptr(SEXP ptrA, const int nr, const int nc, const int type_flag, const int ctx_id)
 {
+            const int ctx_id_zero = ctx_id-1;
     switch(type_flag) {
         case 4:
-            return sexpVecToEigenXptr<int>(ptrA, nr, nc, ctx_id);
+            return sexpVecToEigenXptr<int>(ptrA, nr, nc, ctx_id_zero);
         case 6:
-            return sexpVecToEigenXptr<float>(ptrA, nr, nc, ctx_id);
+            return sexpVecToEigenXptr<float>(ptrA, nr, nc, ctx_id_zero);
         case 8:
-            return sexpVecToEigenXptr<double>(ptrA, nr, nc, ctx_id);
+            return sexpVecToEigenXptr<double>(ptrA, nr, nc, ctx_id_zero);
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
     }
@@ -693,17 +694,18 @@ getRmatEigenAddress(SEXP ptrA,
     const int type_flag,
     int ctx_id)
 {
+            const int ctx_id_zero = ctx_id-1;
     switch(type_flag) {
         case 4:
-            return getRmatEigenAddress<int>(ptrA, nr, nc, ctx_id);
+            return getRmatEigenAddress<int>(ptrA, nr, nc, ctx_id_zero);
         case 6:
-            return getRmatEigenAddress<float>(ptrA, nr, nc, ctx_id);
+            return getRmatEigenAddress<float>(ptrA, nr, nc, ctx_id_zero);
         case 8:
-            return getRmatEigenAddress<double>(ptrA, nr, nc, ctx_id);
+            return getRmatEigenAddress<double>(ptrA, nr, nc, ctx_id_zero);
         case 10:
-            return getRmatEigenAddress<std::complex<float> >(ptrA, nr, nc, ctx_id);
+            return getRmatEigenAddress<std::complex<float> >(ptrA, nr, nc, ctx_id_zero);
         case 12:
-            return getRmatEigenAddress<std::complex<double> >(ptrA, nr, nc, ctx_id);
+            return getRmatEigenAddress<std::complex<double> >(ptrA, nr, nc, ctx_id_zero);
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
     }
@@ -783,13 +785,15 @@ emptyEigenVecXptr(const int size, const int type_flag)
 SEXP
 emptyEigenXptr(const int nr, const int nc, const int type_flag, const int ctx_id)
 {
+            const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
         case 4:
-            return emptyEigenXptr<int>(nr, nc, ctx_id);;
+            return emptyEigenXptr<int>(nr, nc, ctx_id_zero);;
         case 6:
-            return emptyEigenXptr<float>(nr, nc, ctx_id);
+            return emptyEigenXptr<float>(nr, nc, ctx_id_zero);
         case 8:
-            return emptyEigenXptr<double>(nr, nc, ctx_id);
+            return emptyEigenXptr<double>(nr, nc, ctx_id_zero);
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
     }

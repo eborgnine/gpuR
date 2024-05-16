@@ -21,6 +21,7 @@
 #include <algorithm>
 
 using namespace Rcpp;
+#define ctxToZero(ctx_id) ((ctx_id)-1)
 
 
 template <typename T>
@@ -131,13 +132,13 @@ cpp_vclMatrix_svd(
 
     switch(type_flag) {
     case 4:
-        cpp_vclMatrix_svd<int>(ptrA, ptrD, ptrU, ptrV, ctx_id);
+        cpp_vclMatrix_svd<int>(ptrA, ptrD, ptrU, ptrV, ctxToZero(ctx_id));
         return;
     case 6:
-        cpp_vclMatrix_svd<float>(ptrA, ptrD, ptrU, ptrV, ctx_id);
+        cpp_vclMatrix_svd<float>(ptrA, ptrD, ptrU, ptrV, ctxToZero(ctx_id));
         return;
     case 8:
-        cpp_vclMatrix_svd<double>(ptrA, ptrD, ptrU, ptrV, ctx_id);
+        cpp_vclMatrix_svd<double>(ptrA, ptrD, ptrU, ptrV, ctxToZero(ctx_id));
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");

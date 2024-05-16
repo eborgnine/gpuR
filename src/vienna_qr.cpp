@@ -9,6 +9,7 @@
 #include "viennacl/linalg/qr.hpp"
 
 using namespace Rcpp;
+#define ctxToZero(ctx_id) ((ctx_id)-1)
 
 template <typename T>
 std::vector<T>
@@ -60,9 +61,9 @@ cpp_recover_qr(
 
     // viennacl::context ctx(viennacl::ocl::get_context(ctx_id));
     
-    std::shared_ptr<viennacl::matrix_range<viennacl::matrix<T> > > vcl_QR = getVCLBlockptr<T>(ptrQR_, QRisVCL, ctx_id);
-    std::shared_ptr<viennacl::matrix_range<viennacl::matrix<T> > > vcl_Q = getVCLBlockptr<T>(ptrQ_, QisVCL, ctx_id);
-    std::shared_ptr<viennacl::matrix_range<viennacl::matrix<T> > > vcl_R = getVCLBlockptr<T>(ptrR_, RisVCL, ctx_id);
+    std::shared_ptr<viennacl::matrix_range<viennacl::matrix<T> > > vcl_QR = getVCLBlockptr<T>(ptrQR_, QRisVCL, ctxToZero(ctx_id));
+    std::shared_ptr<viennacl::matrix_range<viennacl::matrix<T> > > vcl_Q = getVCLBlockptr<T>(ptrQ_, QisVCL, ctxToZero(ctx_id));
+    std::shared_ptr<viennacl::matrix_range<viennacl::matrix<T> > > vcl_R = getVCLBlockptr<T>(ptrR_, RisVCL, ctxToZero(ctx_id));
     
     std::vector<T> betas = as<std::vector<T> >(betas_);
 
@@ -100,13 +101,13 @@ cpp_gpuR_qr(
 
     switch(type_flag) {
     case 4:
-        return wrap(cpp_gpuR_qr<int>(ptrA, isVCL, ctx_id));
+        return wrap(cpp_gpuR_qr<int>(ptrA, isVCL, ctxToZero(ctx_id)));
         // return wrap(betas);
     case 6:
-        return wrap(cpp_gpuR_qr<float>(ptrA, isVCL, ctx_id));
+        return wrap(cpp_gpuR_qr<float>(ptrA, isVCL, ctxToZero(ctx_id)));
         // return wrap(betas);
     case 8:
-        return wrap(cpp_gpuR_qr<double>(ptrA, isVCL, ctx_id));
+        return wrap(cpp_gpuR_qr<double>(ptrA, isVCL, ctxToZero(ctx_id)));
         // return wrap(betas);
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");
@@ -129,13 +130,13 @@ cpp_recover_qr(
     
     switch(type_flag) {
     case 4:
-        cpp_recover_qr<int>(ptrQR, QRisVCL, ptrQ, QisVCL, ptrR, RisVCL, betas, ctx_id);
+        cpp_recover_qr<int>(ptrQR, QRisVCL, ptrQ, QisVCL, ptrR, RisVCL, betas, ctxToZero(ctx_id));
         return;
     case 6:
-        cpp_recover_qr<float>(ptrQR, QRisVCL, ptrQ, QisVCL, ptrR, RisVCL, betas, ctx_id);
+        cpp_recover_qr<float>(ptrQR, QRisVCL, ptrQ, QisVCL, ptrR, RisVCL, betas, ctxToZero(ctx_id));
         return;
     case 8:
-        cpp_recover_qr<double>(ptrQR, QRisVCL, ptrQ, QisVCL, ptrR, RisVCL, betas, ctx_id);
+        cpp_recover_qr<double>(ptrQR, QRisVCL, ptrQ, QisVCL, ptrR, RisVCL, betas, ctxToZero(ctx_id));
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");

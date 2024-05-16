@@ -23,13 +23,15 @@ cpp_gpuMatrix_custom_igemm(
         int max_local_size,
         const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
+
     std::string my_kernel = as<std::string>(sourceCode_);
     
-    viennacl::ocl::context ctx(viennacl::ocl::get_context(ctx_id));
+    viennacl::ocl::context ctx(viennacl::ocl::get_context(ctx_id_zero));
     
-    std::shared_ptr<viennacl::matrix_range<viennacl::matrix<int> > > vcl_A = getVCLBlockptr<int>(ptrA_, AisVCL, ctx_id);
-    std::shared_ptr<viennacl::matrix_range<viennacl::matrix<int> > > vcl_B = getVCLBlockptr<int>(ptrB_, BisVCL, ctx_id);
-    std::shared_ptr<viennacl::matrix_range<viennacl::matrix<int> > > vcl_C = getVCLBlockptr<int>(ptrC_, CisVCL, ctx_id);
+    std::shared_ptr<viennacl::matrix_range<viennacl::matrix<int> > > vcl_A = getVCLBlockptr<int>(ptrA_, AisVCL, ctx_id_zero);
+    std::shared_ptr<viennacl::matrix_range<viennacl::matrix<int> > > vcl_B = getVCLBlockptr<int>(ptrB_, BisVCL, ctx_id_zero);
+    std::shared_ptr<viennacl::matrix_range<viennacl::matrix<int> > > vcl_C = getVCLBlockptr<int>(ptrC_, CisVCL, ctx_id_zero);
     
     int M = vcl_A->size1();
     int N = vcl_B->size2();

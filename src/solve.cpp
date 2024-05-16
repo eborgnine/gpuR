@@ -108,12 +108,13 @@ cpp_gpuMatrix_det(
     const int type_flag,
     const int ctx_id)
 {
-    
+             const int ctx_id_zero = ctx_id-1;
+   
     switch(type_flag) {
     case 6:
-        return Rcpp::wrap(cpp_gpuMatrix_det<float>(ptrA, AisVCL, ctx_id));
+        return Rcpp::wrap(cpp_gpuMatrix_det<float>(ptrA, AisVCL, ctx_id_zero));
     case 8:
-        return Rcpp::wrap(cpp_gpuMatrix_det<double>(ptrA, AisVCL, ctx_id));
+        return Rcpp::wrap(cpp_gpuMatrix_det<double>(ptrA, AisVCL, ctx_id_zero));
     default:
         throw Rcpp::exception("unknown type detected for gpuR matrix object!");
     }
@@ -131,13 +132,14 @@ cpp_gpuMatrix_solve(
     const int ctx_id,
     const bool BisI = true)
 {
+             const int ctx_id_zero = ctx_id-1;
 
     switch(type_flag) {
         case 6:
-            cpp_gpuMatrix_solve<float>(ptrA, ptrB, AisVCL, BisVCL, ctx_id, BisI);
+            cpp_gpuMatrix_solve<float>(ptrA, ptrB, AisVCL, BisVCL, ctx_id_zero, BisI);
             return;
         case 8:
-            cpp_gpuMatrix_solve<double>(ptrA, ptrB, AisVCL, BisVCL, ctx_id, BisI);
+            cpp_gpuMatrix_solve<double>(ptrA, ptrB, AisVCL, BisVCL, ctx_id_zero, BisI);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuR matrix object!");

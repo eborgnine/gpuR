@@ -22,7 +22,7 @@ cpp_vclMatrix_custom_chol(
     SEXP sourceCode_,
     int max_local_size,
     const int ctx_id)
-{
+{   
     std::string my_kernel = as<std::string>(sourceCode_);
     
     // Rcpp::XPtr<dynVCLMat<T> > ptrA(ptrA_);
@@ -110,12 +110,14 @@ cpp_vclMatrix_custom_chol(
     const int type_flag,
     const int ctx_id)
 {
+        const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
     case 6:
-        cpp_vclMatrix_custom_chol<float>(ptrB, BisVCL, upper, sourceCode, max_local_size, ctx_id);
+        cpp_vclMatrix_custom_chol<float>(ptrB, BisVCL, upper, sourceCode, max_local_size, ctx_id_zero);
         return;
     case 8:
-        cpp_vclMatrix_custom_chol<double>(ptrB, BisVCL, upper, sourceCode, max_local_size, ctx_id);
+        cpp_vclMatrix_custom_chol<double>(ptrB, BisVCL, upper, sourceCode, max_local_size, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");

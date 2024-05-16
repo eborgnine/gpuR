@@ -21,6 +21,8 @@
 
 using namespace Rcpp;
 
+#define ctxToZero(ctx_id) ((ctx_id)-1)
+
 template <typename T>
 void cpp_gpu_eigen(
     SEXP &Am, 
@@ -138,13 +140,13 @@ cpp_vcl_eigen(
 {
     switch(type_flag) {
         case 4:
-            cpp_vcl_eigen<int>(Am, Qm, eigenvalues, symmetric, ctx_id);
+            cpp_vcl_eigen<int>(Am, Qm, eigenvalues, symmetric, ctxToZero(ctx_id));
             return;
         case 6:
-            cpp_vcl_eigen<float>(Am, Qm, eigenvalues, symmetric, ctx_id);
+            cpp_vcl_eigen<float>(Am, Qm, eigenvalues, symmetric, ctxToZero(ctx_id));
             return;
         case 8:
-            cpp_vcl_eigen<double>(Am, Qm, eigenvalues, symmetric, ctx_id);
+            cpp_vcl_eigen<double>(Am, Qm, eigenvalues, symmetric, ctxToZero(ctx_id));
             return;
         default:
             throw Rcpp::exception("unknown type detected for vclMatrix object!");

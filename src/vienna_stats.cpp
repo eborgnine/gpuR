@@ -23,6 +23,7 @@
 #include "viennacl/linalg/sum.hpp"
 
 using namespace Rcpp;
+#define ctxToZero(ctx_id) ((ctx_id)-1)
 
 /*** gpuMatrix Templates ***/
 
@@ -735,13 +736,13 @@ cpp_vclMatrix_pmcc(
     
     switch(type_flag) {
         case 4:
-            cpp_vclMatrix_pmcc<int>(ptrA, ptrB, ctx_id);
+            cpp_vclMatrix_pmcc<int>(ptrA, ptrB, ctxToZero(ctx_id));
             return;
         case 6:
-            cpp_vclMatrix_pmcc<float>(ptrA, ptrB, ctx_id);
+            cpp_vclMatrix_pmcc<float>(ptrA, ptrB, ctxToZero(ctx_id));
             return;
         case 8:
-            cpp_vclMatrix_pmcc<double>(ptrA, ptrB, ctx_id);
+            cpp_vclMatrix_pmcc<double>(ptrA, ptrB, ctxToZero(ctx_id));
             return;
         default:
             throw Rcpp::exception("unknown type detected for vclMatrix object!");
@@ -758,13 +759,13 @@ cpp_vclMatrix_pmcc2(
     
     switch(type_flag) {
     case 4:
-        cpp_vclMatrix_pmcc2<int>(ptrA, ptrB, ptrC, ctx_id);
+        cpp_vclMatrix_pmcc2<int>(ptrA, ptrB, ptrC, ctxToZero(ctx_id));
         return;
     case 6:
-        cpp_vclMatrix_pmcc2<float>(ptrA, ptrB, ptrC, ctx_id);
+        cpp_vclMatrix_pmcc2<float>(ptrA, ptrB, ptrC, ctxToZero(ctx_id));
         return;
     case 8:
-        cpp_vclMatrix_pmcc2<double>(ptrA, ptrB, ptrC, ctx_id);
+        cpp_vclMatrix_pmcc2<double>(ptrA, ptrB, ptrC, ctxToZero(ctx_id));
         return;
     default:
         throw Rcpp::exception("unknown type detected for vclMatrix object!");
@@ -783,13 +784,13 @@ cpp_vclMatrix_eucl(
     
     switch(type_flag) {
         case 4:
-            cpp_vclMatrix_eucl<int>(ptrA, ptrD, squareDist, ctx_id);
+            cpp_vclMatrix_eucl<int>(ptrA, ptrD, squareDist, ctxToZero(ctx_id));
             return;
         case 6:
-            cpp_vclMatrix_eucl<float>(ptrA, ptrD, squareDist, ctx_id);
+            cpp_vclMatrix_eucl<float>(ptrA, ptrD, squareDist, ctxToZero(ctx_id));
             return;
         case 8:
-            cpp_vclMatrix_eucl<double>(ptrA, ptrD, squareDist, ctx_id);
+            cpp_vclMatrix_eucl<double>(ptrA, ptrD, squareDist, ctxToZero(ctx_id));
             return;
         default:
             throw Rcpp::exception("unknown type detected for vclMatrix object!");
@@ -807,13 +808,13 @@ cpp_vclMatrix_peucl(
     
     switch(type_flag) {
         case 4:
-            cpp_vclMatrix_peucl<int>(ptrA, ptrB, ptrD, squareDist, ctx_id);
+            cpp_vclMatrix_peucl<int>(ptrA, ptrB, ptrD, squareDist, ctxToZero(ctx_id));
             return;
         case 6:
-            cpp_vclMatrix_peucl<float>(ptrA, ptrB, ptrD, squareDist, ctx_id);
+            cpp_vclMatrix_peucl<float>(ptrA, ptrB, ptrD, squareDist, ctxToZero(ctx_id));
             return;
         case 8:
-            cpp_vclMatrix_peucl<double>(ptrA, ptrB, ptrD, squareDist, ctx_id);
+            cpp_vclMatrix_peucl<double>(ptrA, ptrB, ptrD, squareDist, ctxToZero(ctx_id));
             return;
         default:
             throw Rcpp::exception("unknown type detected for vclMatrix object!");

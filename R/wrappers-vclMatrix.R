@@ -2,7 +2,7 @@
 # vclMatrix numeric vector initializer
 vclMatInitNumVec <- function(data, nrow, ncol, type, ctx_id){
     
-    device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id+1L,]
+    device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id,]
     
     context_index <- ifelse(is.null(ctx_id), currentContext(), ctx_id)
     device_index <- if(is.null(ctx_id)) as.integer(device$device_index) else device$device_index 
@@ -56,7 +56,7 @@ vclMatInitNumVec <- function(data, nrow, ncol, type, ctx_id){
 # vclMatrix numeric initializer
 vclMatInitNumScalar <- function(data, nrow, ncol, type, ctx_id){
     
-    device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id+1L,]
+    device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id,]
     
     context_index <- ifelse(is.null(ctx_id), currentContext(), ctx_id)
     device_index <- if(is.null(ctx_id)) as.integer(device$device_index) else device$device_index 
@@ -116,7 +116,7 @@ vclMatInitNumScalar <- function(data, nrow, ncol, type, ctx_id){
 # vclMatrix integer vector initializer
 vclMatInitIntVec <- function(data, nrow, ncol, type, ctx_id){
     
-    device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id+1L,]
+    device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id,]
     
     context_index <- ifelse(is.null(ctx_id), currentContext(), ctx_id)
     device_index <- if(is.null(ctx_id)) as.integer(device$device_index) else device$device_index 
@@ -180,7 +180,7 @@ vclMatInitIntVec <- function(data, nrow, ncol, type, ctx_id){
 # vclMatrix integer scalar initializer
 vclMatInitIntScalar <- function(data, nrow, ncol, type, ctx_id){
     
-    device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id+1L,]
+    device <- if(is.null(ctx_id)) currentDevice() else listContexts()[ctx_id,]
     
     context_index <- ifelse(is.null(ctx_id), currentContext(), ctx_id)
     device_index <- if(is.null(ctx_id)) as.integer(device$device_index) else device$device_index 

@@ -1397,16 +1397,17 @@ cpp_gpuMatrix_elem_prod(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_elem_prod<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuMatrix_elem_prod<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_elem_prod<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuMatrix_elem_prod<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_elem_prod<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuMatrix_elem_prod<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1421,16 +1422,17 @@ cpp_gpuMatrix_scalar_prod(
     SEXP scalar,
     const int type_flag,
     const int ctx_id)
-{    
+{   
+    const int ctx_id_zero = ctx_id-1; 
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_scalar_prod<int>(ptrC, CisVCL, scalar, ctx_id);
+            cpp_gpuMatrix_scalar_prod<int>(ptrC, CisVCL, scalar, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_scalar_prod<float>(ptrC, CisVCL, scalar, ctx_id);
+            cpp_gpuMatrix_scalar_prod<float>(ptrC, CisVCL, scalar, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_scalar_prod<double>(ptrC, CisVCL, scalar, ctx_id);
+            cpp_gpuMatrix_scalar_prod<double>(ptrC, CisVCL, scalar, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1447,15 +1449,16 @@ cpp_gpuMatrix_scalar_div(
     const int ctx_id)
 {
     
+    const int ctx_id_zero = ctx_id-1;
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_scalar_div<int>(ptrC, CisVCL, B_scalar, ctx_id);
+            cpp_gpuMatrix_scalar_div<int>(ptrC, CisVCL, B_scalar, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_scalar_div<float>(ptrC, CisVCL, B_scalar, ctx_id);
+            cpp_gpuMatrix_scalar_div<float>(ptrC, CisVCL, B_scalar, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_scalar_div<double>(ptrC, CisVCL, B_scalar, ctx_id);
+            cpp_gpuMatrix_scalar_div<double>(ptrC, CisVCL, B_scalar, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1473,16 +1476,17 @@ cpp_gpuMatrix_scalar_div_2(
     const int ctx_id,
     const int type_flag)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
     case 4:
-        cpp_gpuMatrix_scalar_div_2<int>(scalar, ptrC, CisVCL, max_local_size, sourceCode_, ctx_id);
+        cpp_gpuMatrix_scalar_div_2<int>(scalar, ptrC, CisVCL, max_local_size, sourceCode_, ctx_id_zero);
         return;
     case 6:
-        cpp_gpuMatrix_scalar_div_2<float>(scalar, ptrC, CisVCL, max_local_size, sourceCode_, ctx_id);
+        cpp_gpuMatrix_scalar_div_2<float>(scalar, ptrC, CisVCL, max_local_size, sourceCode_, ctx_id_zero);
         return;
     case 8:
-        cpp_gpuMatrix_scalar_div_2<double>(scalar, ptrC, CisVCL, max_local_size, sourceCode_, ctx_id);
+        cpp_gpuMatrix_scalar_div_2<double>(scalar, ptrC, CisVCL, max_local_size, sourceCode_, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1502,15 +1506,16 @@ cpp_gpuMatrix_elem_div(
     const int ctx_id)
 {
     
+    const int ctx_id_zero = ctx_id-1;
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_elem_div<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuMatrix_elem_div<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_elem_div<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuMatrix_elem_div<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_elem_div<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuMatrix_elem_div<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1529,16 +1534,17 @@ cpp_gpuMatrix_elem_pow(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_elem_pow<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuMatrix_elem_pow<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_elem_pow<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuMatrix_elem_pow<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_elem_pow<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuMatrix_elem_pow<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1556,16 +1562,17 @@ cpp_gpuMatrix_scalar_pow(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_scalar_pow<int>(ptrA, AisVCL, scalar, ptrC, CisVCL, ctx_id);
+            cpp_gpuMatrix_scalar_pow<int>(ptrA, AisVCL, scalar, ptrC, CisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_scalar_pow<float>(ptrA, AisVCL, scalar, ptrC, CisVCL, ctx_id);
+            cpp_gpuMatrix_scalar_pow<float>(ptrA, AisVCL, scalar, ptrC, CisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_scalar_pow<double>(ptrA, AisVCL, scalar, ptrC, CisVCL, ctx_id);
+            cpp_gpuMatrix_scalar_pow<double>(ptrA, AisVCL, scalar, ptrC, CisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1582,16 +1589,17 @@ cpp_gpuMatrix_sqrt(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_sqrt<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_sqrt<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_sqrt<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_sqrt<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_sqrt<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_sqrt<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1608,16 +1616,17 @@ cpp_gpuMatrix_elem_sin(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_elem_sin<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_sin<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_elem_sin<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_sin<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_elem_sin<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_sin<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1634,16 +1643,17 @@ cpp_gpuMatrix_elem_asin(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_elem_asin<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_asin<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_elem_asin<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_asin<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_elem_asin<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_asin<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1660,16 +1670,17 @@ cpp_gpuMatrix_elem_sinh(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_elem_sinh<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_sinh<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_elem_sinh<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_sinh<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_elem_sinh<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_sinh<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1686,16 +1697,17 @@ cpp_gpuMatrix_elem_cos(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_elem_cos<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_cos<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_elem_cos<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_cos<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_elem_cos<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_cos<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1712,16 +1724,17 @@ cpp_gpuMatrix_elem_acos(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_elem_acos<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_acos<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_elem_acos<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_acos<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_elem_acos<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_acos<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1738,16 +1751,17 @@ cpp_gpuMatrix_elem_cosh(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_elem_cosh<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_cosh<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_elem_cosh<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_cosh<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_elem_cosh<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_cosh<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1764,16 +1778,17 @@ cpp_gpuMatrix_elem_tan(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_elem_tan<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_tan<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_elem_tan<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_tan<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_elem_tan<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_tan<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1790,16 +1805,17 @@ cpp_gpuMatrix_elem_atan(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_elem_atan<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_atan<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_elem_atan<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_atan<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_elem_atan<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_atan<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1816,16 +1832,17 @@ cpp_gpuMatrix_elem_tanh(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_elem_tanh<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_tanh<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_elem_tanh<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_tanh<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_elem_tanh<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_tanh<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1842,16 +1859,17 @@ cpp_gpuMatrix_elem_log(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_elem_log<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_log<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_elem_log<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_log<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_elem_log<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_log<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1869,16 +1887,17 @@ cpp_gpuMatrix_elem_log_base(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_elem_log_base<int>(ptrA, AisVCL, ptrB, BisVCL, as<int>(base), ctx_id);
+            cpp_gpuMatrix_elem_log_base<int>(ptrA, AisVCL, ptrB, BisVCL, as<int>(base), ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_elem_log_base<float>(ptrA, AisVCL, ptrB, BisVCL, as<int>(base), ctx_id);
+            cpp_gpuMatrix_elem_log_base<float>(ptrA, AisVCL, ptrB, BisVCL, as<int>(base), ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_elem_log_base<double>(ptrA, AisVCL, ptrB, BisVCL, as<int>(base), ctx_id);
+            cpp_gpuMatrix_elem_log_base<double>(ptrA, AisVCL, ptrB, BisVCL, as<int>(base), ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1895,16 +1914,17 @@ cpp_gpuMatrix_elem_log10(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_elem_log10<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_log10<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_elem_log10<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_log10<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_elem_log10<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_log10<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1921,16 +1941,17 @@ cpp_gpuMatrix_elem_exp(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_elem_exp<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_exp<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_elem_exp<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_exp<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_elem_exp<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_exp<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1947,16 +1968,17 @@ cpp_gpuMatrix_elem_abs(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_elem_abs<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_abs<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_elem_abs<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_abs<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_elem_abs<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_elem_abs<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1974,16 +1996,17 @@ cpp_gpuMatrix_axpy(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_axpy<int>(alpha, ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_axpy<int>(alpha, ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_axpy<float>(alpha, ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_axpy<float>(alpha, ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_axpy<double>(alpha, ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuMatrix_axpy<double>(alpha, ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -1998,16 +2021,17 @@ cpp_gpuMatrix_unary_axpy(
     const int type_flag,
     const int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuMatrix_unary_axpy<int>(ptrA, AisVCL, ctx_id);
+            cpp_gpuMatrix_unary_axpy<int>(ptrA, AisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuMatrix_unary_axpy<float>(ptrA, AisVCL, ctx_id);
+            cpp_gpuMatrix_unary_axpy<float>(ptrA, AisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuMatrix_unary_axpy<double>(ptrA, AisVCL, ctx_id);
+            cpp_gpuMatrix_unary_axpy<double>(ptrA, AisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -2027,16 +2051,17 @@ cpp_gpuMatrix_scalar_axpy(
     const int ctx_id,
     const int type_flag)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
     case 4:
-        cpp_gpuMatrix_scalar_axpy<int>(alpha, scalar, ptrB, BisVCL, order, max_local_size, sourceCode, ctx_id);
+        cpp_gpuMatrix_scalar_axpy<int>(alpha, scalar, ptrB, BisVCL, order, max_local_size, sourceCode, ctx_id_zero);
         return;
     case 6:
-        cpp_gpuMatrix_scalar_axpy<float>(alpha, scalar, ptrB, BisVCL, order, max_local_size, sourceCode, ctx_id);
+        cpp_gpuMatrix_scalar_axpy<float>(alpha, scalar, ptrB, BisVCL, order, max_local_size, sourceCode, ctx_id_zero);
         return;
     case 8:
-        cpp_gpuMatrix_scalar_axpy<double>(alpha, scalar, ptrB, BisVCL, order, max_local_size, sourceCode, ctx_id);
+        cpp_gpuMatrix_scalar_axpy<double>(alpha, scalar, ptrB, BisVCL, order, max_local_size, sourceCode, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for gpuMatrix object!");
@@ -2230,16 +2255,17 @@ cpp_gpuVector_axpy(
     const int type_flag,
     int ctx_id)
 {
-    
+      const int ctx_id_zero = ctx_id-1;
+  
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_axpy<int>(alpha, ptrA, AisVCL, ptrB, BisVCL, order, ctx_id);
+            cpp_gpuVector_axpy<int>(alpha, ptrA, AisVCL, ptrB, BisVCL, order, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_axpy<float>(alpha, ptrA, AisVCL, ptrB, BisVCL, order, ctx_id);
+            cpp_gpuVector_axpy<float>(alpha, ptrA, AisVCL, ptrB, BisVCL, order, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_axpy<double>(alpha, ptrA, AisVCL, ptrB, BisVCL, order, ctx_id);
+            cpp_gpuVector_axpy<double>(alpha, ptrA, AisVCL, ptrB, BisVCL, order, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2254,16 +2280,17 @@ cpp_gpuVector_unary_axpy(
     const int type_flag,
     int ctx_id)
 {
-    
+      const int ctx_id_zero = ctx_id-1;
+  
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_unary_axpy<int>(ptrA, AisVCL, ctx_id);
+            cpp_gpuVector_unary_axpy<int>(ptrA, AisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_unary_axpy<float>(ptrA, AisVCL, ctx_id);
+            cpp_gpuVector_unary_axpy<float>(ptrA, AisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_unary_axpy<double>(ptrA, AisVCL, ctx_id);
+            cpp_gpuVector_unary_axpy<double>(ptrA, AisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2281,14 +2308,15 @@ cpp_gpuVector_inner_prod(
     const int type_flag,
     int ctx_id)
 {
-    
+       const int ctx_id_zero = ctx_id-1;
+ 
     switch(type_flag) {
         case 4:
-            return wrap(cpp_gpuVector_inner_prod<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id));
+            return wrap(cpp_gpuVector_inner_prod<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero));
         case 6:
-            return wrap(cpp_gpuVector_inner_prod<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id));
+            return wrap(cpp_gpuVector_inner_prod<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero));
         case 8:
-            return wrap(cpp_gpuVector_inner_prod<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id));
+            return wrap(cpp_gpuVector_inner_prod<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero));
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
     }
@@ -2306,16 +2334,17 @@ cpp_gpuVector_outer_prod(
     const int type_flag,
     int ctx_id)
 {
-    
+      const int ctx_id_zero = ctx_id-1;
+  
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_outer_prod<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuVector_outer_prod<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_outer_prod<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuVector_outer_prod<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_outer_prod<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuVector_outer_prod<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2335,16 +2364,17 @@ cpp_gpuVector_elem_prod(
     const int type_flag,
     int ctx_id)
 {
-    
+     const int ctx_id_zero = ctx_id-1;
+   
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_elem_prod<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuVector_elem_prod<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_elem_prod<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuVector_elem_prod<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_elem_prod<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuVector_elem_prod<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2360,16 +2390,17 @@ cpp_gpuVector_scalar_prod(
     const int type_flag,
     int ctx_id)
 {
-    
+     const int ctx_id_zero = ctx_id-1;
+   
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_scalar_prod<int>(ptrC, CisVCL, scalar, ctx_id);
+            cpp_gpuVector_scalar_prod<int>(ptrC, CisVCL, scalar, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_scalar_prod<float>(ptrC, CisVCL, scalar, ctx_id);
+            cpp_gpuVector_scalar_prod<float>(ptrC, CisVCL, scalar, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_scalar_prod<double>(ptrC, CisVCL, scalar, ctx_id);
+            cpp_gpuVector_scalar_prod<double>(ptrC, CisVCL, scalar, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2388,16 +2419,17 @@ cpp_gpuVector_elem_div(
     const int type_flag,
     int ctx_id)
 {
-    
+     const int ctx_id_zero = ctx_id-1;
+   
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_elem_div<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuVector_elem_div<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_elem_div<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuVector_elem_div<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_elem_div<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuVector_elem_div<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2414,16 +2446,17 @@ cpp_gpuVector_scalar_div(
     const int type_flag,
     int ctx_id)
 {
-    
+     const int ctx_id_zero = ctx_id-1;
+   
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_scalar_div<int>(ptrC, CisVCL, scalar, order, ctx_id);
+            cpp_gpuVector_scalar_div<int>(ptrC, CisVCL, scalar, order, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_scalar_div<float>(ptrC, CisVCL, scalar, order, ctx_id);
+            cpp_gpuVector_scalar_div<float>(ptrC, CisVCL, scalar, order, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_scalar_div<double>(ptrC, CisVCL, scalar, order, ctx_id);
+            cpp_gpuVector_scalar_div<double>(ptrC, CisVCL, scalar, order, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2442,16 +2475,17 @@ cpp_gpuVector_elem_pow(
     const int type_flag,
     int ctx_id)
 {
-    
+     const int ctx_id_zero = ctx_id-1;
+   
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_elem_pow<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuVector_elem_pow<int>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_elem_pow<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuVector_elem_pow<float>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_elem_pow<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id);
+            cpp_gpuVector_elem_pow<double>(ptrA, AisVCL, ptrB, BisVCL, ptrC, CisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2470,16 +2504,17 @@ cpp_gpuVector_scalar_pow(
     const int type_flag,
     int ctx_id)
 {
-    
+     const int ctx_id_zero = ctx_id-1;
+   
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_scalar_pow<int>(ptrA, AisVCL, scalar, ptrC, CisVCL, order, ctx_id);
+            cpp_gpuVector_scalar_pow<int>(ptrA, AisVCL, scalar, ptrC, CisVCL, order, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_scalar_pow<float>(ptrA, AisVCL, scalar, ptrC, CisVCL, order, ctx_id);
+            cpp_gpuVector_scalar_pow<float>(ptrA, AisVCL, scalar, ptrC, CisVCL, order, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_scalar_pow<double>(ptrA, AisVCL, scalar, ptrC, CisVCL, order, ctx_id);
+            cpp_gpuVector_scalar_pow<double>(ptrA, AisVCL, scalar, ptrC, CisVCL, order, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2496,16 +2531,17 @@ cpp_gpuVector_sqrt(
     const int type_flag,
     int ctx_id)
 {
-    
+      const int ctx_id_zero = ctx_id-1;
+  
     switch(type_flag) {
     case 4:
-        cpp_gpuVector_sqrt<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+        cpp_gpuVector_sqrt<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
         return;
     case 6:
-        cpp_gpuVector_sqrt<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+        cpp_gpuVector_sqrt<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
         return;
     case 8:
-        cpp_gpuVector_sqrt<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+        cpp_gpuVector_sqrt<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
         return;
     default:
         throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2522,16 +2558,17 @@ cpp_gpuVector_elem_sin(
     const int type_flag,
     int ctx_id)
 {
-    
+     const int ctx_id_zero = ctx_id-1;
+   
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_elem_sin<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_sin<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_elem_sin<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_sin<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_elem_sin<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_sin<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2548,16 +2585,17 @@ cpp_gpuVector_elem_asin(
     const int type_flag,
     int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_elem_asin<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_asin<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_elem_asin<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_asin<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_elem_asin<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_asin<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2574,16 +2612,17 @@ cpp_gpuVector_elem_sinh(
     const int type_flag,
     int ctx_id)
 {
-    
+        const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_elem_sinh<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_sinh<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_elem_sinh<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_sinh<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_elem_sinh<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_sinh<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2600,16 +2639,17 @@ cpp_gpuVector_elem_cos(
     const int type_flag,
     int ctx_id)
 {
-    
+        const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_elem_cos<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_cos<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_elem_cos<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_cos<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_elem_cos<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_cos<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2626,16 +2666,17 @@ cpp_gpuVector_elem_acos(
     const int type_flag,
     int ctx_id)
 {
-    
+        const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_elem_acos<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_acos<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_elem_acos<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_acos<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_elem_acos<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_acos<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2652,16 +2693,17 @@ cpp_gpuVector_elem_cosh(
     const int type_flag,
     int ctx_id)
 {
-    
+      const int ctx_id_zero = ctx_id-1;
+  
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_elem_cosh<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_cosh<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_elem_cosh<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_cosh<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_elem_cosh<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_cosh<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2679,16 +2721,17 @@ cpp_gpuVector_elem_tan(
     const int type_flag,
     int ctx_id)
 {
-    
+     const int ctx_id_zero = ctx_id-1;
+  
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_elem_tan<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_tan<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_elem_tan<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_tan<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_elem_tan<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_tan<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2705,16 +2748,17 @@ cpp_gpuVector_elem_atan(
     const int type_flag,
     int ctx_id)
 {
-    
+        const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_elem_atan<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_atan<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_elem_atan<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_atan<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_elem_atan<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_atan<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2731,16 +2775,17 @@ cpp_gpuVector_elem_tanh(
     const int type_flag,
     int ctx_id)
 {
-    
+      const int ctx_id_zero = ctx_id-1;
+  
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_elem_tanh<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_tanh<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_elem_tanh<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_tanh<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_elem_tanh<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_tanh<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2757,16 +2802,17 @@ cpp_gpuVector_elem_log10(
     const int type_flag,
     int ctx_id)
 {
-    
+      const int ctx_id_zero = ctx_id-1;
+  
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_elem_log10<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_log10<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_elem_log10<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_log10<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_elem_log10<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_log10<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2783,16 +2829,17 @@ cpp_gpuVector_elem_log(
     const int type_flag,
     int ctx_id)
 {
-    
+     const int ctx_id_zero = ctx_id-1;
+   
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_elem_log<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_log<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_elem_log<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_log<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_elem_log<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_log<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2810,16 +2857,17 @@ cpp_gpuVector_elem_log_base(
     const int type_flag,
     int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_elem_log_base<int>(ptrA, AisVCL, ptrB, BisVCL, as<int>(base), ctx_id);
+            cpp_gpuVector_elem_log_base<int>(ptrA, AisVCL, ptrB, BisVCL, as<int>(base), ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_elem_log_base<float>(ptrA, AisVCL, ptrB, BisVCL, as<float>(base), ctx_id);
+            cpp_gpuVector_elem_log_base<float>(ptrA, AisVCL, ptrB, BisVCL, as<float>(base), ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_elem_log_base<double>(ptrA, AisVCL, ptrB, BisVCL, as<double>(base), ctx_id);
+            cpp_gpuVector_elem_log_base<double>(ptrA, AisVCL, ptrB, BisVCL, as<double>(base), ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2836,16 +2884,17 @@ cpp_gpuVector_elem_exp(
     const int type_flag,
     int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_elem_exp<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_exp<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_elem_exp<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_exp<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_elem_exp<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_exp<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2862,16 +2911,17 @@ cpp_gpuVector_elem_abs(
     const int type_flag,
     int ctx_id)
 {
+    const int ctx_id_zero = ctx_id-1;
     
     switch(type_flag) {
         case 4:
-            cpp_gpuVector_elem_abs<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_abs<int>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 6:
-            cpp_gpuVector_elem_abs<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_abs<float>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         case 8:
-            cpp_gpuVector_elem_abs<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id);
+            cpp_gpuVector_elem_abs<double>(ptrA, AisVCL, ptrB, BisVCL, ctx_id_zero);
             return;
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
@@ -2887,14 +2937,15 @@ cpp_gpuVector_min(
     const int type_flag,
     int ctx_id)
 {
-    
+    const int ctx_id_zero = ctx_id-1;
+
     switch(type_flag) {
         case 4:
-            return wrap(cpp_gpuVector_min<int>(ptrA, ctx_id));
+            return wrap(cpp_gpuVector_min<int>(ptrA, ctx_id_zero));
         case 6:
-            return wrap(cpp_gpuVector_min<float>(ptrA, ctx_id));
+            return wrap(cpp_gpuVector_min<float>(ptrA, ctx_id_zero));
         case 8:
-            return wrap(cpp_gpuVector_min<double>(ptrA, ctx_id));
+            return wrap(cpp_gpuVector_min<double>(ptrA, ctx_id_zero));
         default:
             throw Rcpp::exception("unknown type detected for gpuVector object!");
     }

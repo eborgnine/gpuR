@@ -44,7 +44,7 @@ detectCPUs <- function(platform_idx=NULL){
     
     if(is.null(platform_idx)){
         total_cpus = 0
-        for(p in seq(detectPlatforms())-1){
+        for(p in seq(detectPlatforms())){
             cpus <- try(cpp_detectCPUs(p), silent=TRUE)
             if(class(cpus)[1] == "try-error"){
                 # need to make sure if errors out to switch back to original context
@@ -61,10 +61,10 @@ detectCPUs <- function(platform_idx=NULL){
 
         numPlats <- detectPlatforms()
         
-        if(platform_idx >= numPlats){
+        if(platform_idx > numPlats){
             stop("Platform index exceeds number of platforms.")
         }
-        if(platform_idx < 0){
+        if(platform_idx < 1){
             stop("Platform index can't be negative.")
         }
         
@@ -93,7 +93,7 @@ detectGPUs <- function(platform_idx=NULL){
     
     if(is.null(platform_idx)){
         total_gpus = 0
-        for(p in seq(detectPlatforms())-1){
+        for(p in seq(detectPlatforms())){
             gpus <- try(cpp_detectGPUs(p), silent=TRUE)
             if(class(gpus)[1] == "try-error"){
                 # need to make sure if errors out to switch back to original context
@@ -108,10 +108,11 @@ detectGPUs <- function(platform_idx=NULL){
         
     }else{
         platform_idx = as.integer(platform_idx) 
+        if(platform_idx <= 0) stop("platform_idx must be positive")
         
         numPlats <- detectPlatforms()
         
-        if(platform_idx >= numPlats){
+        if(platform_idx > numPlats){
             stop("Platform index exceeds number of platforms.")
         }
         
@@ -166,11 +167,11 @@ gpuInfo <- function(device_idx=NULL,
     }
     
     if(!is.null(device_idx)){
-        if(device_idx < 0L) {
-            stop('device_idx cant be negative')
+        if(device_idx <= 0L) {
+            stop('device_idx must be positive')
         }
         
-        if(device_idx > 0L){
+        if(device_idx >= 2L){
             stop("multiple devices on contexts not currently supported")
         }
     }else{
@@ -202,7 +203,7 @@ cpuInfo <- function(device_idx=NULL,
     
     if(!is.null(device_idx)){
         
-        if(device_idx > 0L){
+        if(device_idx > 1L){
             stop("multiple devices on contexts not currently supported")
         }
         
@@ -278,7 +279,7 @@ deviceHasDouble <- function(gpu_idx=currentDevice()$device_index,
 #' designed to set the current context to the specified context ID.
 #' @seealso \link{listContexts}
 #' @export
-setContext <- function(id = 0L){
+setContext <- function(id = 1L){
     if(!id %in% listContexts()$context){
         stop("context index not initialized")
     }

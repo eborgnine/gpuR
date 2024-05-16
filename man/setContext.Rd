@@ -4,7 +4,7 @@
 \alias{setContext}
 \title{Set Context}
 \usage{
-setContext(id = 0L)
+setContext(id = 1L)
 }
 \arguments{
 \item{id}{Integer identifying which context to set}
