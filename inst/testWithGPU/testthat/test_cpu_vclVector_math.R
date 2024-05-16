@@ -6,7 +6,7 @@ context("CPU vclVector math operations")
 set.seed(123)
 
 # ignore warnings (logs and arc trigs)
-options(warn=-1)
+# options(warn=-1)
 
 # set option to use CPU instead of GPU
 options(gpuR.default.device.type = "cpu")

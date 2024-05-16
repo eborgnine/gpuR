@@ -419,6 +419,6 @@ test_that("CPU gpuMatrix Double Precision Matrix sign", {
                  check.attributes=FALSE)  
 })
 
-options(warn=0)
+# options(warn=0)
 
 setContext(current_context)
