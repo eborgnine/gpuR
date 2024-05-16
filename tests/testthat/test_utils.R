@@ -48,7 +48,7 @@ test_that("detectCPUs() accepts correct input", {
     
     # should function regardless of CPUs
     expect_gte(detectCPUs(NULL), 0)
-    expect_gte(detectCPUs(1L), 0)
+    expect_gte(detectCPUs(0L), 0)
     
     has_cpu_skip()
     

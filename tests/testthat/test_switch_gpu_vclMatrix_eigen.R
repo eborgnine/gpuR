@@ -31,11 +31,11 @@ test_that("Switching GPU vclMatrix Symmetric Single Precision Matrix Eigen Decom
     
     has_multiple_gpu_skip()
     
-    setContext(2L)
+    setContext(1L)
     
     fgpuX <- vclMatrix(X, type="float")
     
-    setContext(1L)
+    setContext(0L)
     
     E <- eigen(fgpuX, symmetric=TRUE)
     
@@ -55,11 +55,11 @@ test_that("Switching GPU vclMatrix Symmetric Single Precision Matrix Eigen Decom
                  info="float source matrices not equivalent") 
     
     # context checks
-    expect_equal(E$values@.context_index, 2L, 
+    expect_equal(E$values@.context_index, 1L, 
                  info = "context index hasn't been assigned correctly")
-    expect_equal(E$vectors@.context_index, 2L, 
+    expect_equal(E$vectors@.context_index, 1L, 
                  info = "context index hasn't been assigned correctly")
-    expect_equal(currentContext(), 1L, 
+    expect_equal(currentContext(), 0L, 
                  info = "context index has been change unintentionally")
 })
 
@@ -70,12 +70,13 @@ test_that("Switching GPU vclMatrix Symmetric Double Precision Matrix Eigen Decom
     has_multiple_gpu_skip()
     has_multiple_double_skip()
     
-    setContext(2L)
-    
+    #setContext(2L)
+     setContext(1L)
     fgpuX <- vclMatrix(X, type="double")
     
-    setContext(1L)
-    
+    #setContext(1L)
+     setContext(0L)
+     
     E <- eigen(fgpuX, symmetric=TRUE)     
     
     # need to reorder so it matches R output
@@ -94,11 +95,11 @@ test_that("Switching GPU vclMatrix Symmetric Double Precision Matrix Eigen Decom
                  info="double source matrices not equivalent") 
     
     # context checks
-    expect_equal(E$values@.context_index, 2L, 
+    expect_equal(E$values@.context_index, 1L, 
                  info = "context index hasn't been assigned correctly")
-    expect_equal(E$vectors@.context_index, 2L, 
+    expect_equal(E$vectors@.context_index, 1L, 
                  info = "context index hasn't been assigned correctly")
-    expect_equal(currentContext(), 1L, 
+    expect_equal(currentContext(), 0L, 
                  info = "context index has been change unintentionally")
 })
 
