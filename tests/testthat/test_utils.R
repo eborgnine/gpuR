@@ -11,8 +11,8 @@ if(detectGPUs() >= 1){
 test_that("detectGPUs() accepts appropriate input", {
     
     # should function regardless of GPUs
-    expect_gte(detectGPUs(NULL), 1)
-    expect_gte(detectGPUs(1L), 1)
+    expect_gte(detectGPUs(NULL), 0)
+    expect_gte(detectGPUs(1L), 0)
     
     has_gpu_skip()
 
