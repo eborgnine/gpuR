@@ -5,8 +5,9 @@ context("gpuVector math operations")
 set.seed(123)
 
 # ignore warnings (logs and arc trigs)
-options(warn=-1)
+# options(warn=-1)
 
+suppressWarnings({
 ORDER <- 4
 
 # Base R objects
@@ -258,4 +259,5 @@ test_that("gpuVector Double Precision Maximum/Minimum", {
                  info="max double vector element not equivalent") 
     expect_equal(fgpu_min, R_min, tolerance=.Machine$double.eps^0.5, 
                  info="min double vector element not equivalent")  
+})
 })

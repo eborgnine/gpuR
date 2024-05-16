@@ -3,8 +3,10 @@ context("CPU gpuMatrix math operations")
 
 # set option to use CPU instead of GPU
 options(gpuR.default.device.type = "cpu")
-options(warn=-1)
+#options(warn=-1)
 
+# Suppress warnings
+suppressWarnings({
 # set seed
 set.seed(123)
 
@@ -278,7 +280,7 @@ test_that("gpuMatrix Double Precision Maximum/Minimum", {
     expect_equal(fgpu_min, R_min, tolerance=.Machine$double.eps^0.5, 
                  info="min double matrix element not equivalent")  
 })
-
+})
 
 options(gpuR.default.device.type = "gpu")
-options(warn=0)
+#options(warn=0)

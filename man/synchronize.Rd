@@ -14,8 +14,8 @@ benchmarking applications.
 \examples{
 \dontrun{
     mat <- vclMatrix(rnorm(500^2), ncol = 500, nrow = 500)
-    system.time(mat \%*\% mat)
-    system.time(mat \%*\% mat; synchronize())
+    system.time({mat \%*\% mat})
+    system.time({mat \%*\% mat; synchronize()})
 }
 }
 \author{

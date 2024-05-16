@@ -1,15 +1,17 @@
 library(gpuR)
 context("CPU vclMatrix math operations")
 
-# set seed
-set.seed(123)
+
 
 # ignore warnings (logs and arc trigs)
-options(warn=-1)
+# options(warn=-1)
 
 # set option to use CPU instead of GPU
 options(gpuR.default.device.type = "cpu")
 
+suppressWarnings({
+# set seed
+set.seed(123)
 ORDER <- 4
 
 # Base R objects
@@ -257,6 +259,6 @@ test_that("CPU vclMatrix Double Precision Maximum/Minimum", {
     expect_equal(fvcl_min, R_min, tolerance=.Machine$double.eps^0.5, 
                  info="min double matrix element not equivalent")  
 })
-
+})
 # set option back to GPU
 options(gpuR.default.device.type = "gpu")

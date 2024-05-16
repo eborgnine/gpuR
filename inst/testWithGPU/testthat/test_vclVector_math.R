@@ -5,8 +5,9 @@ context("vclVector math operations")
 set.seed(123)
 
 # ignore warnings (logs and arc trigs)
-options(warn=-1)
+# options(warn=-1)
 
+suppressWarnings({
 ORDER <- 4
 
 # Base R objects
@@ -262,4 +263,4 @@ test_that("vclVector Double Precision Maximum/Minimum", {
     expect_equal(fvcl_min, R_min, tolerance=.Machine$double.eps^0.5, 
                  info="min double vector element not equivalent")  
 })
-
+})
