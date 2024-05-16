@@ -74,6 +74,10 @@ svd.gpuMatrix <-
               U <- gpuMatrix(0, ncol = nrow(x), nrow = nrow(x), type = type, ctx_id=x@.context_index)
               V <- gpuMatrix(0, ncol = ncol(x), nrow = ncol(x), type = type, ctx_id=x@.context_index)
               
+              # for some reason the following is needed to stop CL_INVALID_MEM_OBJECT errors
+              U <- U + 0.0
+              V <- V + 0.0
+
               switch(type,
                      integer = {cpp_gpuMatrix_svd(x@address, D@address, U@address, V@address, 4L)},
                      float = {cpp_gpuMatrix_svd(x@address, D@address, U@address, V@address, 6L)},

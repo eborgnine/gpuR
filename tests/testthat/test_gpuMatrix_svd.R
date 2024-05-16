@@ -30,6 +30,8 @@ test_that("gpuMatrix Single Precision Matrix SVD Decomposition",
               fgpuA <- gpuMatrix(nsqA, type = "float")
               
               E <- svd(fgpuX)
+              # x = fgpuX;D = gpuVector(length = as.integer(min(nrow(x), ncol(x))), type='float', ctx_id=x@.context_index);U=gpuMatrix(0, ncol = nrow(x), nrow = nrow(x), type = type, ctx_id=x@.context_index);V=deepcopy(fgpuX)
+#              gpuR:::cpp_gpuMatrix_svd(x@address, D@address, U@address, V@address, 6L)    
               
               
               # need to reorder so it matches R output
