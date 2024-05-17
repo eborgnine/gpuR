@@ -8,7 +8,7 @@ options(gpuR.default.device.type = "cpu")
 set.seed(123)
 
 # ignore warnings (logs and arc trigs)
-options(warn=-1)
+# options(warn=-1)
 
 ORDER <- 4
 

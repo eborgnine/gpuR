@@ -5,7 +5,7 @@ Description: Provides GPU enabled functions for 'R' objects in a simple and
     approachable manner.  New gpu* and vcl* classes have been provided to
     wrap typical 'R' objects (e.g. vector, matrix), in both host and device
     spaces, to mirror typical 'R' syntax without the need to know 'OpenCL'.
-Version: 2.0.5
+Version: 2.0.6
 Date: 2024-05-15
 Authors@R: c(
       person(given="Charles", family="Determan Jr", 
@@ -19,7 +19,12 @@ Authors@R: c(
                      ),
      person("The Khronos Group Inc", role = "cph", 
        comment = "Copyright holder of some included header files")
-         )
+         ),
+     person(given="Ruoyong", family="Xu", 
+                    role = c("aut", "ctb"),
+                     email = "ruoyong.xu@mail.utoronto.ca",
+                     comment = c(ORCID = '0000-0003-3474-8183')
+                     )
 Maintainer: Ruoyong Xu <ruoyong.xu@mail.utoronto.ca>
 VignetteBuilder: knitr
 License: GPL (>= 2)
@@ -30,7 +35,7 @@ Depends:
     utils
 Imports:
     Rcpp (>= 0.12.15),
-    BH, RcppEigen, RViennaCL
+    RViennaCL
 LinkingTo: Rcpp (>= 0.12.15),
     RcppEigen (>= 0.3.3.4.0),
     RViennaCL (>= 1.7.1.7),
