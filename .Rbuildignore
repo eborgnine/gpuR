@@ -8,3 +8,13 @@
 ^\.git$
 ^doc$
 ^Meta$
+^\.DS_Store$
+^\.vscode$
+^\.idea$
+^__pycache__$
+^.*\.bak$
+^.*\.swp$
+^.*\.log$
+^0$
+^\.gitignore$
+^\.gitattributes$
