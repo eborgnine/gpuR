@@ -12,19 +12,18 @@ Authors@R: c(
                     role = c("aut", "cph"),
                      email = "cdetermanjr@gmail.com"
                      ),
+      person(given="Ruoyong", family="Xu", 
+                    role = c("aut", "ctb"),
+                     email = "ruoyong.xu@mail.utoronto.ca",
+                     comment = c(ORCID = '0000-0003-3474-8183')
+                     ),
       person("Patrick", "Brown", 
                      email = "patrick.borgnine@gmail.com",
                      role = c("cre", "ctb"),
                      comment = c(ORCID = '0000-0003-2541-3744')
                      ),
      person("The Khronos Group Inc", role = "cph", 
-       comment = "Copyright holder of some included header files")
-         ),
-     person(given="Ruoyong", family="Xu", 
-                    role = c("aut", "ctb"),
-                     email = "ruoyong.xu@mail.utoronto.ca",
-                     comment = c(ORCID = '0000-0003-3474-8183')
-                     )
+       comment = "Copyright holder of some included header files"))
 Maintainer: Ruoyong Xu <ruoyong.xu@mail.utoronto.ca>
 VignetteBuilder: knitr
 License: GPL (>= 2)
@@ -35,7 +34,9 @@ Depends:
     utils
 Imports:
     Rcpp (>= 0.12.15),
-    RViennaCL
+    RViennaCL,
+    BH,
+    RcppEigen
 LinkingTo: Rcpp (>= 0.12.15),
     RcppEigen (>= 0.3.3.4.0),
     RViennaCL (>= 1.7.1.7),
