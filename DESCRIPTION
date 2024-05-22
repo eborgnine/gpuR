@@ -2,11 +2,11 @@ Package: gpuR
 Type: Package
 Title: GPU Functions for R Objects
 Description: Provides GPU enabled functions for 'R' objects in a simple and
-    approachable manner.  New gpu* and vcl* classes have been provided to
+    approachable manner.  New 'gpu*' and 'vcl*' classes have been provided to
     wrap typical 'R' objects (e.g. vector, matrix), in both host and device
     spaces, to mirror typical 'R' syntax without the need to know 'OpenCL'.
 Version: 2.0.6
-Date: 2024-05-15
+Date: 2024-05-22
 Authors@R: c(
       person(given="Charles", family="Determan Jr", 
                     role = c("aut", "cph"),
@@ -52,3 +52,4 @@ SystemRequirements: C++11 (supporting at least std=c++0x), OpenCL shared
     the C++ header file (provided by Khronos if not by SDK)
 OS_type: unix
 RoxygenNote: 7.3.1
+
